@@ -1,2 +1,8 @@
 const { Datatypes } = require("sequelize");
-const sequel = require('')
+const sequel = require('../db')
+
+const User = sequel.define("user", {
+  id: {
+    
+  }
+})
