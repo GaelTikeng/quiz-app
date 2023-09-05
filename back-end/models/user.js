@@ -1,8 +1,32 @@
-const { Datatypes } = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequel = require('../db')
+
 
 const User = sequel.define("user", {
   id: {
-    
-  }
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
+
+sequel.sync().then(() =>{
+  console.log('table created successfully')
 })
+.catch((err) => {
+  console.log('Error occured while creating table', err)
+})
+
+module.exports = User;
