@@ -25,7 +25,7 @@ Question.hasMany(Option)
 Option.belongsTo(Question)
 
 sequel.authenticate().then(() => {
-  console.log("created option table successfully")
+  console.log("option table created successfully")
 })
 .catch((err) => {
   console.log('Cannot create Option table: ', err)

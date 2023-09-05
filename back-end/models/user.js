@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequel = require('../db')
-
+const sequel = require("../db");
 
 const User = sequel.define("user", {
   id: {
@@ -22,11 +21,13 @@ const User = sequel.define("user", {
   },
 });
 
-sequel.sync().then(() =>{
-  console.log('table created successfully')
-})
-.catch((err) => {
-  console.log('Error occured while creating table', err)
-})
+sequel
+  .sync()
+  .then(() => {
+    console.log("user table created successfully");
+  })
+  .catch((err) => {
+    console.log("Error occured while creating table", err);
+  });
 
 module.exports = User;

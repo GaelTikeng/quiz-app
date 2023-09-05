@@ -45,7 +45,7 @@ Participant.belongsToMany(Quiz, { through: ParticipantQuiz });
 sequel
   .sync()
   .then(() => {
-    console / log("Table created successfully");
+    console.log("Participant Table created successfully");
   })
   .catch((error) => {
     console.log("error occured while creating table: ", error);

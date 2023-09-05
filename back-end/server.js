@@ -9,18 +9,22 @@ const Quiz = require('./models/quiz')
 const Participant = require('./models/participant')
 const Question = require('./models/question')
 const Option = require('./models/option')
+
 app.use(cors())
+app.use(express.json());
 
-// const db = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "W@2915djkq#",
-//   database: "quiz",
+let userRouter = require('./router/user')
+
+
+
+
+
+// middlewares
+app.use('/', userRouter)
+
+// app.get("/", (req, res) => {
+//   return res.json("From backend side");
 // });
-
-app.get("/", (req, res) => {
-  return res.json("From backend side");
-});
 
 app.listen(3000, () => {
   console.log("listening to port 3000");

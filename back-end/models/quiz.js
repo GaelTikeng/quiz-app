@@ -23,7 +23,7 @@ User.hasMany(Quiz)
 Quiz.belongsTo(User)
 
 sequel
-  .sync({force: true})
+  .sync()
   .then(() => {
     console.log("Quiz table created successfully")
   })

@@ -23,7 +23,7 @@ Question.belongsTo(Quiz)
 sequel
   .sync()
   .then(() => {
-    console.log('question tqble creqted successfully')
+    console.log('question table created successfully')
   })
   .catch((error) => {
     console.log("An error occured while creating question table", error)
