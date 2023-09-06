@@ -1,0 +1,54 @@
+.nav_container {
+  margin: auto;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  height: 5rem;
+  width: 85%;
+  background-color: #fff;
+  outline: 2px solid red;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navImage {
+  padding-top: 17px;
+}
+
+.leftNav {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2.6rem;
+}
+
+.navParagraph {
+  display: flex;
+}
+
+.homeBtn {
+  margin: 1rem;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.navBtn {
+  display: flex;
+  gap: 1.2rem;
+  top: 50%;
+  left: 50%;
+}
+
+.loginBtn {
+  background-color: #fff;
+  border: 2px solid #3e9adc;
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.signupBtn {
+  color: #fff;
+  background-color: #3e9adc;
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: 20px;
+}

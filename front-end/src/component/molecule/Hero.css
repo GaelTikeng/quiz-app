@@ -1,0 +1,74 @@
+.heroContainer {
+  background-color: #ece3e3;
+  width: 100%;
+  height: 60%;
+  margin: auto;
+}
+
+.text {
+  display: flex;
+  width: 85%;
+  justify-content: space-around;
+  margin: auto;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+}
+
+.header {
+  width: 50%;
+  padding: 5rem 4rem;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+h4 {
+  font-size: 15px;
+  color: #847e7e;
+  line-height: 18px;
+}
+
+.heroBtn {
+  padding: 10px 25px;
+  font-weight: 800;
+  font-size: 20px;
+  background-color: #3e9adc;
+  color: #fff;
+  width: 290px;
+  height: 65px;
+}
+
+.heroLogo {
+  width: 623px;
+  height: px;
+  top: 10%;
+  background-color:#ece3e3;
+}
+
+.brandLogo {
+  /* border: 5px solid; */
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 15vh;
+}
+
+
+.logo2 {
+  background-color: #fff;
+  width: 185px;
+  height: 90px;
+  padding: 10px;
+}
+
+.logo {
+  width: 185px;
+  height: 110px;
+  padding: 10px;
+}
