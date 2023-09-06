@@ -1,0 +1,35 @@
+.beforefooter_container {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.div-before {
+  margin: auto;
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3rem;
+  gap: 3rem;
+}
+
+.before-container {
+  width: 50%;
+  /* background-color: lightcyan; */
+  padding-top: 4rem;
+}
+
+.phone_div {
+    width: 50%;
+}
+
+.svg_ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* line-height: 1.2em; */
+}
+
+.phone_image {
+  /* background-color: lightcoral; */
+  width: 44vw;
+  height: 100vh;
+}

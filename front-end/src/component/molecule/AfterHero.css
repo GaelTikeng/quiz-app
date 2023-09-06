@@ -5,18 +5,13 @@
 
 .afterhero_div {
   display: flex;
-  /* justify-content: space-between; */
   gap: 5rem;
   width: 85%;
   margin: auto;
-  /* top: 50%; */
-  /* left: 50%; */
-  /* height: 50vh; */
   padding-top: 6rem;
 }
 
 .afterhero_header {
-  /* background-color: lightblue; */
   width: 50%;
   padding-top: 5rem;
 }
@@ -28,7 +23,7 @@
 }
 
 .list {
-  /* background-color: lightgray; */
+  
 }
 
 .ul {
@@ -38,7 +33,6 @@
 
 .vector {
   background-color: #3e9adc;
-  /* border-radius: 10px solid #3e9adc; */
   padding: 6px;
 }
 

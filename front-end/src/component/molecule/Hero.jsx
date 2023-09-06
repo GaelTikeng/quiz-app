@@ -43,7 +43,7 @@ function Hero() {
 
       <div className="brandLogo">
         <img src={Logo1} alt="brand_logo"  className="logo"/>
-        <img src={Logo2} alt="brand_logo"  className="logo2 logo"/>
+        <img src={Logo2} alt="brand_logo"  className="logo"/>
         <img src={Logo3} alt="brand_logo"  className="logo"/>
         <img src={Logo4} alt="brand_Logo"  className="logo"/>
         <img src={Logo5} alt="brand_logo"  className="logo"/>

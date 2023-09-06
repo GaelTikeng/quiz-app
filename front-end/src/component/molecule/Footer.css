@@ -1,0 +1,43 @@
+
+
+.footer {
+  height: 30vh;
+  background-color: #3e9adc;
+  /* width: 85%; */
+  /* margin: auto; */
+}
+.footerHeader {
+  /* display: flex;
+  flex-direction: column;   */
+}
+
+.footerForm {
+  /* margin: auto; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.footerInput {
+  border: none;
+  align-items: center;
+}
+
+.footerbtn {
+  border-radius: 1px solid #3e9adc;
+  padding: 15px;
+  color: #3e9adc;
+  background-color: #fff;
+  border-radius: 25px 25px;
+  width: 7rem;
+}
+
+.Inputfooter {
+  border-radius: 1px solid #3e9adc;
+  padding: 15px;
+  color: #3e9adc;
+  background-color: #fff;
+  border-radius: 25px 25px;
+  width: 20rem;
+}

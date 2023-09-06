@@ -57,17 +57,11 @@ h4 {
   flex-direction: row;
   justify-content: space-around;
   padding-bottom: 15vh;
-}
-
-
-.logo2 {
-  background-color: #fff;
-  width: 185px;
-  height: 90px;
-  padding: 10px;
+  gap: 1rem;
 }
 
 .logo {
+  background-color: #fff;
   width: 185px;
   height: 110px;
   padding: 10px;
