@@ -23,23 +23,23 @@ function AfterHero() {
           <ul className="ul">
             <li>
               <img src={Logo1} alt="vector" className="vector" />
-              <h4>Optimize Templates</h4>
-              <p>Increase your conversation and engage rate</p>
+              <h4 className="vector_text">Optimize Templates</h4>
+              <p className="vector_p">Increase your conversation and engage rate</p>
             </li>
             <li>
               <img src={Logo2} alt="vector"  className="vector"/>
-              <h4>Native Integration</h4>
-              <p>Build your workflow without 3rd party intgretion costs</p>
+              <h4 className="vector_text">Native Integration</h4>
+              <p className="vector_p">Build your workflow without 3rd party intgretion costs</p>
             </li>
             <li>
               <img src={Logo3} alt="vector"  className="vector"/>
-              <h4>Branded Contents</h4>
-              <p>Custumize the design of your brand guidlines</p>
+              <h4 className="vector_text">Branded Contents</h4>
+              <p className="vector_p">Custumize the design of your brand guidlines</p>
             </li>
             <li>
               <img src={Logo4} alt="vector"  className="vector"/>
-              <h4>Amazing Support</h4>
-              <p>Around the clock that support</p>
+              <h4 className="vector_text">Amazing Support</h4>
+              <p className="vector_p">Around the clock that support</p>
             </li>
           </ul>
         </div>
