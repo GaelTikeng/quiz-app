@@ -1,7 +1,6 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
-const sequel = require('./db')
 require('dotenv').config()
 const app = express()
 const User = require('./models/user')
@@ -10,17 +9,22 @@ const Participant = require('./models/participant')
 const Question = require('./models/question')
 const Option = require('./models/option')
 
+require('./auth/password')
+
 app.use(cors())
 app.use(express.json());
 
 let userRouter = require('./router/user')
+let loginRouter = require('./router/login')
 
 
 
-
+// view engine setup
+app.set('view engine', 'hps')
 
 // middlewares
 app.use('/', userRouter)
+app.use('/', loginRouter)
 
 // app.get("/", (req, res) => {
 //   return res.json("From backend side");
