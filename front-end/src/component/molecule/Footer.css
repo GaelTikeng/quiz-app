@@ -1,0 +1,52 @@
+.footer {
+  height: 40vh;
+  background-color: #3e9adc;
+}
+.footerHeader h2{
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+  color: #fff;
+}
+
+.footerHeader p {
+    display: flex;
+    justify-content: center; 
+    color: #fff;
+    font-size: 20px;
+}
+
+.footerForm {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.footerInput {
+  border: none;
+  align-items: center;
+}
+
+.footerbtn {
+  /* border-radius: 1px solid #fff; */
+  padding: 20px;
+  color: #3e9adc;
+  background-color: #fff;
+  border-radius: 35px 35px;
+  width: 9rem;
+}
+
+.Inputfooter {
+  border-radius: 1px solid #3e9adc;
+  padding: 20px;
+  color: #3e9adc;
+  background-color: #fff;
+  border-radius: 35px 35px;
+  width: 22rem;
+}
+
+.footerLogo {
+    width: 12.5px;
+    height: 13px;
+}
