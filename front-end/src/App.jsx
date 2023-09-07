@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Landing from './component/organism/Landing'
+import SignUp from './component/organism/Sign_up/SignUp'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
 
          <Routes>
              <Route path='/' element={<Landing/>}/>
+             <Route path='/signup' element={<SignUp/>}/>
            </Routes>
     </Router>
 
