@@ -1,18 +1,22 @@
-
-
 .footer {
-  height: 30vh;
+  height: 40vh;
   background-color: #3e9adc;
-  /* width: 85%; */
-  /* margin: auto; */
 }
-.footerHeader {
-  /* display: flex;
-  flex-direction: column;   */
+.footerHeader h2{
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+  color: #fff;
+}
+
+.footerHeader p {
+    display: flex;
+    justify-content: center; 
+    color: #fff;
+    font-size: 20px;
 }
 
 .footerForm {
-  /* margin: auto; */
   display: flex;
   justify-content: center;
   text-align: center;
@@ -25,19 +29,24 @@
 }
 
 .footerbtn {
-  border-radius: 1px solid #3e9adc;
-  padding: 15px;
+  /* border-radius: 1px solid #fff; */
+  padding: 20px;
   color: #3e9adc;
   background-color: #fff;
-  border-radius: 25px 25px;
-  width: 7rem;
+  border-radius: 35px 35px;
+  width: 9rem;
 }
 
 .Inputfooter {
   border-radius: 1px solid #3e9adc;
-  padding: 15px;
+  padding: 20px;
   color: #3e9adc;
   background-color: #fff;
-  border-radius: 25px 25px;
-  width: 20rem;
+  border-radius: 35px 35px;
+  width: 22rem;
+}
+
+.footerLogo {
+    width: 12.5px;
+    height: 13px;
 }

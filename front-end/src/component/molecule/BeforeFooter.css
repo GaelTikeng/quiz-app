@@ -20,7 +20,8 @@
 
 .phone_div {
     width: 50%;
-}
+    padding-top: 2.6rem;
+  }
 
 .svg_ul {
     display: grid;
