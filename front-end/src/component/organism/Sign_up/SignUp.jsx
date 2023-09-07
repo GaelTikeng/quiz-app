@@ -1,7 +1,6 @@
 import React from 'react'
 import InputField from '../../atoms/InputFields/InputField'
 import Button from '../../atoms/button/Button'
-// import Logo from '../../../../public/image/login_amico1.png'
 
 function SignUp() {
   return (
@@ -17,7 +16,7 @@ function SignUp() {
         </form>
         </div>
         <div className='login_amico'>
-          <img src={Logo} alt="signup_amico" />
+          <img src="" alt="signup_amico" />
         </div>
     </div>
   )
