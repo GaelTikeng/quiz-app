@@ -8,7 +8,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const navigatetoHome = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   const navigatetoLogin = () => {

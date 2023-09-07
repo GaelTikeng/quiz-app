@@ -1,14 +1,14 @@
 import React from "react";
+import './InputField.css'
 
-function InputField({ type, value, name, placeholder, label, onChange }) {
+function InputField({ type, name,label, onChange }) {
   return (
     <div className="form-group">
-      {label && <label htmlFor="input-field">{label}</label>}
+     <label htmlFor="input-field" className="html_label">{label}</label>
       <input
       className="form_control"
        type={type} 
-       value={value} 
-       placeholder={placeholder} 
+      //  value={value} 
        name={name} 
        onChange={onChange}/>
     </div>

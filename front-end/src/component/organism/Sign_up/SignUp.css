@@ -1,0 +1,53 @@
+.signUp_container {
+  background-color: #847e7e;
+}
+
+.signup_title {
+  width: 219px;
+  height: 83px;
+  font-weight: 600;
+  font-size: px;
+  line-height: 43px;
+}
+
+.signUp_div {
+  width: 60%;
+  height:65vh;
+  border: 5px solid;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sign_up{
+  width: 50%;
+  background-color: lightblue;
+}
+
+.signUp_div {
+  display: flex;
+}
+
+.login_amico {
+  width: 50%;
+  background-color: #3E9ADC;
+  display: flex;
+  justify-content: center;
+}
+
+.signup_log {
+  width: 394px;
+  height: 405;
+}
+
+.signUp_btn {
+  width: 95%;
+  padding: 0.4rem;
+  background-color: #3E9ADC;
+  font-size: 20px;
+}
+
+span {
+  color: #058ae9;
+}
