@@ -16,7 +16,7 @@ app.use(express.json());
 
 let userRouter = require('./router/user')
 let loginRouter = require('./router/login')
-
+let participantRouter = require('./router/participantInfo')
 
 
 // view engine setup
@@ -25,6 +25,7 @@ app.set('view engine', 'hps')
 // middlewares
 app.use('/', userRouter)
 app.use('/', loginRouter)
+app.use('/', participantRouter)
 
 // app.get("/", (req, res) => {
 //   return res.json("From backend side");
