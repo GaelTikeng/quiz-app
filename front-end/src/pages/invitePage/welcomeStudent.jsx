@@ -1,15 +1,19 @@
 import React from "react";
 import './welcomeStudent.css'
-import Button from "../../component/atoms/button/button";
 import Logo from "../../../public/image/smartbrain.jpg"
 import Welcome from "../../../public/image/welcome-bro.png"
-import NextBtn from "../../component/atoms/nextbtn/nextBtn";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+
 import { useNavigate } from 'react-router-dom'
 
 
 
 export default function WelcomeSudent () {
 
+  const navigate = useNavigate()
+  const handleClickNext = () => {
+    navigate('/student/2')
+  }
 
   return (
     <div className="all">
@@ -19,15 +23,25 @@ export default function WelcomeSudent () {
       <div className="grey-section">
         <div className="welcome">
           <h2>You are in !</h2>
-          <h1>Welcome to SmartBrain</h1>
+          {/* <h1>Welcome to SmartBrain</h1> */}
           <img src = {Welcome} alt="welcome image" className="image"/>
-          <p className="p-tag">Are you ready to test your knowledge? This quiz was created by your teacher to help you learn the mateial.</p>
-          <div>
-            {/* <NextBtn
-              text = 'Next'
-              onClick={handleClick}
-              className="next"
-            /> */}
+          <p className="p-tag">Are you ready to test your knowledge? This quiz was created by your teacher to help you learn the material.</p>
+          <div className="two-btns">
+            <button
+              // onClick={handleClickPrev}
+              className="prev-btns"
+            >
+              <FaAngleLeft/>
+              Prev
+            </button>
+              <p>1/2</p>
+            <button
+              onClick={handleClickNext}
+              className="next-btn"
+            >
+              Next
+              <FaAngleRight/>
+            </button>
           </div>
           
         </div>

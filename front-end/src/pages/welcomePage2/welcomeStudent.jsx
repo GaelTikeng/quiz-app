@@ -1,13 +1,22 @@
 import React from "react";
 import './welcomeStudent.css'
-import Button from "../../component/atoms/button/button";
 import Logo from "../../../public/image/smartbrain.jpg"
 import Exam from "../../../public/image/Exams-bro.png"
 import NextBtn from "../../component/atoms/nextbtn/nextBtn";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'
 
 
 export default function WelcomeSudent2 () {
 
+  const navigate = useNavigate()
+  const handleClickPrev = () => {
+    navigate('/student/1')
+  }
+
+  const handleClickNext = () => {
+
+  }
 
   return (
     <div className="all">
@@ -16,18 +25,27 @@ export default function WelcomeSudent2 () {
       </div>
       <div className="grey-section">
         <div className="welcome">
-          <h2>You are in !</h2>
-          <h1>Welcome to SmartBrain</h1>
+          <h2>Hey, did you know ?</h2>
+          <h1>Then only limit is your imagination</h1>
           <img src = {Exam} alt="welcome image" className="image"/>
           <p className="ptag">Each quiz has a variety of questions and 4 options for possible answers, so you'ill be sure to find something challenging. <b>Good luck</b> </p>
-          <div>
-            {/* <NextBtn
-              text = 'Next'
-              onClick={handleClick}
-              className="next"
-            /> */}
+          <div className="two-btns">
+            <button
+              onClick={handleClickPrev}
+              className="prev-btn"
+            >
+              <FaAngleLeft/>
+              Prev
+            </button>
+            <p>2/2</p>
+            <button
+              onClick={handleClickNext}
+              className="next-btn"
+            >
+              Start quiz
+              <FaAngleRight/>
+            </button>
           </div>
-          
         </div>
 
       </div>
