@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 .6rem;
+    margin-top: .5rem;
 }
 
 .html_label {

@@ -20,7 +20,7 @@ function SignUp() {
         <div className="signUp_div">
           <div className="sign_up">
             <div className="signup_title">
-              <h1>Sign Up To SmartBrain</h1>
+              <h1>Sign Up To <span>Smart</span>Brain</h1>
             </div>
             <form action="submit" className="signup_form">
               <InputField
@@ -43,7 +43,7 @@ function SignUp() {
                 label="Password"
               />
               <Button title="Sign me Up" className="signUp_btn"/>
-              <p>
+              <p className="signup_p">
                 Have an account? <span onClick={navigatetoLogin}>Login</span>
               </p>
             </form>
