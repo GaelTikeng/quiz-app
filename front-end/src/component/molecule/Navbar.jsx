@@ -12,7 +12,7 @@ function Navbar() {
   };
 
   const navigatetoLogin = () => {
-    navigate("/login");
+    navigate("/userlogin");
   };
 
   const navigatetoSignup = () => {
