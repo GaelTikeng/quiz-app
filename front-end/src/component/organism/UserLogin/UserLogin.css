@@ -20,11 +20,30 @@
   background-color: #fff;
 }
 
-.userlogin_image {
+.userlogin_title {
+  padding: 3rem 2rem 0.5rem 0; 
+}
+
+.userlogin_btn {
+  width: 95%;
+  padding: 0.4rem;
+  background-color: #3E9ADC;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  
+}
+
+.userimage_container {
   width: 50%;
   background-color: #3e9adc;
   display: flex;
   justify-content: center;
+}
+
+.userlogin_image {
+  padding-top: 1.7rem;
 }
 
 .userlogin_image {

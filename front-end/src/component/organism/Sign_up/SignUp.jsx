@@ -3,7 +3,7 @@ import InputField from "../../atoms/InputFields/InputField";
 import Button from "../../atoms/button/Button";
 import "./SignUp.css";
 import Navbar from "../../molecule/Navbar";
-import Logo from "../../../../public//image/login-amico1.png";
+import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
 
 function SignUp() {
@@ -20,7 +20,9 @@ function SignUp() {
         <div className="signUp_div">
           <div className="sign_up">
             <div className="signup_title">
-              <h1>Sign Up To SmartBrain</h1>
+              <h1>
+                Sign Up To <span>Smart</span>Brain
+              </h1>
             </div>
             <form action="submit" className="signup_form">
               <InputField
@@ -42,10 +44,12 @@ function SignUp() {
                 name="password"
                 label="Password"
               />
-              <Button title="Sign me Up" className="signUp_btn"/>
-              <p>
-                Have an account? <span onClick={navigatetoLogin}>Login</span>
-              </p>
+              <div className="divsignup_btn">
+                <Button title="Sign me up" className="signup_btn" />
+                <p>
+                  Have an account? <span onClick={navigatetoLogin}>Login</span>
+                </p>
+              </div>
             </form>
           </div>
           <div className="login_amico">

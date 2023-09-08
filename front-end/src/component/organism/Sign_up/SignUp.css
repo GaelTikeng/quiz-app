@@ -5,15 +5,23 @@
 .signup_title {
   width: 219px;
   height: 83px;
-  font-weight: 600;
-  font-size: px;
-  line-height: 43px;
+  padding: 2rem 1.2rem 0 .5rem  ;
+}
+
+.signup_title h1 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.signup_form {
+  padding-top: 2rem;
 }
 
 .signUp_div {
-  width: 60%;
-  height:65vh;
-  border: 5px solid;
+  width: 57%;
+  height:69vh;
+  border: 1px solid ; 
   position: absolute;
   top: 55%;
   left: 50%;
@@ -22,7 +30,7 @@
 
 .sign_up{
   width: 50%;
-  background-color: lightblue;
+  /* background-color: lightblue; */
 }
 
 .signUp_div {
@@ -37,15 +45,27 @@
 }
 
 .signup_log {
-  width: 394px;
-  height: 405;
+  width: 350px;
+  height: 400px;
+  padding-top: 2rem;
 }
 
-.signUp_btn {
-  width: 95%;
-  padding: 0.4rem;
+.signup_field {
+  padding-top: 2rem;
+}
+
+.signup_btn {
   background-color: #3E9ADC;
+  color: #ffff;
+  padding: 0.5rem;
   font-size: 20px;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.divsignup_btn {
+  padding: 0.7rem;
 }
 
 span {

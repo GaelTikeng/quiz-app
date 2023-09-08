@@ -50,7 +50,8 @@
 
 .loginBtn:hover {
   color: #fff;
-  background-color: rgb(37, 39, 187);
+  cursor: pointer;
+  background-color: #3e9adc;
 }
 
 .signupBtn {
@@ -63,6 +64,7 @@
 
 .signupBtn:hover{
   color: black;
-  background-color: aqua;
+  background-color: #a29b9b;
+  cursor: pointer;
   border: none;
 }
