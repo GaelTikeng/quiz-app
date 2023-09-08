@@ -1,11 +1,32 @@
-/* .userlogin_container {
-    background-color: #3ed3ae;
-    height: 100vh;
-
+.userlogin_container {
+  background-color: #f1f1f1;
+  height: 100vh;
 }
 
-.uselogin_form {
-    width: 65%;
-    height: 65vh;
-    display: flex;
-} */
+.uselogin_formcontainer {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  height: 65vh;
+  border: 5px solid;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.userlogin_input {
+  width: 50%;
+  background-color: #fff;
+}
+
+.userlogin_image {
+  width: 50%;
+  background-color: #3e9adc;
+  display: flex;
+  justify-content: center;
+}
+
+.userlogin_image {
+  
+}
