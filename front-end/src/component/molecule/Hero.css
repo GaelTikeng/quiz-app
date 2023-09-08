@@ -33,12 +33,13 @@ h4 {
 
 .heroBtn {
   padding: 10px 25px;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 20px;
   background-color: #3e9adc;
   color: #fff;
   width: 290px;
   height: 65px;
+  border: none;
 }
 
 .heroLogo {
