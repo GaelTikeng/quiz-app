@@ -8,7 +8,6 @@
   justify-content: space-between;
   width: 60%;
   height: 65vh;
-  border: 5px solid;
   position: absolute;
   top: 57%;
   left: 50%;
@@ -21,18 +20,31 @@
 }
 
 .userlogin_title {
-  padding: 3rem 2rem 0.5rem 0; 
+  padding: 3rem 2rem 0.5rem .5rem; 
+}
+
+.userlogin_details {
+  padding-top: 2rem;
+}
+
+.userlogin_p {
+  margin-left: .5rem;
+  font-size: 13px;
+}
+
+.userloginbtn_container {
+  padding-top: 2.5rem;
 }
 
 .userlogin_btn {
-  width: 95%;
+  width: 96%;
   padding: 0.4rem;
   background-color: #3E9ADC;
   font-size: 20px;
   font-weight: 600;
   color: #fff;
   border: none;
-  
+  margin-left: .5rem;
 }
 
 .userimage_container {
@@ -43,7 +55,7 @@
 }
 
 .userlogin_image {
-  padding-top: 1.7rem;
+  padding-top: .7rem;
 }
 
 .userlogin_image {

@@ -45,7 +45,7 @@ function SignUp() {
                 label="Password"
               />
               <div className="divsignup_btn">
-                <Button title="Sign me up" className="signup_btn" />
+                <Button title="Sign me up" className="signup_btn"/>
                 <p>
                   Have an account? <span onClick={navigatetoLogin}>Login</span>
                 </p>
