@@ -12,7 +12,7 @@ router.get("/dashboard/:userId", async (req, res) => {
     let allQuizzes = await Quiz.findAll({
       where: {
         userId: userId,
-      },
+      }
     });
 
     res.send(allQuizzes);
@@ -30,6 +30,9 @@ router.get("/dashboard/:userId/:quizId", async (req, res) => {
       where: {
         quizId: quizId,
       },
+      include: {
+        model: Option,
+      }
     });
 
     // let allOptionsPerQuestionId = await Option.findAll({
@@ -44,15 +47,15 @@ router.get("/dashboard/:userId/:quizId", async (req, res) => {
   }
 });
 
-router.post("/dashboard/:userId/quiz", async (req, res) => {
-  let quizTitle = req.body["Quiz title"];
+router.post("/dashboard/:userId/createquiz", async (req, res) => {
+  let quizTitle = req.body["quizTitle"];
   let { userId } = req.params;
-  let question = req.body["Question 1"];
-  let opt1 = req.body["Option A"];
-  let opt2 = req.body["Option B"];
-  let opt3 = req.body["Option C"];
-  let opt4 = req.body["Option D"];
-  let isCorrect = req.body["Answer"];
+  let question = req.body["question1"];
+  let opt1 = req.body["optionA"];
+  let opt2 = req.body["optionB"];
+  let opt3 = req.body["optionC"];
+  let opt4 = req.body["optionD"];
+  let isCorrect = req.body["answer"];
 
   let proposition = {
     option1: opt1,
