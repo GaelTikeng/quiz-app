@@ -1,9 +1,9 @@
 import React from 'react'
-import AfterHero from '../molecule/AfterHero'
-import BeforeFooter from '../molecule/BeforeFooter'
-import Footer from '../molecule/Footer'
-import Navbar from '../molecule/Navbar'
-import Hero from '../molecule/Hero'
+import AfterHero from '../molecule/afterHero/AfterHero'
+import BeforeFooter from '../molecule/beforeFooter/BeforeFooter'
+import Footer from '../molecule/footer/Footer'
+import Navbar from '../molecule/navbar/Navbar'
+import Hero from '../molecule/hero/Hero'
 
 function Landing() {
   return (
