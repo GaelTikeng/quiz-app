@@ -8,7 +8,7 @@ const Question = sequel.define("question", {
     primaryKey: true,
     autoIncrement: true,
   },
-  title: {
+  question: {
     type: DataTypes.STRING(1024),
     allowNull: false
   },

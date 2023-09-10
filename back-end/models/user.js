@@ -16,7 +16,7 @@ const User = sequel.define("user", {
     allowNull: false,
   },
   password: {
-    type: DataTypes.STRING,
+    type: DataTypes.STRING(1024),
     allowNull: false,
   },
 });

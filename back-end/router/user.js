@@ -1,16 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
+const jwt = require ('jsonwebtoken')
 
 const nodemailer = require("nodemailer")
 
 const User = require("../models/user");
 const Mailgen = require("mailgen");
 
-router.post("/user/signup", async (req, res) => {
+router.post("/accounts/signup", async (req, res) => {
   let { username, email, password } = req.body;
-  let hashedPassword;
 
   // sendiing email
   let config = {
@@ -70,30 +69,32 @@ router.post("/user/signup", async (req, res) => {
         return res.status(500).json({msg: err})
       })
     })
-    bcrypt
-      .hash(password, 10)
-      .then((hash) => {
-        hashedPassword = hash;
-        console.log("this is the hashed pwd", hash);
-      })
-      .catch((err) => console.log("error while hashing", err));
 
     const alreadyExistUser = await User.findOne({ where: { email } }).catch(
       (err) => console.log("error getting user", err)
     );
     if (alreadyExistUser) return res.send("User already exist with this same email");
+    // console.log('this is hash:', hashedPassword)
+
+    let hashedPassword = bcrypt.hashSync(password, 10)
+    console.log('This is password by bcrypt', hashedPassword)
 
     await User.create({
-      username: username,
-      email: email,
-      password: password,
-    });
-
-    res.send({
       username,
       email,
-      password,
+      password: hashedPassword,
     });
+
+    const jwtoken = jwt.sign(
+      {
+        username: username,
+        email: email,
+        password: hashedPassword
+      },
+      process.env.MY_SECRET_TOKEN
+    );
+
+    res.send({token: jwtoken});
   } catch (error) {
     console.log("error while creating user", error);
   }

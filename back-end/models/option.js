@@ -8,9 +8,17 @@ const Option = sequel.define('option', {
     autoIncrement: true,
     primaryKey: true,
   },
-  title: {
+  option1: {
     type: DataTypes.STRING,
-    allowNull: false
+  },
+  option2: {
+    type: DataTypes.STRING,
+  },
+  option3: {
+    type: DataTypes.STRING,
+  },
+  option4: {
+    type: DataTypes.STRING,
   },
   isCorrect: {
     type: DataTypes.STRING,
@@ -24,11 +32,14 @@ const Option = sequel.define('option', {
 Question.hasMany(Option)
 Option.belongsTo(Question)
 
-sequel.authenticate().then(() => {
-  console.log("option table created successfully")
-})
-.catch((err) => {
-  console.log('Cannot create Option table: ', err)
-})
+sequel
+  .sync()
+  .then(() => {
+    console.log('option table created successfully')
+  })
+  .catch((error) => {
+    console.log("An error occured while creating question table", error)
+  })
+
 
 module.exports = Option
