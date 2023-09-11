@@ -72,3 +72,8 @@
 span {
   color: #058ae9;
 }
+
+span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

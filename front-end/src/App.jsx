@@ -4,7 +4,7 @@ import Landing from './component/organism/Landing'
 import SignUp from './component/organism/Sign_up/SignUp'
 import UserLogin from './component/organism/UserLogin/UserLogin'
 import ParticipantsLogin from './component/organism/ParticipantsLogin/ParticipantsLogin'
-import UserOnboard from './component/organism/Onboarding1/UserOnboard'
+import UserDashboard from './component/organism/UserDashboard/UserDashboard'
 
 function App() {
 
@@ -15,10 +15,10 @@ function App() {
 
          <Routes>
              <Route path='/' element={<Landing/>}/>
-             <Route path='/signup' element={<SignUp/>}/>
-             <Route path='/userlogin' element={<UserLogin/>}/>
+             <Route path='/account/signup' element={<SignUp/>}/>
+             <Route path='/account/login' element={<UserLogin/>}/>
              <Route path='/welcome' element={<ParticipantsLogin/>}/>
-             <Route path='/useronboard' element={<UserOnboard/>}/>
+             <Route path='/dashboard:/userid' element={<UserDashboard/>}/>
            </Routes>
     </Router>
 
