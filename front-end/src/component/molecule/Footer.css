@@ -14,6 +14,7 @@
     justify-content: center; 
     color: #fff;
     font-size: 20px;
+    padding: 1rem 1.2rem;
 }
 
 .footerForm {
@@ -29,7 +30,6 @@
 }
 
 .footerbtn {
-  /* border-radius: 1px solid #fff; */
   padding: 20px;
   color: #3e9adc;
   background-color: #fff;
