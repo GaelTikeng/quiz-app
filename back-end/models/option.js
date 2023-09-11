@@ -8,25 +8,17 @@ const Option = sequel.define('option', {
     autoIncrement: true,
     primaryKey: true,
   },
-  option1: {
-    type: DataTypes.STRING,
-  },
-  option2: {
-    type: DataTypes.STRING,
-  },
-  option3: {
-    type: DataTypes.STRING,
-  },
-  option4: {
+  title: {
     type: DataTypes.STRING,
   },
   isCorrect: {
-    type: DataTypes.STRING,
-    allowNull: false
+    type: DataTypes.ENUM("true", "false")
   },
   questionId: {
     type: DataTypes.INTEGER
   }
+}, {
+  timestamps: false
 })
 
 Question.hasMany(Option)

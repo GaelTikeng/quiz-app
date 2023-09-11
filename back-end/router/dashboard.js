@@ -48,7 +48,7 @@ router.get("/dashboard/:userId/:quizId", async (req, res) => {
 });
 
 router.post("/dashboard/:userId/createquiz", async (req, res) => {
-  let quizTitle = req.body["quizTitle"];
+  let quizTitle = req.body["Quiz title"];
   let { userId } = req.params;
   let question = req.body["question1"];
   let opt1 = req.body["optionA"];
@@ -84,6 +84,30 @@ router.post("/dashboard/:userId/createquiz", async (req, res) => {
   catch(error) {
     console.log('could not set quiz', error)
   }
+
 });
+
+// router.post("/option", async (req, res) => {
+//   let title = req.body.title
+//   let questionId = req.body.question
+//   let correct = req.body.correct
+//   try {
+//     await Option.create({
+//       title: title,
+//       questionId: questionId,
+//       isCorrect: correct
+//     }).then((resp) => {
+//       console.log('successfull')
+//     }).catch(err => console.log('error occured', err))
+//     res.send({
+//       title,
+//       questionId,
+//       correct
+//     })
+//   }
+//   catch(error) {
+//     console.log('error with Option', error)
+//   }
+// })
 
 module.exports = router;
