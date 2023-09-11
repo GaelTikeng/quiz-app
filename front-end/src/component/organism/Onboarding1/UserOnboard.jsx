@@ -33,6 +33,7 @@ function UserOnboard() {
         </p>
         <div className="navig_btns">
           <p onClick={handleprevClick}><img src={Vector1} alt="vector" />  prev</p>
+           <p>1/2</p>
           <p onClick={handlenextClick}><img src={Vector2} alt="vector" /> next</p>
         </div>
       </div>
