@@ -1,8 +1,22 @@
 import React from "react";
 import "./Sidebar.css";
 import Ellipse from "../../../../public/image/Ellipse1.png";
+import quiz from "../../../../public/image/quiz_button.png";
+import Scores from "../../../../public/image/scores_button.png";
+import { useNavigate } from "react-router-dom";
+
 
 function Sidebar() {
+const navigate = useNavigate();
+
+const handlequiz = () => {
+  navigate('/account/quiz')
+}
+
+const handlescores = () => {
+  navigate('/account/scores')
+}
+
   return (
     <div className="side_container">
       <div className="avatar_container">
@@ -11,7 +25,8 @@ function Sidebar() {
           <p>Avatar name</p>
         </div>
         <div className="side_midle">
-          
+           <img src={quiz} alt="quiz_button"  onClick={handlequiz}  className="quiz_btn"/>
+           <img src={Scores} alt="score_btn"  onClick={handlescores}  className="scores_btn"/>
         </div>
       </div>
     </div>
