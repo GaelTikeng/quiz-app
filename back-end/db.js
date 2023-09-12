@@ -1,12 +1,14 @@
-  const {Sequelize} = require('sequelize')
+const {Sequelize} = require('sequelize')
+require('dotenv').config()
+
 
 // console.log("this is the process", process.env)
 const sequel = new Sequelize(
-  'quiz',
-  'root',
-  'W@2915djkq#',
+  process.env.DATABASE_NAME,
+  process.env.DATABASE_USERNAME,
+  process.env.DATABASE_PASSWORD,
   {
-    host: 'localhost',
+    host: process.env.DATABASE_HOST,
     dialect: 'mysql',
   }
 )

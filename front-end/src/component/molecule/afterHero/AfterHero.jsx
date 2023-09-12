@@ -1,11 +1,9 @@
 import React from "react";
 import "./AfterHero.css";
-import Logo1 from '../../../public/image/vector1.png'
-import Logo2 from '../../../public/image/vector2.png'
-import Logo3 from '../../../public/image/vector3.png'
-import Logo4 from '../../../public/image/Vector4.png'
-
-
+import Logo1 from '../../../../public/image/vector1.png'
+import Logo2 from '../../../../public/image/vector2.png'
+import Logo3 from '../../../../public/image/vector3.png'
+import Logo4 from '../../../../public/image/Vector4.png'
 
 
 function AfterHero() {

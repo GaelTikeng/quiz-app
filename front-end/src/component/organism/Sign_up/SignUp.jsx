@@ -1,8 +1,8 @@
 import React from "react";
 import InputField from "../../atoms/InputFields/InputField";
-import Button from "../../atoms/button/Button";
+import Button from "../../atoms/button/button";
 import "./SignUp.css";
-import Navbar from "../../molecule/Navbar";
+import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +20,7 @@ function SignUp() {
         <div className="signUp_div">
           <div className="sign_up">
             <div className="signup_title">
-              <h1>
+              <h1 className="h1">
                 Sign Up To <span>Smart</span>Brain
               </h1>
             </div>
