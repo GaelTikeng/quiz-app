@@ -4,6 +4,10 @@ import Logo from "../../../../public/image/smartbrain.jpg";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
+import Dashboard from "../../../../public/image/Dashboard.png"
+import { GrPrevious } from 'react-icons/gr';   
+import { GrNext } from 'react-icons/gr';
+
 
 function UserDashboard() {
   const navigate = useNavigate();
@@ -16,6 +20,14 @@ function UserDashboard() {
     navigate("/createquiz");
   };
 
+  const handlePrev = () => {
+    navigate("/-1")
+  }
+
+  const handlenext = () => {
+    navigate('/1')
+  }
+
   return (
     <div>
       <div className="userDashboard-nav">
@@ -23,9 +35,7 @@ function UserDashboard() {
           <img src={Logo} alt="logo" />
         </div>
         <div className="logbtn">
-          <Button title="Login" 
-          onClick={navigatetoLogin} 
-          className="log_btn" />
+          <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
         </div>
       </div>
       <div className="userdashboard_container">
@@ -35,12 +45,27 @@ function UserDashboard() {
         <div className="main_dashboard">
           <div className="actions">
             <p>Dashboard</p>
-            <Button
-              title="Create Quiz"
-              onClick={navigtosetquiz}
-              className="create_quiz"
-            />
+            <div className="create_quiz">
+              <Button
+                title="Create Quiz"
+                onClick={navigtosetquiz}
+                className="createquiz_btn"
+              >
+              <img src={Dashboard} alt="icon" />
+
+              </Button>
+            </div>
           </div>
+          <div className="second_part">
+              <h3>Quizzes</h3>
+              <div className="quizes_details">
+
+              </div>
+              <div className="next_prev">
+                <p onClick={handlePrev} className=""><GrPrevious/> Prev</p>
+                <p onClick={handlenext}>Next <GrNext/></p>
+              </div>
+            </div>
         </div>
       </div>
     </div>

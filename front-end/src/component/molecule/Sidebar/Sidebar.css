@@ -28,7 +28,7 @@
 .dashboard_btn {
   display: flex;
   flex-direction: column;
-  gap: 300px;
+  gap: 340px;
 }
 
 .scores_btn {

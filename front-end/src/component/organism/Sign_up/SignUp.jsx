@@ -32,7 +32,7 @@ function SignUp() {
                 name="Full name"
                 label="Full Name"
               />
-              <InputField
+                 <InputField
                 className="signup_field"
                 type="text"
                 name=""
