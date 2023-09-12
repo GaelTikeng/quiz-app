@@ -69,6 +69,11 @@
   margin-top: 0.5rem;
 }
 
+.signup_btn:hover {
+  cursor: pointer;
+  background-color: #3e9adcd2;
+}
+
 .divsignup_btn {
   padding: 0.7rem;
 }
