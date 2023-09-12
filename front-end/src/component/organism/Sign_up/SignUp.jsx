@@ -16,7 +16,7 @@ function SignUp() {
   return (
     <>
       <Navbar />
-      <div className="signUp_container">
+      <div className="signup_container">
         <div className="signUp_div">
           <div className="sign_up">
             <div className="signup_title">

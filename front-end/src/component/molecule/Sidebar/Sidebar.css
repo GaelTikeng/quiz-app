@@ -1,19 +1,49 @@
 .side_container {
-  width: 25%;
-  height: 85vh;
-  /* background-color: #3e9adc; */
-}
-
-.avatar_container {
-  height: 35%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-around; */
+  /* position: fixed; */
+  width: 23.4%;
+  height: 100vh;
   background-color: #3e9adc;
 }
 
+.avatar_container {
+  height: 31vh;
+  /* background-color: #3e9adc; */
+}
+
 .avatar_infos {
-  padding: 2rem 0 0 7rem ;
+  padding: 2rem 0 0 6.5rem;
 }
 
 .avatar_img {
-
   color: #d9d9d9;
+}
+
+.dashboard_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: green;
+  /* position: relative; */
+}
+
+.side_midle {
+  
+}
+
+.scores_btn {
+  background-color: #3e9adc;
+}
+
+.logout {
+  position: absolute;
+  bottom: 0;
+  padding: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  /* width: 50%; */
+  background-color: red;
 }

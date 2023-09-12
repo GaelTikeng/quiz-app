@@ -23,6 +23,17 @@
   display: flex;
 }
 
+.mainbtn {
+  margin: 1rem;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.mainbtn:hover {
+  color: #3e9adc;
+  text-decoration: underline;
+}
+
 .homeBtn {
   margin: 1rem;
   font-weight: 600;
@@ -48,6 +59,7 @@
   color: #fff;
   cursor: pointer;
   background-color: #3e9adc;
+  opacity: .7;
 }
 
 .signupBtn {
@@ -61,7 +73,8 @@
 
 .signupBtn:hover{
   color: black;
-  background-color: #a29b9b;
+  background-color: #3e9adc;
+  opacity: .6;
   cursor: pointer;
   border: none;
 }

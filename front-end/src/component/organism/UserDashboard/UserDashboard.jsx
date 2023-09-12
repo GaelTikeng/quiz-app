@@ -21,7 +21,7 @@ function UserDashboard() {
         <div className="logbtn">
         <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
         </div>
-        </div>
+        </div>  
         <div className="userdashboard_container">
           <div className="sidebar">
             <Sidebar/>

@@ -47,6 +47,12 @@
   margin-left: .5rem;
 }
 
+.userlogin_btn:hover {
+   cursor: pointer;
+   background-color: #3e9adc;
+   opacity: .6;
+}
+
 .userimage_container {
   width: 50%;
   background-color: #3e9adc;
