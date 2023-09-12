@@ -1,0 +1,19 @@
+.side_container {
+  width: 25%;
+  height: 85vh;
+  /* background-color: #3e9adc; */
+}
+
+.avatar_container {
+  height: 35%;
+  background-color: #3e9adc;
+}
+
+.avatar_infos {
+  padding: 2rem 0 0 7rem ;
+}
+
+.avatar_img {
+
+  color: #d9d9d9;
+}

@@ -16,29 +16,35 @@
 
 .header {
   width: 50%;
-  padding-top: 5rem;
+  padding-top: 10rem;
 }
 
-h1 {
+.header h1 {
+  width: 461px;
+  height: 144px;
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
 }
 
-h4 {
+.header h4 {
+  width: 435px;
+  height: 70px;
   font-size: 15px;
   color: #847e7e;
   line-height: 18px;
+  padding-top: 1rem;
 }
 
 .heroBtn {
-  padding: 10px 25px;
-  font-weight: 800;
+  padding: 10px 2px;
+  font-weight: 600;
   font-size: 20px;
   background-color: #3e9adc;
   color: #fff;
   width: 290px;
-  height: 65px;
+  height: 60px;
+  border: none;
 }
 
 .heroLogo {

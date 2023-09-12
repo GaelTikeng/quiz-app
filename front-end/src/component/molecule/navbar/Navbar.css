@@ -6,7 +6,6 @@
   height: 5rem;
   width: 85%;
   background-color: #fff;
-  /* outline: 2px solid red; */
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -47,7 +46,8 @@
 
 .loginBtn:hover {
   color: #fff;
-  background-color: rgb(37, 39, 187);
+  cursor: pointer;
+  background-color: #3e9adc;
 }
 
 .signupBtn {
@@ -56,9 +56,12 @@
   padding: 8px 20px;
   font-weight: 600;
   font-size: 20px;
+  border: none;
 }
 
 .signupBtn:hover{
   color: black;
-  background-color: aqua;
+  background-color: #a29b9b;
+  cursor: pointer;
+  border: none;
 }

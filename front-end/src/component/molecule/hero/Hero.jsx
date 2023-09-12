@@ -20,33 +20,32 @@ function Hero() {
 
   return (
     <div className="heroContainer">
-      
       <div className="text">
         <div className="header">
-        <h1>The Quiz Maker That Will Help You Ace Your Exams</h1>
-        <h4>
-          Create engaging and interactive quizzes that will assess your students
-          knowledge and understanding your subject matter.{" "}
-        </h4>
-        <Button
-          className="heroBtn"
-          onClick={navigatetoSignup}
-          title=" GET
+          <h1>The Quiz Maker That Will Help You Ace Your Exams</h1>
+          <h4>
+            Create engaging and interactive quizzes that will assess your
+            students knowledge and understanding your subject matter.{" "}
+          </h4>
+          <Button
+            className="heroBtn"
+            onClick={navigatetoSignup}
+            title=" GET
           STARTED"
-        />
-      </div>
+          />
+        </div>
 
-      <div className="heroLogo">
-        <img src={Logo} alt="hero_image" />
-      </div>
+        <div className="heroLogo">
+          <img src={Logo} alt="hero_image" />
+        </div>
       </div>
 
       <div className="brandLogo">
-        <img src={Logo1} alt="brand_logo"  className="logo"/>
-        <img src={Logo2} alt="brand_logo"  className="logo"/>
-        <img src={Logo3} alt="brand_logo"  className="logo"/>
-        <img src={Logo4} alt="brand_Logo"  className="logo"/>
-        <img src={Logo5} alt="brand_logo"  className="logo"/>
+        <img src={Logo1} alt="brand_logo" className="logo" />
+        <img src={Logo2} alt="brand_logo" className="logo" />
+        <img src={Logo3} alt="brand_logo" className="logo" />
+        <img src={Logo4} alt="brand_Logo" className="logo" />
+        <img src={Logo5} alt="brand_logo" className="logo" />
       </div>
     </div>
   );

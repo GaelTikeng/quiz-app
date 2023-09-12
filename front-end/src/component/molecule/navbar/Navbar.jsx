@@ -8,15 +8,15 @@ function Navbar() {
   const navigate = useNavigate();
 
   const navigatetoHome = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   const navigatetoLogin = () => {
-    navigate("/login");
+    navigate("/account/login");
   };
 
   const navigatetoSignup = () => {
-    navigate("/signup");
+    navigate("/account/signup");
   };
 
   return (
