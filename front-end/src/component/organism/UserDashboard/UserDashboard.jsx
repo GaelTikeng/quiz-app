@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserDashboard.css";
 import Logo from "../../../../public/image/smartbrain.jpg";
-import Button from "../../atoms/button/Button";
+import Button from "../../atoms/button/button";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
 
