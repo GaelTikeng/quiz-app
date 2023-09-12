@@ -1,17 +1,31 @@
 .userDashboard-nav {
-    margin: auto;
-    padding-top: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    width: 85%;
-    height: 5rem;
-    background-color: #ffff;
+  margin: auto;
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  height: 5rem;
+  background-color: #ffff;
 }
 
 .log_btn {
-    background-color: #fff;
-    border: 2px solid #3e9adc;
-    padding: 8px 20px;
-    font-weight: 600;
-    font-size: 20px;
+  background-color: #fff;
+  border: 2px solid #3e9adc;
+  padding: 8px 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.userdashboard_container {
+  display: flex;
+}
+
+.main_dashboard {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
 }

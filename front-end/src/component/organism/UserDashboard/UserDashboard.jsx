@@ -12,6 +12,10 @@ function UserDashboard() {
     navigate("/account/login");
   };
 
+  const navigtosetquiz = () => {
+    navigate("/createquiz");
+  };
+
   return (
     <div>
       <div className="userDashboard-nav">
@@ -19,13 +23,25 @@ function UserDashboard() {
           <img src={Logo} alt="logo" />
         </div>
         <div className="logbtn">
-        <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
+          <Button title="Login" 
+          onClick={navigatetoLogin} 
+          className="log_btn" />
         </div>
-        </div>  
-        <div className="userdashboard_container">
-          <div className="sidebar">
-            <Sidebar/>
+      </div>
+      <div className="userdashboard_container">
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+        <div className="main_dashboard">
+          <div className="actions">
+            <p>Dashboard</p>
+            <Button
+              title="Create Quiz"
+              onClick={navigtosetquiz}
+              className="create_quiz"
+            />
           </div>
+        </div>
       </div>
     </div>
   );
