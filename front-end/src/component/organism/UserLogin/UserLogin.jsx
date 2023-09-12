@@ -1,8 +1,8 @@
 import React from "react";
 import "./UserLogin.css";
-import Navbar from "../../molecule/Navbar";
+import Navbar from "../../molecule/navbar/Navbar";
 import InputField from "../../atoms/InputFields/InputField";
-import Button from "../../atoms/button/Button";
+import Button from "../../atoms/button/button";
 import Logo from "../../../../public/image/login-amico1.png";
 
 function UserLogin() {

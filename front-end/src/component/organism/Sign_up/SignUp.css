@@ -9,6 +9,10 @@
   padding: 2rem 1.2rem 0 .5rem  ;
 }
 
+.h1 {
+  color: #000;
+}
+
 .signup_title h1 {
   font-weight: 700;
   font-size: 30px;
