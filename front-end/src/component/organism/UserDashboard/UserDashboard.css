@@ -56,3 +56,45 @@
   bottom: 14px;
   left: -10px;
 }
+
+.second_part {
+  width: 88%;
+  border: 1px solid black;
+  height: 615px;
+  margin-left: 1.1rem;
+  position: relative;
+}
+
+.next_prev {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.next_prev p {
+  padding: .1rem;
+}
+
+.prev {
+  width: 4rem;
+  height: 1.5rem;
+  border: 1px solid;
+}
+
+.next {
+  width: 4rem;
+  height: 1.5rem;
+  border: 1px solid;
+  padding: 0 .3rem .3rem 0;
+}
+
+.fa_icons {
+  border-radius: 50%;
+  background-color: lightblue;
+  color: white;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+

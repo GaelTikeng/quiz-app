@@ -4,10 +4,9 @@ import Logo from "../../../../public/image/smartbrain.jpg";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
-import Dashboard from "../../../../public/image/Dashboard.png"
-import { GrPrevious } from 'react-icons/gr';   
-import { GrNext } from 'react-icons/gr';
-
+import Dashboard from "../../../../public/image/Dashboard.png";
+import { GrPrevious } from "react-icons/gr";
+import { GrNext } from "react-icons/gr";
 
 function UserDashboard() {
   const navigate = useNavigate();
@@ -21,12 +20,12 @@ function UserDashboard() {
   };
 
   const handlePrev = () => {
-    navigate("/-1")
-  }
+    navigate("/-1");
+  };
 
   const handlenext = () => {
-    navigate('/1')
-  }
+    navigate("/1");
+  };
 
   return (
     <div>
@@ -51,21 +50,26 @@ function UserDashboard() {
                 onClick={navigtosetquiz}
                 className="createquiz_btn"
               >
-              <img src={Dashboard} alt="icon" />
-
+                <img src={Dashboard} alt="icon" />
               </Button>
             </div>
           </div>
           <div className="second_part">
-              <h3>Quizzes</h3>
-              <div className="quizes_details">
-
+            <h3>Quizzes</h3>
+            <div className="quizes_details"></div>
+            <div className="next_prev">
+              <div className="prev">
+                <p onClick={handlePrev} className="">
+                  <GrPrevious  className="fa_icons"/> Prev
+                </p>
               </div>
-              <div className="next_prev">
-                <p onClick={handlePrev} className=""><GrPrevious/> Prev</p>
-                <p onClick={handlenext}>Next <GrNext/></p>
+              <div className="next">
+                <p onClick={handlenext}>
+                  Next <GrNext  className="fa_icons"/>
+                </p>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
