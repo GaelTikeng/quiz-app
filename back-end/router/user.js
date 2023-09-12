@@ -8,7 +8,7 @@ const nodemailer = require("nodemailer")
 const User = require("../models/user");
 const Mailgen = require("mailgen");
 
-router.post("/accounts/signup", async (req, res) => {
+router.post("/account/signup", async (req, res) => {
   let { username, email, password } = req.body;
 
   // sendiing email
