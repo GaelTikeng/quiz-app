@@ -15,31 +15,47 @@ function CreateExercise() {
         <Sidebar />
         <div className="right_side">
           <div className="quiz_header">
-              <p>Dashboard</p>
+            <p>Dashboard</p>
           </div>
-          <div className="creat_quiz">
-            <InputField />
-          </div>
-          <div className="texterea">
-            <label htmlFor="question">Question</label>
-            <textarea name="" id=""></textarea>
-          </div>
-          <div className="opt_cont">
-            <div className="options">
-              <InputField type="checkbox" name="opt" />
-              <InputField type="type" name="option" />
-              <MdCancel />
+          <div className="inputs_container">
+            <div className="creat_quiz">
+              <InputField label="Quiz title" />
             </div>
-            <p className="add_btn">
-              <MdAddBox />
-            </p>
-          </div>
-          <div className="buttom_btn">
-            <Button title="cancel" />
-            <div className="three_btn">
-              <Button title="Prev" />
-              <Button title="Next" />
-              <Button title="Done" />
+            <div className="texterea">
+              <label htmlFor="question" className="textarea_label">Question</label>
+              <textarea name="" id="">
+                enter the question...
+              </textarea>
+            </div>
+            <div className="iscorrrect_opt">
+              <p>Correct</p>
+              <p>Options</p>
+            </div>
+            <div className="opt_cont">
+              <div className="options">
+                <InputField
+                  type="checkbox"
+                  name="opt"
+                  className="checkbox_input"
+                />
+                <InputField type="text" name="option" className="text_input" />
+                <MdCancel className="clear_btn" />
+              </div>
+            </div>
+            <div className="adding">
+              <div className="add_btn">
+                <MdAddBox /> Add option
+              </div>
+            </div>
+            <div className="buttom_btn">
+              <div className="buttons">
+                <Button title="cancel" className="cancel" />
+                <div className="three_btn">
+                  <Button title="Prev" className="previous" />
+                  <Button title="Next" className="next_btn" />
+                  <Button title="Done" className="done_btn" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
