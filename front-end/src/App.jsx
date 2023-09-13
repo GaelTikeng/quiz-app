@@ -5,6 +5,7 @@ import SignUp from './component/organism/Sign_up/SignUp'
 import UserLogin from './component/organism/UserLogin/UserLogin'
 import ParticipantsLogin from './component/organism/ParticipantsLogin/ParticipantsLogin'
 import UserDashboard from './component/organism/UserDashboard/UserDashboard'
+import CreateExercise from './component/organism/CreateExercise/CreateExercise'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
              <Route path='/account/login' element={<UserLogin/>}/>
              <Route path='/welcome' element={<ParticipantsLogin/>}/>
              <Route path='/dashboard:/userid' element={<UserDashboard/>}/>
+             <Route path='/dashboard/createexercise' element={<CreateExercise/>}/>
            </Routes>
     </Router>
 
