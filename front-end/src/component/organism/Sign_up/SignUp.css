@@ -23,7 +23,8 @@
 
 .signUp_div {
   width: 57%;
-  height:69vh;
+  min-height: 69vh;
+  height: fit-content;
   border: 1px solid ; 
   position: absolute;
   top: 55%;

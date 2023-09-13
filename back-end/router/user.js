@@ -11,6 +11,9 @@ const Mailgen = require("mailgen");
 router.post("/account/signup", async (req, res) => {
   let { username, email, password } = req.body;
 
+  console.log("username", username)
+  console.log("email", email)
+
   // sendiing email
   let config = {
     service: 'gmail', // email domain
