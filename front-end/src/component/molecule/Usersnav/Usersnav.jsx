@@ -8,8 +8,8 @@ import Button from "../../atoms/button/Button";
 function Usersnav() {
 const navigate = useNavigate();
 
-const navigatetoLogin =()=> {
-  navigate('/account/login')
+const navigatetoHome=()=> {
+  navigate('/')
 }
 
 
@@ -17,10 +17,7 @@ const navigatetoLogin =()=> {
     <div>
       <div className="userDashboard-nav">
         <div className="nav_img">
-          <img src={Logo} alt="logo" />
-        </div>
-        <div className="logbtn">
-          <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
+          <img src={Logo} alt="logo" onClick={navigatetoHome} />
         </div>
       </div>
     </div>
