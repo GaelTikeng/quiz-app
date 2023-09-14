@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "../atoms/button/Button";
+import Button from "../../atoms/button/Button";
 import "./Footer.css";
-import Email from "../../../public/image/email.png";
+import Email from "../../../../public/image/email.png";
 
 function Footer() {
   return (

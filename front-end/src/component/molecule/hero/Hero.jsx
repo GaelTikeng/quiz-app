@@ -1,13 +1,14 @@
 import React from "react";
-import Button from "../atoms/button/Button";
+import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import "./Hero.css";
-import Logo from "../../../public/image/college entrance exam-rafiki 1.png";
-import Logo1 from "../../../public/image/brand1.png";
-import Logo2 from "../../../public/image/brand2.png";
-import Logo3 from "../../../public/image/brand3.png";
-import Logo4 from "../../../public/image/brand4.png";
-import Logo5 from "../../../public/image/brand5.png";
+import Logo from "../../../../public/image/college entrance exam-rafiki 1.png"
+import Logo1 from "../../../../public/image/brand1.png"
+import Logo2 from "../../../../public/image/brand2.png"
+import Logo3 from "../../../../public/image/brand3.png"
+import Logo4 from "../../../../public/image/brand4.png"
+import Logo5 from "../../../../public/image/brand5.png"
+
 
 function Hero() {
   const navigate = useNavigate();
