@@ -13,13 +13,7 @@
     "axios": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-    "react-icon": "^1.0.0",
     "react-icons": "^4.11.0",
-    "react-loader-spinner": "^5.4.5",
-=======
-    "react-icons": "^4.11.0",
->>>>>>> 131041046206ebe0c6af43760166f442bd80e6bc
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {

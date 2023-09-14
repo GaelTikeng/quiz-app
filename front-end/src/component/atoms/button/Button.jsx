@@ -1,7 +1,5 @@
 import React from "react";
 
-import React from 'react'
-
 function Button({onClick, title, className, type, disable}) {
   return (
     <div>
