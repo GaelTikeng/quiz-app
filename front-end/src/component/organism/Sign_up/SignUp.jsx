@@ -19,6 +19,7 @@ function SignUp() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false)
 
+  let userId = ""
   let token = "";
 
   const navigatetoLogin = () => {
@@ -75,18 +76,19 @@ function SignUp() {
     console.log({ username: username, email: email, pwd: password });
 
     axios
-    .post("http://localhost:3000/currentUser", {
-      // username,
-      email,
-      password,
-    })
-    .then((res) => {
-      localStorage("currentUser", JSON.stringify(res.data))
-      console.log("here is the current user", res)
-    })
-    .catch((err) => console.log('Could not get current user', err))
+      .post("http://localhost:3000/currentUser", {
+        // username,
+        email,
+        password,
+      })
+      .then((res) => {
+        localStorage.setItem("currentUser", JSON.stringify(res.data))
+        userId = res.data.id
+        console.log("here is the current user", res)
+      })
+      .catch((err) => console.log('Could not get current user', err))
     setTimeout(() => {
-      navigate("/account/login");
+      navigate(`/dashboard/${userId}`);
     }, "3000")
     
   };
@@ -99,7 +101,7 @@ function SignUp() {
           <div className="sign_up">
             <div className="signup_title">
               <h1 className="h1">
-                Sign Up To <span>Smart</span>Brain
+                Sign Up To <span className="smart">Smart</span>Brain
               </h1>
             </div>
             <div className="signup_form">
@@ -141,7 +143,7 @@ function SignUp() {
                   disable = {isLoading}
                 />
                 <p>
-                  Have an account? <span onClick={navigatetoLogin}>Login</span>
+                  Have an account? <span className="span" onClick={navigatetoLogin}>Login</span>
                 </p>
                 {/* {isLoading && <Spinner/>} */}
               </div>

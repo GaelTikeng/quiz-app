@@ -14,6 +14,8 @@ function Sidebar() {
     navigate("/account/quiz");
   };
 
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
   const handlescores = () => {
     navigate("/account/scores");
   };
@@ -29,11 +31,11 @@ function Sidebar() {
         <div className="avatar_infos">
           <Avatar
             className="avatar"
-            name="Wim Mostmans"
+            name= {currentUser.username}
             color="#D9D9D9"
             round={true}
           />
-          <p>Avatar name</p>
+          <p>{currentUser.username}</p>
         </div>
       </div>
       <div className="dashboard_btn">

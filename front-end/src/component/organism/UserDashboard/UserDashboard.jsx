@@ -11,6 +11,8 @@ import { GrNext } from "react-icons/gr";
 function UserDashboard() {
   const navigate = useNavigate();
 
+
+  
   const navigatetoLogin = () => {
     navigate("/account/login");
   };
@@ -56,17 +58,19 @@ function UserDashboard() {
           </div>
           <div className="second_part">
             <h3>Quizzes</h3>
-            <div className="quizes_details">ljioiuihi</div>
+            <div className="quizes_details">
+              ljioiuihi
+            </div>
             <div className="next_prev">
               <div className="prev">
-                <p onClick={handlePrev}>
-                  <GrPrevious className="fa_icons" /> Prev
-                </p>
+                <div onClick={handlePrev}>
+                  <GrPrevious className="fa_icons"/> Prev
+                </div>
               </div>
               <div className="next">
-                <p onClick={handlenext}>
+                <div onClick={handlenext}>
                   Next <GrNext className="fa_icons" />
-                </p>
+                </div>
               </div>
             </div>
           </div>

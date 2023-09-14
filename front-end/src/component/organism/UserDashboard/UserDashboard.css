@@ -59,14 +59,15 @@
 
 .second_part {
   width: 88%;
-  border: 1px solid black;
+  border: 3px solid #fff;
   height: 615px;
   margin-left: 1.1rem;
   position: relative;
 }
 
 .second_part h3 {
-  padding: 1rem 0 0 1rem;
+  padding: 1.5rem;
+  border-bottom: 3px solid #fff;
 }
 
 .quizes_details {                 
@@ -97,6 +98,14 @@
   width: 4rem;
   height: 1.5rem;
   border: 1px solid;
+}
+
+.next:hover {
+  cursor: pointer;
+}
+
+.prev:hover {
+  cursor: pointer;
 }
 
 .next {
