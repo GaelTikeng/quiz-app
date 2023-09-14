@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "../../atoms/button/button";
+import Button from "../../atoms/button/Button";
+// import Button from "../../atoms/button/button";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../../../../public/image/smartbrain.jpg"
@@ -30,7 +31,7 @@ function Navbar() {
       </div>
       <div className="leftNav">
         <div className="navParagraph">
-          <p className="homeBtn" onClick={navigatetoHome}>
+          <p className="mainbtn" onClick={navigatetoHome}>
             Home
           </p>
           <p className="homeBtn" >About</p>

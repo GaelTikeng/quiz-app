@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputField from "../../atoms/InputFields/InputField";
-import Button from "../../atoms/button/button";
+import Button from "../../atoms/button/Button";
 import "./SignUp.css";
 import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
@@ -105,7 +105,7 @@ function SignUp() {
   return (
     <>
       <Navbar />
-      <div className="signUp_container">
+      <div className="signup_container">
         <div className="signUp_div">
           <div className="sign_up">
             <div className="signup_title">

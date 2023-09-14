@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../atoms/button/button";
+import Button from "../../atoms/button/Button";
 import "./Footer.css";
 import Email from "../../../../public/image/email.png";
 
