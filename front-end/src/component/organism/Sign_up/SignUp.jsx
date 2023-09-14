@@ -14,7 +14,7 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errPwd, setErrPwd] = useState("");
-  const [errUsername, setErrUsername] = useState("");
+  const [errEmail, setErrEmail] = useState("");
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false)
@@ -27,13 +27,19 @@ function SignUp() {
 
   function emailValidate (value) {
     let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
-    
+
+    if (!email.match(regex)) {
+      setErrEmail('Invalid email address')
+    } else {
+      setErrEmail("")
+    }
+
   }
 
   function passwordValidate(value) {
 
     if (value < 6) {
-      setErrPwd("Email should be atleast 6 characters")
+      setErrPwd("Password should be atleast 6 characters")
     }
     if (value.search(/[0-9]/) < 0) {
       setErrPwd("Your password must contain at least one digit."); 
@@ -117,13 +123,16 @@ function SignUp() {
               />
               <p className="pi-tag">{errUsername}</p>
               <InputField
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                  emailValidate(e.target.value)
+                }}
                 className="signup_field"
                 type="email"
                 name=""
                 label="Email Address"
               />
-              {/* <p className="pi-tag">{}</p> */}
+              <p className="pi-tag">{errEmail}</p>
               <InputField
                 onChange={(event) => {
                   passwordValidate(event.target.value);
