@@ -16,7 +16,7 @@ function SignUp() {
   return (
     <>
       <Navbar />
-      <div className="signup_container">
+      <div className="signUp_container">
         <div className="signUp_div">
           <div className="sign_up">
             <div className="signup_title">
@@ -32,7 +32,7 @@ function SignUp() {
                 name="Full name"
                 label="Full Name"
               />
-                 <InputField
+              <InputField
                 className="signup_field"
                 type="text"
                 name=""
