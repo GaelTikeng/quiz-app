@@ -19,7 +19,7 @@ function CreateExercise() {
           </div>
           <div className="inputs_container">
             <div className="creat_quiz">
-              <InputField label="Quiz title" />
+              <InputField label="Quiz title" type="text" className="quiz_title"/>
             </div>
             <div className="texterea">
               <label htmlFor="question" className="textarea_label">
