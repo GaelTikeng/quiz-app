@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../atoms/button/Button";
+import Button from "../../atoms/button/button";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import Logo from "../../../public/image/smartbrain.jpg"
+import Logo from "../../../../public/image/smartbrain.jpg"
 
 function Navbar() {
   const navigate = useNavigate();
@@ -19,9 +19,13 @@ function Navbar() {
     navigate("/account/signup");
   };
 
+  const handleClickLanding = () => {
+    navigate('/')
+  }
+
   return (
     <div className="nav_container">
-      <div className="navImage">
+      <div className="navImage" onClick={handleClickLanding}>
         <img src={Logo} alt="quiz_app logo" />
       </div>
       <div className="leftNav">

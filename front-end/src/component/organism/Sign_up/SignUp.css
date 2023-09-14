@@ -12,6 +12,10 @@
   padding: 2rem 1.2rem 0 .5rem  ;
 }
 
+.h1 {
+  color: #000;
+}
+
 .signup_title h1 {
   font-weight: 700;
   font-size: 30px;
@@ -66,6 +70,11 @@
   width: 100%;
   margin-bottom: 0.4rem;
   margin-top: 0.5rem;
+}
+
+.signup_btn:hover {
+  cursor: pointer;
+  background-color: #3e9adcd2;
 }
 
 .divsignup_btn {
