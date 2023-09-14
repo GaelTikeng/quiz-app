@@ -60,12 +60,12 @@ function UserDashboard() {
             <div className="next_prev">
               <div className="prev">
                 <p onClick={handlePrev}>
-                  <GrPrevious  className="fa_icons"/> Prev
+                  <GrPrevious className="fa_icons" /> Prev
                 </p>
               </div>
               <div className="next">
                 <p onClick={handlenext}>
-                  Next <GrNext  className="fa_icons"/>
+                  Next <GrNext className="fa_icons" />
                 </p>
               </div>
             </div>

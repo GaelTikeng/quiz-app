@@ -4,6 +4,7 @@ import Ellipse from "../../../../public/image/Ellipse1.png";
 import quiz from "../../../../public/image/quiz_button.png";
 import Scores from "../../../../public/image/scores_button.png";
 import Logout from "../../../../public/image/logout_button.png";
+import Avatar from 'react-avatar';
 import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
@@ -18,6 +19,7 @@ function Sidebar() {
   };
 
   const handlelogout = () => {
+    localStorage.removeItem("token")
     navigate("/");
   };
 
@@ -25,7 +27,12 @@ function Sidebar() {
     <div className="side_container">
       <div className="avatar_container">
         <div className="avatar_infos">
-          <img src={Ellipse} alt="Avatar_image" className="avatar_img" />
+          <Avatar
+            className="avatar"
+            name="Wim Mostmans"
+            color="#D9D9D9"
+            round={true}
+          />
           <p>Avatar name</p>
         </div>
       </div>
