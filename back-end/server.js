@@ -10,6 +10,7 @@ const Quiz = require("./models/quiz");
 const Participant = require("./models/participant");
 const Question = require("./models/question");
 const Option = require("./models/option");
+const jwt = require ('jsonwebtoken')
 
 require("./auth/password");
 
@@ -18,18 +19,33 @@ app.use(express.json());
 app.use(morgan('dev'))
 
 let userRouter = require("./router/user");
-let loginRouter = require("./router/login");
+let loginRouter = require("./controllers/login");
 let participantRouter = require("./router/participantInfo");
 let dashboardRouter = require('./router/dashboard')
+
+let routes = require('./router/routes')
 
 // view engine setup
 app.set("view engine", "hps");
 
+// const authMiddleWare = (req, res, next) => {
+//   const token = req.headers.authorization.split(" ").pop();
+
+//   if (token) {
+//     jwt.verify(token)
+//   } 
+
+//   res.send("Invalid auth")
+
+//   next()
+// }
+
 // middlewares
-app.use("/", userRouter);
-app.use("/", loginRouter);
-app.use("/", participantRouter);
-app.use('/', dashboardRouter)
+app.use("/", routes)
+// app.use("/", userRouter);
+// app.use("/", loginRouter);
+// app.use("/", participantRouter);
+// app.use('/', dashboardRouter)
 
 // app.get("/", (req, res) => {
 //   return res.json("From backend side");

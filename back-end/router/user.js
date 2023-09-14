@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const jwt = require ('jsonwebtoken')
 
 const nodemailer = require("nodemailer")
 
@@ -94,7 +93,8 @@ router.post("/account/signup", async (req, res) => {
         email: email,
         password: hashedPassword
       },
-      process.env.MY_SECRET_TOKEN
+      process.env.MY_SECRET_TOKEN,
+      {expiration: "1d"}
     );
 
     res.send({token: jwtoken});

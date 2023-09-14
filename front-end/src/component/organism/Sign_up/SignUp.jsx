@@ -5,7 +5,9 @@ import "./SignUp.css";
 import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "../../../api/axios";
+
+
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -15,26 +17,38 @@ function SignUp() {
   const [errUsername, setErrUsername] = useState("");
 
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false)
+
+  let token = "";
 
   const navigatetoLogin = () => {
     navigate("/account/login");
   };
 
+  function passwordValidate(value) {
+
+    if (value < 6) {
+      setErrPwd("Email should be atleast 6 characters")
+    }
+    if (value.search(/[a-z]/i) < 0) {
+      setErrPwd("Your password must contain at least one letter.");
+    }
+    if (value.search(/[0-9]/) < 0) {
+      setErrPwd("Your password must contain at least one digit."); 
+    }
+    if (!value.match(/(?=.*[^a-zA-Z0-9])(?!.*\s)/)) {
+      setErrPwd("Your password must contain at least one special character")
+    }
+    else setErrPwd("")
+    // value.length < 6
+    //   ? setErrPwd("Email should be atleast 6 characters")
+    //   : setErrPwd("");
+  }
+
   const handleValidation = (e) => {
     e.preventDefault();
-    const RegExp =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-    if (username === "") {
-      setErrUsername("Please enter full name");
-      return;
-    }
-    if (password.length < 6) {
-      setErrPwd("Password must be atleast 6 characters long");
-      return;
-    } else if (!RegExp.test(password)) {
-      setErrPwd("Invalid password");
-      return;
-    }
+    setIsLoading(true)
+
     axios
       .post("http://localhost:3000/account/signup", {
         username,
@@ -42,9 +56,14 @@ function SignUp() {
         password,
       })
       .then((resp) => {
-        console.log("this is the response", resp);
+        token = resp.data.token;
+        localStorage.setItem("token", JSON.stringify(token));
+        console.log("this is the response", resp.data.token);
       })
-      .catch((err) => console.log("An error occure at frontend", err));
+      .catch((err) => console.log("An error occure at frontend", err))
+      .finally(() => {
+        setIsLoading(false)
+      })
     console.log({ username: username, email: email, pwd: password });
 
     navigate("/account/login");
@@ -71,15 +90,18 @@ function SignUp() {
               />
               <p className="pi-tag">{errUsername}</p>
               <InputField
-                onChange={(ev) => setEmail(ev.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
                 className="signup_field"
                 type="email"
                 name=""
                 label="Email Address"
               />
-              <p className="pi-tag">{}</p>
+              {/* <p className="pi-tag">{}</p> */}
               <InputField
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={(event) => {
+                  passwordValidate(event.target.value);
+                  setPassword(event.target.value);
+                }}
                 className="signup_field"
                 type="password"
                 name="password"
@@ -89,13 +111,15 @@ function SignUp() {
               <div className="divsignup_btn">
                 <Button
                   onClick={(e) => handleValidation(e)}
-                  title="Sign me up"
+                  title={isLoading ? "signing up...": "sign up"}
                   className="signup_btn"
                   type="submit"
+                  disable = {isLoading}
                 />
                 <p>
                   Have an account? <span onClick={navigatetoLogin}>Login</span>
                 </p>
+                {/* {isLoading && <Spinner/>} */}
               </div>
             </div>
           </div>
