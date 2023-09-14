@@ -22,7 +22,9 @@ function CreateExercise() {
               <InputField label="Quiz title" />
             </div>
             <div className="texterea">
-              <label htmlFor="question" className="textarea_label">Question</label>
+              <label htmlFor="question" className="textarea_label">
+                Question
+              </label>
               <textarea name="" id="">
                 enter the question...
               </textarea>
@@ -38,7 +40,13 @@ function CreateExercise() {
                   name="opt"
                   className="checkbox_input"
                 />
-                <InputField type="text" name="option" className="text_input" />
+                <div className="answers">
+                  <InputField
+                    type="text"
+                    name="option"
+                    className="text_input"
+                  />
+                </div>
                 <MdCancel className="clear_btn" />
               </div>
             </div>
