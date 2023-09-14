@@ -14,6 +14,7 @@ function UserLogin() {
   let token = ""
   const handleClick = (event) => {
     event.preventDefault()
+    console.log(email)
     axios.post("http://localhost:3000/account/login", {
       email,
       password
@@ -22,7 +23,8 @@ function UserLogin() {
       console.log('this is the response', resp.data.token)
       setMessage(resp.data.message)
     })
-    .catch((error) => console.log("error occured on fe", error))
+    .catch((error) => console.log("error occured on fe", error)) 
+
   };
 
   return (

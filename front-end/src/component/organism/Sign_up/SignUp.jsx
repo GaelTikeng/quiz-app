@@ -66,7 +66,32 @@ function SignUp() {
       })
     console.log({ username: username, email: email, pwd: password });
 
-    navigate("/account/login");
+    axios
+      .get("http://localhost:3000/currentUser", {
+        username,
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log("here is the current user", res)
+      })
+      .catch((err) => console.log('Could not get current user', err))
+
+    axios
+    .post("http://localhost:3000/currentUser", {
+      // username,
+      email,
+      password,
+    })
+    .then((res) => {
+      localStorage("currentUser", JSON.stringify(res.data))
+      console.log("here is the current user", res)
+    })
+    .catch((err) => console.log('Could not get current user', err))
+    setTimeout(() => {
+      navigate("/account/login");
+    }, "3000")
+    
   };
 
   return (

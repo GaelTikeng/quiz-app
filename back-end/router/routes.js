@@ -1,4 +1,4 @@
-const { createUser } = require("../controllers/users");
+const { createUser, getCurrentUser } = require("../controllers/users");
 const { login } = require("../controllers/login");
 const express = require("express");
 const router = express.Router();
@@ -11,6 +11,7 @@ const AuthMiddleWare = require("../middlewares/authMiddleWares");
 // non protected routes
 router.post("/account/signup", createUser);
 router.post("/account/login", login);
+router.post("/currentUser", getCurrentUser);
 
 // protected routes
 router.use(AuthMiddleWare);
