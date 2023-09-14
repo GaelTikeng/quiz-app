@@ -121,7 +121,6 @@ function SignUp() {
                 name="Full name"
                 label="Full Name"
               />
-              <p className="pi-tag">{errUsername}</p>
               <InputField
                 onChange={(e) => {
                   setEmail(e.target.value)
