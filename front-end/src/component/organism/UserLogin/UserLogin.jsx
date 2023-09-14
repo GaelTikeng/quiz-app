@@ -6,9 +6,6 @@ import Button from "../../atoms/button/button";
 import Logo from "../../../../public/image/login-amico1.png";
 
 function UserLogin() {
-
-
-    
   return (
     <>
       <Navbar />

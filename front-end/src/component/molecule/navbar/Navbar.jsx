@@ -30,7 +30,7 @@ function Navbar() {
       </div>
       <div className="leftNav">
         <div className="navParagraph">
-          <p className="mainbtn" onClick={navigatetoHome}>
+          <p className="homeBtn" onClick={navigatetoHome}>
             Home
           </p>
           <p className="homeBtn" >About</p>
