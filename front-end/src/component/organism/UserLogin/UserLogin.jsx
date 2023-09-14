@@ -20,7 +20,7 @@ function UserLogin() {
       password
     })
     .then((resp) => {
-      console.log('this is the response', resp.data.token)
+      console.log('this is the response', resp)
       setMessage(resp.data.message)
     })
     .catch((error) => console.log("error occured on fe", error)) 

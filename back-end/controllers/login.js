@@ -4,35 +4,31 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
-const login =  async (req, res) => {
+const login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findOne({ where: { email } }).catch((error) => {
-      console.log("error getting user s email", error);
-    });
+    const user = await User.findOne({ where: { email } })
 
     if (user === null) {
-      return res.json({ message: "Wrong email or password" });
+      return res.json({ message: "Wrong email" });
     }
 
     let isSamePwd = bcrypt.compareSync(password, user.password);
-
+    console.log(isSamePwd)
     if (isSamePwd !== "true") {
       res.json({ message: "Wrong email or password" });
-      return;
     }
 
     const jwtoken = jwt.sign(
       {
-        username: username,
         email: email,
-        password: hashedPassword
+        password: password,
       },
       process.env.MY_SECRET_TOKEN,
-      {expiresIn: "1d"}
+      { expiresIn: "1d" }
     );
 
-    res.json({ message: "welcome back", token: jwtoken });
+    res.send({ message: "welcome back", token: jwtoken });
   } catch (error) {
     console.log("An error occured while signing in user", error);
   }
@@ -54,4 +50,4 @@ router.get("/user/login", async (req, res) => {
 //   res.send(users)
 // })
 
-module.exports = {login};
+module.exports = { login };

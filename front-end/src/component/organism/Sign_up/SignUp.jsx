@@ -25,13 +25,15 @@ function SignUp() {
     navigate("/account/login");
   };
 
+  function emailValidate (value) {
+    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
+    
+  }
+
   function passwordValidate(value) {
 
     if (value < 6) {
       setErrPwd("Email should be atleast 6 characters")
-    }
-    if (value.search(/[a-z]/i) < 0) {
-      setErrPwd("Your password must contain at least one letter.");
     }
     if (value.search(/[0-9]/) < 0) {
       setErrPwd("Your password must contain at least one digit."); 
