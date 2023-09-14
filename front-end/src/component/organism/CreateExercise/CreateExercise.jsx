@@ -4,7 +4,7 @@ import Usersnav from "../../molecule/Usersnav/Usersnav";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
 import InputField from "../../atoms/InputFields/InputField";
 import { MdCancel } from "react-icons/md";
-import { MdAddBox } from "react-icons/md";
+import { MdOutlineAddCircle } from "react-icons/md";
 import Button from "../../atoms/button/Button";
 
 function CreateExercise() {
@@ -52,7 +52,7 @@ function CreateExercise() {
             </div>
             <div className="adding">
               <div className="add_btn">
-                <MdAddBox /> Add option
+                <MdOutlineAddCircle className="md_add"/> Add option
               </div>
             </div>
             <div className="buttom_btn">

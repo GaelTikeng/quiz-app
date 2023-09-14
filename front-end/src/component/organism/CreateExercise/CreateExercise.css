@@ -27,7 +27,7 @@
   height: 616px;
   left: 7rem;
   border: 2px solid #3e9adc;
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
 }
 
@@ -99,6 +99,11 @@ input[type=checkbox] {
   font-weight: 600;
   font-size: 17px;
   position: relative;
+}
+
+.md_add {
+  width: 25px;
+  height: 25px;
 }
 
 .buttom_btn {
