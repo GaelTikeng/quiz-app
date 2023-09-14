@@ -59,7 +59,7 @@ function UserDashboard() {
             <div className="quizes_details">ljioiuihi</div>
             <div className="next_prev">
               <div className="prev">
-                <p onClick={handlePrev} className="">
+                <p onClick={handlePrev}>
                   <GrPrevious  className="fa_icons"/> Prev
                 </p>
               </div>
