@@ -26,7 +26,7 @@
   width: 65%;
   height: 616px;
   left: 7rem;
-  border: 2px solid #3e9adc;
+  /* border: 2px solid #3e9adc; */
   border-radius: 5px;
   position: relative;
 }
@@ -41,10 +41,6 @@
   font-size: 17px;
   font-weight: 600;
   padding: 1rem 0 .5rem 0;
-}
-
-.texterea textarea {
-  /* padding: 2rem 0; */
 }
 
 .iscorrrect_opt {
