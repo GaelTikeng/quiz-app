@@ -54,12 +54,12 @@
 }
 
 .signup_field {
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .signup_btn {
   background-color: #3E9ADC;
-  color: #ffff;
+  color: #ffff;  
   padding: 0.5rem;
   font-size: 20px;
   border: none;

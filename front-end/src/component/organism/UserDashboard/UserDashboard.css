@@ -69,6 +69,17 @@
   padding: 1rem 0 0 1rem;
 }
 
+.quizes_details {
+  background-color: lightcoral;
+  width: 97%;
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+  margin:4px, 4px;
+  scroll-margin: 2px;
+}
+
 .next_prev {
   display: flex;
   justify-content: center;
