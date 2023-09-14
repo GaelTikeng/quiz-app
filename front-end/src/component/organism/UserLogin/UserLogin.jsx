@@ -9,14 +9,19 @@ import axios from "axios";
 function UserLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("")
 
+  let token = ""
   const handleClick = (event) => {
     event.preventDefault()
-    axios.get("http://localhost:3000/account/login", {
+    axios.post("http://localhost:3000/account/login", {
       email,
       password
     })
-    .then((resp) => console.log('this is the response', resp))
+    .then((resp) => {
+      console.log('this is the response', resp.data.token)
+      setMessage(resp.data.message)
+    })
     .catch((error) => console.log("error occured on fe", error))
   };
 
@@ -28,6 +33,7 @@ function UserLogin() {
           <div className="userlogin_input">
             <h1 className="userlogin_title">Login</h1>
             <div className="userlogin_details">
+              <p className="pi-tag">{message}</p>
               <InputField
                 type="text"
                 name="email"
