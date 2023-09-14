@@ -60,9 +60,14 @@
 .second_part {
   width: 88%;
   border: 1px solid black;
+  border-radius: 10px;
   height: 615px;
   margin-left: 1.1rem;
   position: relative;
+}
+
+hr {
+  margin: 1rem;
 }
 
 .second_part h3 {

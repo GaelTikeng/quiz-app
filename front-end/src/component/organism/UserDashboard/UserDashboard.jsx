@@ -56,7 +56,8 @@ function UserDashboard() {
           </div>
           <div className="second_part">
             <h3>Quizzes</h3>
-            <div className="quizes_details">ljioiuihi</div>
+            <hr />
+            <div className="quizes_details"></div>
             <div className="next_prev">
               <div className="prev">
                 <p onClick={handlePrev}>

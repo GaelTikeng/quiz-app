@@ -6,6 +6,7 @@ import UserLogin from './component/organism/UserLogin/UserLogin'
 import ParticipantsLogin from './component/organism/ParticipantsLogin/ParticipantsLogin'
 import UserDashboard from './component/organism/UserDashboard/UserDashboard'
 import CreateExercise from './component/organism/CreateExercise/CreateExercise'
+import Studscore from './component/organism/Studscore/Studscore'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
              <Route path='/welcome' element={<ParticipantsLogin/>}/>
              <Route path='/dashboard:/userid' element={<UserDashboard/>}/>
              <Route path='/dashboard/createexercise' element={<CreateExercise/>}/>
+             <Route path='/student/score' element={<Studscore/>}/>
            </Routes>
     </Router>
 

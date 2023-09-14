@@ -19,10 +19,11 @@ function Navbar() {
     navigate("/account/signup");
   };
 
+
   return (
     <div className="nav_container">
       <div className="navImage">
-        <img src={Logo} alt="quiz_app logo" />
+        <img src={Logo} alt="quiz_app logo" onClick={navigatetoHome}/>
       </div>
       <div className="leftNav">
         <div className="navParagraph">
