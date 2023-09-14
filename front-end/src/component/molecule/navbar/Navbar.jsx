@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "../../atoms/button/button";
+import Button from "../../atoms/button/Button";
+// import Button from "../../atoms/button/button";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../../../../public/image/smartbrain.jpg"
