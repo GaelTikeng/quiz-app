@@ -1,6 +1,6 @@
 import React from "react";
 import InputField from "../../atoms/InputFields/InputField";
-import Button from "../../atoms/button/button";
+import Button from "../../atoms/button/Button";
 import "./SignUp.css";
 import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
