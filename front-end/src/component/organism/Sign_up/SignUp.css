@@ -9,18 +9,15 @@
 .signup_title {
   width: 219px;
   height: 83px;
-  padding: 2rem 1.2rem 0 .5rem  ;
+  padding: 1rem 1.2rem 2rem .5rem  ;
 }
 
 .h1 {
   color: #000;
+  text-align: left;
+  font-weight: 600;
 }
 
-.signup_title h1 {
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 40px;
-}
 
 .signup_form {
   padding-top: 2rem;
@@ -28,12 +25,14 @@
 
 .signUp_div {
   width: 57%;
-  height:69vh;
-  border: 1px solid; 
+  min-height: 69vh;
+  height: fit-content;
+  border: 1px solid ; 
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 }
 
 .sign_up{
@@ -55,6 +54,12 @@
   width: 350px;
   height: 400px;
   padding-top: 2rem;
+}
+
+.pi-tag {
+  padding-left: 15px;
+  color: red;
+  font-size: 15px;
 }
 
 .signup_field {
@@ -85,7 +90,12 @@ span {
   color: #058ae9;
 }
 
-span:hover {
+.h1 > span:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+} */

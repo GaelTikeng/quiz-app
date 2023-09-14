@@ -8,7 +8,6 @@ function InputField({ type, name,label, onChange }) {
       <input
       className="form_control"
        type={type} 
-      //  value={value} 
        name={name} 
        onChange={onChange}/>
     </div>

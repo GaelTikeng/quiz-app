@@ -2,6 +2,7 @@ import React from "react";
 import "./CreateExercise.css";
 import Usersnav from "../../molecule/Usersnav/Usersnav";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
+// import InputField from "../../atoms/InputFields/InputField";
 import InputField from "../../atoms/InputFields/InputField";
 import { MdCancel } from "react-icons/md";
 import { MdOutlineAddCircle } from "react-icons/md";

@@ -48,17 +48,10 @@
   margin-left: .5rem;
 }
 
-<<<<<<< HEAD
 .userlogin_btn:hover {
    cursor: pointer;
    background-color: #3e9adc;
    opacity: .6;
-=======
-
-.userlogin_btn:hover {
-  cursor: pointer;
-  background-color: #3e9adcd2;
->>>>>>> 06f5b60abd72141ae15f4c57fa801e61d7ef33cd
 }
 
 .userimage_container {
@@ -72,6 +65,3 @@
   padding-top: .7rem;
 }
 
-.userlogin_image {
-  
-}

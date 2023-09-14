@@ -11,20 +11,20 @@ function App() {
 
 
   return (
-      <div className='app'>
-    <Router>
+    <div className='app'>
+      <Router>
 
-         <Routes>
-             <Route path='/' element={<Landing/>}/>
-             <Route path='/account/signup' element={<SignUp/>}/>
-             <Route path='/account/login' element={<UserLogin/>}/>
-             <Route path='/welcome' element={<ParticipantsLogin/>}/>
-             <Route path='/dashboard:/userid' element={<UserDashboard/>}/>
-             <Route path='/dashboard/createexercise' element={<CreateExercise/>}/>
-           </Routes>
-    </Router>
+          <Routes>
+              <Route path='/' element={<Landing/>}/>
+              <Route path='/account/signup' element={<SignUp/>}/>
+              <Route path='/account/login' element={<UserLogin/>}/>
+              <Route path='/welcome' element={<ParticipantsLogin/>}/>
+              <Route path='/dashboard:/userid' element={<UserDashboard/>}/>
+              <Route path='/dashboard/createexercise' element={<CreateExercise/>}/>
+            </Routes>
+      </Router>
 
-      </div>    
+    </div>    
   )
 } 
 
