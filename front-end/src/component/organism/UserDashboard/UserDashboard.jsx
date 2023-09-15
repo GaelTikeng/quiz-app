@@ -18,6 +18,7 @@ function UserDashboard () {
   let user = JSON.parse(infoUser);
 
   useEffect(() => {
+    // get all quizzes by userId
     axios
       .get(`http://localhost:3000/dashboard/${user?.id}`, {
         headers: { Authorization: `Bearer: ${token}` },
@@ -41,6 +42,7 @@ function UserDashboard () {
   const handleQuiz = (id, title) => {
 
     localStorage.setItem("quizTitle", JSON.stringify(title))
+    localStorage.setItem("quizId", JSON.stringify(id))
     navigate(`/dashboard/${user.id}/quiz-details/${id}`)
 
   }

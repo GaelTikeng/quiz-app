@@ -2,7 +2,7 @@ const { createUser, getCurrentUser } = require("../controllers/users");
 const { login } = require("../controllers/login");
 const express = require("express");
 const router = express.Router();
-const { getQuizzes, createQuestions } = require("../controllers/quiz");
+const { getQuizzes, createQuestions, getQuizByID } = require("../controllers/quiz");
 
 const { getQuestion } = require("../controllers/question");
 
@@ -16,7 +16,7 @@ router.post("/currentUser", getCurrentUser);
 // protected routes
 router.use(AuthMiddleWare);
 router.get("/dashboard/:userId", getQuizzes);
-
+router.get("/dashboard/:quizId", getQuizByID)
 router.get("/dashboard/:userId/:quizId", getQuestion);
 
 module.exports = router;

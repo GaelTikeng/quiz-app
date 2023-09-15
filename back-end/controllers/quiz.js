@@ -6,19 +6,20 @@ const User = require("../models/user");
 // get quizzes by id
 const getQuizByID = async (req, res) => {
   const { id } = req.user;
+  const quizId = req.params.quizId
 
   const existingUser = await User.findOne({ where: { id } });
 
   if (existingUser !== null) {
     try {
-      let allQuizzes = await Quiz.findAll({
-        where: { userId: id },
+      let quiz = await Quiz.findOne({
+        where: { quizId: quizId },
         include: {
           model: [Question, Option],
         },
       });
 
-      res.send(allQuizzes);
+      res.send(quiz);
     } catch (error) {
       res.status(500).send({ message: "Something went wrong!" });
     }
@@ -27,7 +28,7 @@ const getQuizByID = async (req, res) => {
   }
 };
 
-// get quiz for a particular user
+// get quiz per userId
 const getQuizzes = async (req, res) => {
   const user = req.user;
 
@@ -49,7 +50,7 @@ const getQuizzes = async (req, res) => {
 
 // create questions
 const createQuestions = async (req, res) => {
-  
+
 };
 
 module.exports = {
