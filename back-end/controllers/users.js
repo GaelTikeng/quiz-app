@@ -12,11 +12,10 @@ const createUser = async (req, res) => {
   // generating Token
   const jwtoken = jwt.sign(
     {
-      username: username,
       email: email,
-      password: hashedPassword,
+      password: password,
     },
-    process.env.MY_SECRET_TOKEN,
+    process.env.MY_SECRET_KEY,
     { expiresIn: "1d" }
   );
 
@@ -33,16 +32,16 @@ const getCurrentUser = async (req, res) => {
   const { email } = req.body;
 
   try {
-    let currentUser = await User.findOne({where: {email: email}})
+    let currentUser = await User.findOne({ where: { email: email } });
 
-    res.send(currentUser)
+    res.send(currentUser);
   } catch (err) {
-    console.log("something went wrong", err)
-    res.status(500).send("Something went wrong")
+    console.log("something went wrong", err);
+    res.status(500).send("Something went wrong");
   }
 };
 
 module.exports = {
   createUser,
-  getCurrentUser
+  getCurrentUser,
 };

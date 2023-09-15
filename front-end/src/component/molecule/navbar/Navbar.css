@@ -66,15 +66,8 @@
 
 .loginBtn:hover {
   transform: translateY(2px);
-  color: #000;
   cursor: pointer;
-<<<<<<< HEAD:front-end/src/component/molecule/Navbar.css
-  background-color: #3e9adc;
   opacity: .7;
-=======
-  border-radius: 10px;
-  
->>>>>>> 06f5b60abd72141ae15f4c57fa801e61d7ef33cd:front-end/src/component/molecule/navbar/Navbar.css
 }
 
 .signupBtn {
@@ -87,13 +80,8 @@
 }
 
 .signupBtn:hover{
-  color: black;
-<<<<<<< HEAD:front-end/src/component/molecule/Navbar.css
-  background-color: #3e9adc;
-  opacity: .6;
-=======
-  border-radius: 10px;
->>>>>>> 06f5b60abd72141ae15f4c57fa801e61d7ef33cd:front-end/src/component/molecule/navbar/Navbar.css
+  background-color: #3e9adcc0;
+  /* opacity: .6; */
   cursor: pointer;
   border: none;
   transform: translateY(2px);

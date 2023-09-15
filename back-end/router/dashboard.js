@@ -15,6 +15,8 @@ router.get("/dashboard/:userId", async (req, res) => {
       }
     });
 
+    console.log(allQuizzes)
+
     res.send(allQuizzes);
   } catch (error) {
     console.log("Error while getting quizzes", error);

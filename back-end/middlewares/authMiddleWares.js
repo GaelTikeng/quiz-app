@@ -4,10 +4,11 @@ const AuthMiddleWare = async (req, res, next) => {
   const authorization = req.get("Authorization");
   if (authorization) {
     const token = authorization.split(" ").pop();
-
+    
     if (token) {
       try {
-        const user = await VerifyAuthToken(token);
+        const user = VerifyAuthToken(token);
+        console.log(user);
         req.user = user; // set user on request stream
 
         next();
@@ -22,4 +23,4 @@ const AuthMiddleWare = async (req, res, next) => {
     return res.send({ message: "login credentials not valid" });
   }
 };
-module.exports =  AuthMiddleWare;
+module.exports = AuthMiddleWare;

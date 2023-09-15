@@ -86,8 +86,18 @@
   padding: 0.7rem;
 }
 
-span {
+.smart {
+  color: #3E9ADC;
+  text-decoration: none !important;
+}
+
+.span {
   color: #058ae9;
+}
+
+.span:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .h1 > span:hover {
