@@ -13,8 +13,6 @@ export default function DisplayQuiz () {
 
   const user = JSON.parse(localStorage.getItem('currentUser'))
   const quizTitle = JSON.parse(localStorage.getItem("quizTitle"))
-  console.log(quizTitle)
-  console.log(typeof quizTitle)
   const navigate = useNavigate()
 
 
