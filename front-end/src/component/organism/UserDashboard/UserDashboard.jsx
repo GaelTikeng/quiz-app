@@ -38,9 +38,9 @@ function UserDashboard () {
     navigate("/createquiz");
   };
 
-  const handleQuiz = (id) => {
+  const handleQuiz = (id, title) => {
 
-    
+    localStorage.setItem("quizTitle", JSON.stringify(title))
     navigate(`/dashboard/${user.id}/quiz-details/${id}`)
 
   }
@@ -81,7 +81,7 @@ function UserDashboard () {
             <div className="quizes_details">
               {quizzes?.map((quis) => (
                 <div key={quis.id} className="single-quiz">
-                  <p className="p-quiz" onClick={() => handleQuiz(quis.id)}>{quis.title}</p>
+                  <p className="p-quiz" onClick={() => handleQuiz(quis.id, quis.title)}>{quis.title}</p>
                   <div className="two-details">
                     <p>15 days ago</p>
                     <span onClick={() => handleCopie(quis.id)}>copy link</span>

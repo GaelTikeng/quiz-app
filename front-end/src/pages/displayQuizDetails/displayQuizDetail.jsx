@@ -12,6 +12,9 @@ export default function DisplayQuiz () {
 
 
   const user = JSON.parse(localStorage.getItem('currentUser'))
+  const quizTitle = JSON.parse(localStorage.getItem("quizTitle"))
+  console.log(quizTitle)
+  console.log(typeof quizTitle)
   const navigate = useNavigate()
 
 
@@ -31,7 +34,7 @@ export default function DisplayQuiz () {
             <p>Dashboard</p>
           </div>
           <div className="second_part">
-            <h3 onClick={() => navigate(`/dashboard/${user.id}`)} className="h3-quiz">Quizzes / <span>Chemistry</span></h3>
+            <h3 onClick={() => navigate(`/dashboard/${user.id}`)} className="h3-quiz">Quizzes / <span>{quizTitle}</span></h3>
             <div className="quizes_details">
               
             </div>
