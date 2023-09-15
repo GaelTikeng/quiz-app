@@ -70,13 +70,13 @@ function CreateExercise() {
     setOptions([]);
     setQuestionNumber(questionNumber + 1);
 
-    // .then((res) => {
-    //   alert(res.data.message);
-    // })
-    // .catch(function (error) {
-    //   if (error.response) {
-    //   }
-    // });
+    .then((res) => {
+      alert(res.data.message);
+    })
+    .catch(function (error) {
+      if (error.response) {
+      }
+    });
   };
 
   return (
