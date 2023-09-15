@@ -4,18 +4,21 @@ import Navbar from "../../molecule/navbar/Navbar";
 import InputField from "../../atoms/InputFields/InputField";
 import Button from "../../atoms/button/Button";
 import Logo from "../../../../public/image/login-amico1.png";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function UserLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("")
+  const navigate = useNavigate()
 
   let userId = ""
   let token = ""
   const handleClick = (event) => {
     event.preventDefault()
     console.log(email)
+
     axios.post("http://localhost:3000/account/login", {
       email,
       password
@@ -24,26 +27,26 @@ function UserLogin() {
       console.log('this is the response', resp)
       setMessage(resp.data.message)
     })
-    .catch((error) => console.log("error occured on fe", error)) 
+    .catch((error) => console.log("error occured on fe", error))
 
     axios
       .post("http://localhost:3000/currentUser", {
-        // username,
         email,
-        // password,
       })
       .then((res) => {
         localStorage.setItem("currentUser", JSON.stringify(res.data))
         userId = res.data.id
+        navigate(`/dashboard/${res.data.id}`)
         console.log("here is the current user", res)
       })
       .catch((err) => console.log('Could not get current user', err))
+  };
 
+  if (message === "welcome back") {
     setTimeout(() => {
       navigate(`/dashboard/${userId}`);
-    }, "3000")
-
-  };
+    }, "2000")
+  }
 
   return (
     <>

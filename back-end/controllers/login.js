@@ -10,12 +10,12 @@ const login = async (req, res) => {
     const user = await User.findOne({ where: { email } })
 
     if (user === null) {
-      return res.json({ message: "Wrong email" });
+      return res.json({ message: "Wrong Email or Password" });
     }
 
     let isSamePwd = bcrypt.compareSync(password, user.password);
     console.log(isSamePwd)
-    if (isSamePwd !== "true") {
+    if (isSamePwd === "false") {
       res.json({ message: "Wrong email or password" });
     }
 
@@ -28,7 +28,7 @@ const login = async (req, res) => {
       { expiresIn: "1d" }
     );
 
-    res.send({ message: "welcome back", token: jwtoken });
+    res.send({ message: "Welcome back", token: jwtoken });
   } catch (error) {
     console.log("An error occured while signing in user", error);
   }

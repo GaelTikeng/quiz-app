@@ -4,7 +4,7 @@ const AuthMiddleWare = async (req, res, next) => {
   const authorization = req.get("Authorization");
   if (authorization) {
     const token = authorization.split(" ").pop();
-
+    console.log("this is token", token)
     if (token) {
       try {
         const user = await VerifyAuthToken(token);

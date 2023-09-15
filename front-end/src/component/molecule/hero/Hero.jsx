@@ -14,7 +14,7 @@ function Hero() {
   const navigate = useNavigate();
 
   const navigatetoSignup = () => {
-    navigate("/signup");
+    navigate("/account/signup");
   };
 
   return (

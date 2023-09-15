@@ -12,9 +12,8 @@ const createUser = async (req, res) => {
   // generating Token
   const jwtoken = jwt.sign(
     {
-      username: username,
       email: email,
-      password: hashedPassword,
+      password: password,
     },
     process.env.MY_SECRET_TOKEN,
     { expiresIn: "1d" }

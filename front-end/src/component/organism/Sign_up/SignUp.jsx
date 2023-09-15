@@ -29,7 +29,7 @@ function SignUp() {
   function emailValidate (value) {
     let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
 
-    if (!email.match(regex)) {
+    if (!value.match(regex)) {
       setErrEmail('Invalid email address')
     } else {
       setErrEmail("")
@@ -70,26 +70,29 @@ function SignUp() {
         console.log("this is the response", resp.data.token);
       })
       .catch((err) => console.log("An error occure at frontend", err))
-      .finally(() => {
-        setIsLoading(false)
-      })
+      
     console.log({ username: username, email: email, pwd: password });
 
-    axios
+    setTimeout(() => {
+      axios
       .post("http://localhost:3000/currentUser", {
-        // username,
+        username,
         email,
         password,
       })
       .then((res) => {
         localStorage.setItem("currentUser", JSON.stringify(res.data))
+        navigate(`/dashboard/${res.data.id}`)
         userId = res.data.id
+        console.log(userId)
         console.log("here is the current user", res)
       })
       .catch((err) => console.log('Could not get current user', err))
-    setTimeout(() => {
-      navigate(`/dashboard/${userId}`);
-    }, "3000")
+      .finally(() => {
+        setIsLoading(false)
+      })
+
+    }, 3000)
     
   };
 

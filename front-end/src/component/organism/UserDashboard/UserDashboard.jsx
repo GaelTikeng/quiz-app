@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./UserDashboard.css";
 import Logo from "../../../../public/image/smartbrain.jpg";
 import Button from "../../atoms/button/Button";
@@ -7,12 +7,30 @@ import Sidebar from "../../molecule/Sidebar/Sidebar";
 import Dashboard from "../../../../public/image/Dashboard.png";
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
+import axios from "axios";
 
 function UserDashboard() {
+  const [quizzes, setQuizzes] = useState([]);
+
+  let infoUser = localStorage.getItem("currentUser");
+  let token = localStorage.getItem("token");
+
+  let userId = infoUser.id;
+  useEffect(() => {
+    axios.get(`http://localhost:3000/daschboard/${userId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((response) => {
+      console.log('this are all quizzes', response)
+      setQuizzes(response.data)
+    })
+    .catch((err) => {
+      console.log("An erroror occur", err)
+    })
+  }, []);
+
   const navigate = useNavigate();
 
-
-  
   const navigatetoLogin = () => {
     navigate("/account/login");
   };
@@ -58,13 +76,11 @@ function UserDashboard() {
           </div>
           <div className="second_part">
             <h3>Quizzes</h3>
-            <div className="quizes_details">
-              ljioiuihi
-            </div>
+            <div className="quizes_details">ljioiuihi</div>
             <div className="next_prev">
               <div className="prev">
                 <div onClick={handlePrev}>
-                  <GrPrevious className="fa_icons"/> Prev
+                  <GrPrevious className="fa_icons" /> Prev
                 </div>
               </div>
               <div className="next">
