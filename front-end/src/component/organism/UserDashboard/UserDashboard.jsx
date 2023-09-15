@@ -5,11 +5,9 @@ import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
 import Dashboard from "../../../../public/image/Dashboard.png";
-import { GrPrevious } from "react-icons/gr";
-import { GrNext } from "react-icons/gr";
 import axios from "axios";
 
-function UserDashboard() {
+function UserDashboard () {
   const [quizzes, setQuizzes] = useState([]);
 
   const navigate = useNavigate();
@@ -18,8 +16,6 @@ function UserDashboard() {
   let token = localStorage.getItem("token");
 
   let user = JSON.parse(infoUser);
-
-  console.log(user?.id);
 
   useEffect(() => {
     axios
@@ -38,24 +34,19 @@ function UserDashboard() {
 
   console.log(quizzes)
 
-  const navigatetoLogin = () => {
-    navigate("/account/login");
-  };
-
   const navigtosetquiz = () => {
     navigate("/createquiz");
   };
 
-  const handlePrev = () => {
-    navigate("/-1");
-  };
+  const handleQuiz = (id) => {
 
-  const handlenext = () => {
-    navigate("/1");
-  };
-
-  const handleQuiz = (index) => {
     
+    navigate(`/dashboard/quiz-details`)
+
+  }
+
+  const handleCopie = (id) => {
+    let link = `http://localhost:5173/student/${user.id}/${id}`
   }
 
   return (
@@ -64,9 +55,9 @@ function UserDashboard() {
         <div className="nav_img">
           <img src={Logo} alt="logo" />
         </div>
-        <div className="logbtn">
+        {/* <div className="logbtn">
           <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
-        </div>
+        </div> */}
       </div>
       <div className="userdashboard_container">
         <div className="sidebar">
@@ -74,7 +65,7 @@ function UserDashboard() {
         </div>
         <div className="main_dashboard">
           <div className="actions">
-            <p>Dashboard</p>
+            <h2>Dashboard</h2>
             <div className="create_quiz">
               <Button
                 title="Create Quiz"
@@ -88,17 +79,17 @@ function UserDashboard() {
           <div className="second_part">
             <h3>Quizzes</h3>
             <div className="quizes_details">
-              {quizzes?.map((quis, index) => (
-                <div key={index} className="single-quiz"onClick={handleQuiz(index)}>
-                  <p>{quis.title}</p>
+              {quizzes?.map((quis) => (
+                <div key={quis.id} className="single-quiz">
+                  <p className="p-quiz" onClick={() => handleQuiz(quis.id)}>{quis.title}</p>
                   <div className="two-details">
                     <p>15 days ago</p>
-                    <span>copy link</span>
+                    <span onClick={() => handleCopie(quis.id)}>copy link</span>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="next_prev">
+            {/* <div className="next_prev">
               <div className="prev">
                 <div onClick={handlePrev}>
                   <GrPrevious className="fa_icons" /> Prev
@@ -109,7 +100,7 @@ function UserDashboard() {
                   Next <GrNext className="fa_icons" />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
