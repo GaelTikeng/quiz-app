@@ -77,6 +77,41 @@
   overflow: auto;
   /* text-align:center; */
   margin-left: 1rem;
+  padding: 1rem 0;
+}
+
+.quizes_details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.single-quiz {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 15px 10px;
+  width: 87%;
+}
+
+.single-quiz:hover {
+  cursor: pointer;
+  transform: translateY(1px);
+}
+
+.two-details {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  font-size: 15px;
+  width: 300px;
+
+}
+
+.two-details span:hover {
+  color: #3e9adc;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .next_prev {

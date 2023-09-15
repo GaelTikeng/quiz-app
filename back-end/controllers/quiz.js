@@ -29,16 +29,23 @@ const getQuizByID = async (req, res) => {
 
 // get quiz for a particular user
 const getQuizzes = async (req, res) => {
-  const { userId } = req.params;
+  const user = req.user;
 
-  const userQuiz = await Quiz.findAll({
-    where: { userId }
-  });
+  const existingUser = await User.findOne({ where: { email: user.email } });
 
-  return res.send(userQuiz);
+  if (existingUser !== null) {
+    const id = req.params.userId;
+
+    console.log("this is id", id);
+    const userQuiz = await Quiz.findAll({
+      where: { userId: id },
+    });
+
+    return res.send(userQuiz);
+  } else {
+    res.send("Access forbidden");
+  }
 };
-
-
 
 // create questions
 const createQuestions = async (req, res) => {};
@@ -46,5 +53,5 @@ const createQuestions = async (req, res) => {};
 module.exports = {
   getQuizzes,
   createQuestions,
-  getQuizByID
+  getQuizByID,
 };

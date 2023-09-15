@@ -93,7 +93,7 @@ router.post("/account/signup", async (req, res) => {
         email: email,
         password: hashedPassword
       },
-      process.env.MY_SECRET_TOKEN,
+      process.env.MY_SECRET_KEY,
       {expiration: "1d"}
     );
 

@@ -7,8 +7,6 @@ import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
 import axios from "../../../api/axios";
 
-
-
 function SignUp() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -17,38 +15,35 @@ function SignUp() {
   const [errEmail, setErrEmail] = useState("");
 
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
-  let userId = ""
+  let userId = "";
   let token = "";
 
   const navigatetoLogin = () => {
     navigate("/account/login");
   };
 
-  function emailValidate (value) {
-    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
+  function emailValidate(value) {
+    let regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 
     if (!value.match(regex)) {
-      setErrEmail('Invalid email address')
+      setErrEmail("Invalid email address");
     } else {
-      setErrEmail("")
+      setErrEmail("");
     }
-
   }
 
   function passwordValidate(value) {
-
     if (value < 6) {
-      setErrPwd("Password should be atleast 6 characters")
+      setErrPwd("Password should be atleast 6 characters");
     }
     if (value.search(/[0-9]/) < 0) {
-      setErrPwd("Your password must contain at least one digit."); 
+      setErrPwd("Your password must contain at least one digit.");
     }
     if (!value.match(/(?=.*[^a-zA-Z0-9])(?!.*\s)/)) {
-      setErrPwd("Your password must contain at least one special character")
-    }
-    else setErrPwd("")
+      setErrPwd("Your password must contain at least one special character");
+    } else setErrPwd("");
     // value.length < 6
     //   ? setErrPwd("Email should be atleast 6 characters")
     //   : setErrPwd("");
@@ -56,7 +51,7 @@ function SignUp() {
 
   const handleValidation = (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
 
     axios
       .post("http://localhost:3000/account/signup", {
@@ -66,34 +61,32 @@ function SignUp() {
       })
       .then((resp) => {
         token = resp.data.token;
-        localStorage.setItem("token", JSON.stringify(token));
+        localStorage.setItem("token", token);
         console.log("this is the response", resp.data.token);
       })
-      .catch((err) => console.log("An error occure at frontend", err))
-      
+      .catch((err) => console.log("An error occure at frontend", err));
+
     console.log({ username: username, email: email, pwd: password });
 
     setTimeout(() => {
       axios
-      .post("http://localhost:3000/currentUser", {
-        username,
-        email,
-        password,
-      })
-      .then((res) => {
-        localStorage.setItem("currentUser", JSON.stringify(res.data))
-        navigate(`/dashboard/${res.data.id}`)
-        userId = res.data.id
-        console.log(userId)
-        console.log("here is the current user", res)
-      })
-      .catch((err) => console.log('Could not get current user', err))
-      .finally(() => {
-        setIsLoading(false)
-      })
-
-    }, 3000)
-    
+        .post("http://localhost:3000/currentUser", {
+          username,
+          email,
+          password,
+        })
+        .then((res) => {
+          localStorage.setItem("currentUser", JSON.stringify(res.data));
+          navigate(`/dashboard/${res.data.id}`);
+          userId = res.data.id;
+          console.log(userId);
+          console.log("here is the current user", res);
+        })
+        .catch((err) => console.log("Could not get current user", err))
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }, 3000);
   };
 
   return (
@@ -117,8 +110,8 @@ function SignUp() {
               />
               <InputField
                 onChange={(e) => {
-                  setEmail(e.target.value)
-                  emailValidate(e.target.value)
+                  setEmail(e.target.value);
+                  emailValidate(e.target.value);
                 }}
                 className="signup_field"
                 type="email"
@@ -140,13 +133,16 @@ function SignUp() {
               <div className="divsignup_btn">
                 <Button
                   onClick={(e) => handleValidation(e)}
-                  title={isLoading ? "signing up...": "sign up"}
+                  title={isLoading ? "signing up..." : "sign up"}
                   className="signup_btn"
                   type="submit"
-                  disable = {isLoading}
+                  disable={isLoading}
                 />
                 <p>
-                  Have an account? <span className="span" onClick={navigatetoLogin}>Login</span>
+                  Have an account?{" "}
+                  <span className="span" onClick={navigatetoLogin}>
+                    Login
+                  </span>
                 </p>
                 {/* {isLoading && <Spinner/>} */}
               </div>

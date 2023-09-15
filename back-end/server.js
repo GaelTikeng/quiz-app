@@ -47,9 +47,9 @@ app.use("/", routes)
 // app.use("/", participantRouter);
 // app.use('/', dashboardRouter)
 
-// app.get("/", (req, res) => {
-//   return res.json("From backend side");
-// });
+app.get("/", (req, res) => {
+  return res.json("From backend side");
+});
 
 app.listen(3000, () => {
   console.log("listening to port 3000");

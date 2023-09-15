@@ -7,7 +7,7 @@ const StrategyJwt = passportJwt.Strategy;
 passport.use(
   new StrategyJwt({
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken,
-    secretOrKey: process.env.MY_SECRET_TOKEN,
+    secretOrKey: process.env.MY_SECRET_KEY,
   }, async (jwtPayLoad, done) => {
     try {
       const user = await User.findOne({ where: { id: jwtPayLoad.id } });

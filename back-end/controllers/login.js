@@ -15,8 +15,9 @@ const login = async (req, res) => {
 
     let isSamePwd = bcrypt.compareSync(password, user.password);
     console.log(isSamePwd)
-    if (isSamePwd === "false") {
-      res.json({ message: "Wrong email or password" });
+    console.log(typeof isSamePwd)
+    if (isSamePwd) {
+      return res.json({ message: "Wrong email or password" });
     }
 
     const jwtoken = jwt.sign(
@@ -24,10 +25,11 @@ const login = async (req, res) => {
         email: email,
         password: password,
       },
-      process.env.MY_SECRET_TOKEN,
+      process.env.MY_SECRET_KEY,
       { expiresIn: "1d" }
     );
 
+    console.log("This is the tokken", jwtoken)
     res.send({ message: "Welcome back", token: jwtoken });
   } catch (error) {
     console.log("An error occured while signing in user", error);

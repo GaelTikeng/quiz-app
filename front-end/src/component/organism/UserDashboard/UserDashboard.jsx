@@ -12,24 +12,31 @@ import axios from "axios";
 function UserDashboard() {
   const [quizzes, setQuizzes] = useState([]);
 
+  const navigate = useNavigate();
+
   let infoUser = localStorage.getItem("currentUser");
   let token = localStorage.getItem("token");
 
-  let userId = infoUser.id;
-  useEffect(() => {
-    axios.get(`http://localhost:3000/daschboard/${userId}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-    .then((response) => {
-      console.log('this are all quizzes', response)
-      setQuizzes(response.data)
-    })
-    .catch((err) => {
-      console.log("An erroror occur", err)
-    })
-  }, []);
+  let user = JSON.parse(infoUser);
 
-  const navigate = useNavigate();
+  console.log(user?.id);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/dashboard/${user?.id}`, {
+        headers: { Authorization: `Bearer: ${token}` },
+      })
+      .then((response) => {
+        console.log("this are all quizzes", response);
+        setQuizzes(response.data);
+      })
+      .catch((err) => {
+        console.log("An erroror occur", err);
+      });
+
+  },[]);
+
+  console.log(quizzes)
 
   const navigatetoLogin = () => {
     navigate("/account/login");
@@ -46,6 +53,10 @@ function UserDashboard() {
   const handlenext = () => {
     navigate("/1");
   };
+
+  const handleQuiz = (index) => {
+    
+  }
 
   return (
     <div>
@@ -76,7 +87,17 @@ function UserDashboard() {
           </div>
           <div className="second_part">
             <h3>Quizzes</h3>
-            <div className="quizes_details">ljioiuihi</div>
+            <div className="quizes_details">
+              {quizzes?.map((quis, index) => (
+                <div key={index} className="single-quiz"onClick={handleQuiz(index)}>
+                  <p>{quis.title}</p>
+                  <div className="two-details">
+                    <p>15 days ago</p>
+                    <span>copy link</span>
+                  </div>
+                </div>
+              ))}
+            </div>
             <div className="next_prev">
               <div className="prev">
                 <div onClick={handlePrev}>
