@@ -41,7 +41,7 @@ function UserDashboard () {
   const handleQuiz = (id) => {
 
     
-    navigate(`/dashboard/quiz-details`)
+    navigate(`/dashboard/${user.id}/quiz-details/${id}`)
 
   }
 

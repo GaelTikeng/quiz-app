@@ -37,6 +37,10 @@
   gap: 340px;
 }
 
+.quiz_btn:hover {
+  cursor: pointer;
+}
+
 .scores_btn {
   background-color: #3e9adc;
 }

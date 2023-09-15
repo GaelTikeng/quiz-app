@@ -21,16 +21,14 @@
 
 }
 
-.second_part h3 {
+.h3-quiz {
   padding: 1.5rem;
   border-bottom: 3px solid #fff;
 }
 
 .h3-quiz:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
-
 
 .quizes_details {                 
   /* background-color: lightcoral; */

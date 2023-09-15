@@ -11,6 +11,7 @@ export default function DisplayQuiz () {
 
 
 
+  const user = JSON.parse(localStorage.getItem('currentUser'))
   const navigate = useNavigate()
 
 
@@ -30,9 +31,7 @@ export default function DisplayQuiz () {
             <p>Dashboard</p>
           </div>
           <div className="second_part">
-            <div className="sec-part">
-              <h3 className="h3">Quizzes / <span>Chemistry</span></h3>
-            </div>
+            <h3 onClick={() => navigate(`/dashboard/${user.id}`)} className="h3-quiz">Quizzes / <span>Chemistry</span></h3>
             <div className="quizes_details">
               
             </div>

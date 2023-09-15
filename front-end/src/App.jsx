@@ -22,7 +22,7 @@ function App() {
             path="/dashboard/createexercise"
             element={<CreateExercise />}
           />
-          <Route path="/dashboard/quiz-details" element={<DisplayQuiz/>}/>
+          <Route path="/dashboard/:userId/quiz-details/:quizId" element={<DisplayQuiz/>}/>
         </Routes>
       </Router>
     </div>

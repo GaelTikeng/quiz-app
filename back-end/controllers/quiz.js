@@ -48,7 +48,9 @@ const getQuizzes = async (req, res) => {
 };
 
 // create questions
-const createQuestions = async (req, res) => {};
+const createQuestions = async (req, res) => {
+  
+};
 
 module.exports = {
   getQuizzes,

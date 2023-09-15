@@ -10,8 +10,9 @@ import { useNavigate } from "react-router-dom";
 function Sidebar() {
   const navigate = useNavigate();
 
+  const user = JSON.parse(localStorage.getItem("currentUser"))
   const handlequiz = () => {
-    navigate("/account/quiz");
+    navigate(`/dashboard/${user.id}`) 
   };
 
   const currentUser = JSON.parse(localStorage.getItem('currentUser'))
