@@ -40,7 +40,7 @@ function CreateExercise() {
     const data ={
       quizTitle:quiz.quizTitle
       question:quiz.question
-      option:quiz.option
+      // option:quiz.option
     }
   }
 
