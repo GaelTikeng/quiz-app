@@ -5,21 +5,19 @@ import Sidebar from "../../molecule/Sidebar/Sidebar";
 
 function Studscore() {
   return (
-    <div>
+    <>
       <Usersnav />
       <div className="students_score">
         <Sidebar />
         <div className="studperfom_container">
-          <div className="header">
-            <p>Dashboard</p>
-          </div>
+            <p className="student_p">Dashboard</p>
           <div className="studperfom_mainpage">
             <div>
-              <h1>Students Performances</h1>
+              <h1 className="student_h1">Students Performances</h1>
               <hr />
               <div className="table">
                 <table>
-                  <tr>
+                  <tr className="line">
                     <th>Full name</th>
                     <th>quiz title</th>
                     <th>score/10</th>
@@ -43,7 +41,7 @@ function Studscore() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
