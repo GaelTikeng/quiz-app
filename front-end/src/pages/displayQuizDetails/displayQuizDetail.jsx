@@ -30,6 +30,11 @@ export default function DisplayQuiz () {
     })
   }, [])
 
+  const handleToggleOption = (id) => {
+    const newOpt = [...question.options]
+    newOpt[id].checked = !newOpt[id].chacked
+  }
+
 
   return (
     <div>
@@ -55,7 +60,11 @@ export default function DisplayQuiz () {
                   <ul>
                     {ques.options?.map((opt) => (
                       <li key={opt.id}className="list-options">
-                        <input type="checkbox" className="check-box"/>
+                        <input
+                          type="checkbox" className="check-box"
+                          checked = {opt.checked}
+                          onChange={() => handleToggleOption(opt.id)}
+                        />
                         <p>{opt.title}</p>
                       </li>
                     ))}
