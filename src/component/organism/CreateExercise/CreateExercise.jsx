@@ -7,24 +7,38 @@ import { MdCancel } from "react-icons/md";
 import { MdOutlineAddCircle } from "react-icons/md";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function CreateExercise() {
   const navigate = useNavigate();
-   const [quiz, setQuiz] = ({
-    quizTitle: "",
-    question: "",
-    option: "",
-   })
 
-  //set quiz_title function
-  function handleChange(e) {
-    setQuizTitle(e.target.value);
-  }
+  const [quizTitle, setQuizTitle] = useState("");
+  const [question, setQuestion] = useState([]);
+  const [options, setOptions] = useState([]);
+  const [checkedCheckboxes, setCheckedCheckboxes] = useState([]);
+  const [items, setItems] = useState([]);
+  const [questionNumber, setQuestionNumber] = useState(1);
 
-  const deleteOption = (index) => {
-    const updatedoption = [...options];
-    updatedoption.splice(index, 1);
-    setOptions(updatedoption);
+  const handleAddItem = () => {
+    setItems([
+      ...items,
+      {
+        checkbox: false,
+        text: "",
+      },
+    ]);
+  };
+
+  const handleChange = (e) => {
+    const checkbox = e.target;
+    const value = checkbox.value;
+
+    if (checkbox.checked) {
+      setCheckedCheckboxes([...checkedCheckboxes, value]);
+    } else {
+      const index = checkedCheckboxes.indexOf(value);
+      checkedCheckboxes.splice(index, 1);
+    }
   };
 
   const navtoprevpage = () => {
@@ -35,14 +49,35 @@ function CreateExercise() {
     navigate("1");
   };
 
-  createquiz = (e) => {
+  const handleClick = () => {
+    navigate("/dashboard:/userid");
+  };
+
+  const createquiz = async (e) => {
     e.preventDefault();
-    const data ={
-      quizTitle:quiz.quizTitle
-      question:quiz.question
-      // option:quiz.option
-    }
-  }
+    const data = {
+      quizTitle,
+      question,
+      checkedCheckboxes,
+      options,
+      questionNumber,
+    };
+
+    await axios.post("url", data);
+    setQuizTitle("");
+    setQuestion("");
+    setCheckedCheckboxes;
+    setOptions([]);
+    setQuestionNumber(questionNumber + 1);
+
+    // .then((res) => {
+    //   alert(res.data.message);
+    // })
+    // .catch(function (error) {
+    //   if (error.response) {
+    //   }
+    // });
+  };
 
   return (
     <>
@@ -61,18 +96,23 @@ function CreateExercise() {
                   type="text"
                   className="quiz_title"
                   value={quizTitle}
-                  onChange={handleChange}
+                  onChange={(e) => setQuizTitle(e.target.value)}
                 />
               </div>
               <div className="texterea">
-                <label htmlFor="question" className="textarea_label">
+                <label
+                  htmlFor="question"
+                  className="textarea_label"
+                  value={questionNumber}
+                  onChange={(e) => setQuestionNumber(e.target.value)}
+                >
                   Question
                 </label>
                 <textarea
                   name="question"
                   id="question"
                   value={question}
-                  onChange={handlequestion}
+                  onChange={(e) => setQuestion(e.target.value)}
                 >
                   enter the question...
                 </textarea>
@@ -82,36 +122,48 @@ function CreateExercise() {
                 <p>Options</p>
               </div>
               <div className="opt_cont">
-                <div className="options">
-                  <InputField
-                    type="checkbox"
-                    name="opt"
-                    className="checkbox_input"
-                  />
-                  <div className="answers">
+                {items.map((item, index) => (
+                  <div className="options" key={index}>
                     <InputField
-                      type="text"
+                      key="index"
+                      type="checkbox"
+                      value="value"
+                      checked={checkedCheckboxes.includes()}
+                      onChange={(e) => {
+                        setItems([...items, { ...item, text: e.target.value }]);
+                      }}
                       name="option"
-                      handleoptionshandleoptions
-                      className="text_input"
-                      value={newOption}
-                      onChange={(event) => setNewOption(event.target.value)}
+                      className="checkbox_input"
+                    />
+                    <div className="answers">
+                      <InputField
+                        type="text"
+                        name="option"
+                        handleoptionshandleoptions
+                        className="text_input"
+                        value={options}
+                        onChange={(e) => setOptions(e.target.value)}
+                      />
+                    </div>
+                    <MdCancel
+                      className="clear_btn"
+                      onClick={() => setItems(items.filter((i) => i !== item))}
                     />
                   </div>
-                  <MdCancel
-                    className="clear_btn"
-                    onClick={() => deleteOption(index)}
-                  />
-                </div>
+                ))}
               </div>
               <div className="adding">
-                <div className="add_btn">
+                <div className="add_btn" onClick={handleAddItem}>
                   <MdOutlineAddCircle className="md_add" /> Add option
                 </div>
               </div>
               <div className="buttom_btn">
                 <div className="buttons">
-                  <Button title="cancel" className="cancel" />
+                  <Button
+                    title="cancel"
+                    className="cancel"
+                    onClick={handleClick}
+                  />
                   <div className="three_btn">
                     <Button
                       title="Prev"
@@ -120,10 +172,11 @@ function CreateExercise() {
                     />
                     <Button
                       title="Next"
-                      onClick={navtonextpage}
+                     
                       className="next_btn"
+                      type="Submit"
                     />
-                    <Button title="Done" className="done_btn"  onClick={handleChange}/>
+                    <Button title="Done" className="done_btn" />
                   </div>
                 </div>
               </div>
