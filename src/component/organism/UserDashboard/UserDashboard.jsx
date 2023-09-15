@@ -4,7 +4,7 @@ import Logo from "../../../../public/image/smartbrain.jpg";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
-import Dashboard from "../../../../public/image/Dashboard.png";
+import Dashboard from "../../../../public/image/Dashboard.png"
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
 
