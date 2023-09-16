@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CreateExercise.css";
 import Usersnav from "../../molecule/Usersnav/Usersnav";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
+// import InputField from "../../atoms/InputFields/InputField";
 import InputField from "../../atoms/InputFields/InputField";
 import { MdCancel } from "react-icons/md";
 import { MdOutlineAddCircle } from "react-icons/md";
 import Button from "../../atoms/button/Button";
 
 function CreateExercise() {
+
+
+
+  const handleChange = () => {
+    
+  }
+
+  const handleChecked = () => {
+
+  }
+
   return (
     <>
       <Usersnav />
@@ -19,15 +31,19 @@ function CreateExercise() {
           </div>
           <div className="inputs_container">
             <div className="creat_quiz">
-              <InputField label="Quiz title" type="text" className="quiz_title"/>
+              <InputField
+                label="Quiz title"
+                type="text"
+                className="quiz_title"
+              />
             </div>
             <div className="texterea">
-              <label htmlFor="question" className="textarea_label">
-                Question
+              <label
+                htmlFor="question" className="textarea_label"
+              >
+                Question 1
               </label>
-              <textarea name="" id="">
-                enter the question...
-              </textarea>
+              <textarea placeholder="Type question"></textarea>
             </div>
             <div className="iscorrrect_opt">
               <p>Correct</p>
@@ -39,12 +55,14 @@ function CreateExercise() {
                   type="checkbox"
                   name="opt"
                   className="checkbox_input"
+                  onChange={handleChecked}
                 />
                 <div className="answers">
                   <InputField
                     type="text"
                     name="option"
                     className="text_input"
+                    onChange={handleChange}
                   />
                 </div>
                 <MdCancel className="clear_btn" />
@@ -52,7 +70,8 @@ function CreateExercise() {
             </div>
             <div className="adding">
               <div className="add_btn">
-                <MdOutlineAddCircle className="md_add"/> Add option
+                <MdOutlineAddCircle className="md_add" />
+                Add option
               </div>
             </div>
             <div className="buttom_btn">

@@ -1,10 +1,13 @@
 import React from "react";
 
-function Button({ onClick, title, className, children }) {
+function Button({onClick, title, className, type, disable}) {
   return (
     <div>
-      <button type="button" onClick={onClick} className={className}>
-        <div className="icon">{children}</div>
+      <button type={type}
+      onClick={onClick}
+      disabled={disable}
+      className={className}
+      >
         {title}
       </button>
     </div>

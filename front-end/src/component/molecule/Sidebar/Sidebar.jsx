@@ -4,20 +4,25 @@ import Ellipse from "../../../../public/image/Ellipse1.png";
 import quiz from "../../../../public/image/quiz_button.png";
 import Scores from "../../../../public/image/scores_button.png";
 import Logout from "../../../../public/image/logout_button.png";
+import Avatar from 'react-avatar';
 import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const navigate = useNavigate();
 
+  const user = JSON.parse(localStorage.getItem("currentUser"))
   const handlequiz = () => {
-    navigate("/account/quiz");
+    navigate(`/dashboard/${user.id}`) 
   };
+
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 
   const handlescores = () => {
     navigate("/account/scores");
   };
 
   const handlelogout = () => {
+    localStorage.removeItem("token")
     navigate("/");
   };
 
@@ -25,8 +30,13 @@ function Sidebar() {
     <div className="side_container">
       <div className="avatar_container">
         <div className="avatar_infos">
-          <img src={Ellipse} alt="Avatar_image" className="avatar_img" />
-          <p>Avatar name</p>
+          <Avatar
+            className="avatar"
+            name= {currentUser.username}
+            color="#D9D9D9"
+            round={true}
+          />
+          <p>{currentUser.username}</p>
         </div>
       </div>
       <div className="dashboard_btn">

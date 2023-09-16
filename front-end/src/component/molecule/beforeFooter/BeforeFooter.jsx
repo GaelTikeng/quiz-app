@@ -5,22 +5,21 @@ import svg1 from "../../../../public/image/svg1.png"
 import svg2 from "../../../../public/image/svg2.png"
 import svg3 from "../../../../public/image/svg3.png"
 import svg4 from "../../../../public/image/svg4.png"
-import Phone from "../../../../public/image/phone_logo.png";
+import Phone from "../../../../public/image/Online learning-amico.png";
 
 function BeforeFooter() {
   return (
     <div className="beforefooter_container">
       <div className="div-before">
         <div className="before-container">
-          <h1 className="head">Content Optimize For The Modern Marketers</h1>
+          <h1 className="head">SmartBrain promotes distance education and online course</h1>
           
             <ul className="svg_ul">
               <li>
                 <img src={svg1} alt="svg" className="vector" />
-                <h4 className="vector_text">Increase Lead conversation Rate</h4>
+                <h4 className="vector_text">Increase student's knowledge</h4>
                 <p className="vector_p">
-                  Use our 1000+ beautiful pre-optimized templates to optimize
-                  your converstion rate to over 40%
+                  You have the posibility to set a all quizzes of any type
                 </p>
               </li>
               <li>
@@ -43,11 +42,10 @@ function BeforeFooter() {
               <li>
                 <img src={svg4} alt="svg" className="vector" />
                 <h4 className="vector_text">
-                  Intelligent Analytic And Data Integration
+                  Easy and simple to use
                 </h4>
                 <p className="vector_p">
-                  Get custumers insights while helping them, segment your
-                  audience and integrate your data with over 1000 tools.
+                  Set quizzes at your own pase and share the link to your students
                 </p>
               </li>
             </ul>

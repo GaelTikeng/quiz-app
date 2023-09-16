@@ -6,7 +6,7 @@ const Option = require("../models/option")
 
 // get all quizzes belonging to one user
 router.get("/dashboard/:userId", async (req, res) => {
-  const { userId } = req.params;
+  const { userId } = req.params
 
   try {
     let allQuizzes = await Quiz.findAll({
@@ -14,6 +14,8 @@ router.get("/dashboard/:userId", async (req, res) => {
         userId: userId,
       }
     });
+
+    console.log(allQuizzes)
 
     res.send(allQuizzes);
   } catch (error) {

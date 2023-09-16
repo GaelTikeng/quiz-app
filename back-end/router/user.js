@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const jwt = require ('jsonwebtoken')
 
 const nodemailer = require("nodemailer")
 
 const User = require("../models/user");
 const Mailgen = require("mailgen");
 
-router.post("/accounts/signup", async (req, res) => {
+router.post("/account/signup", async (req, res) => {
   let { username, email, password } = req.body;
+
+  console.log("username", username)
+  console.log("email", email)
 
   // sendiing email
   let config = {
@@ -91,7 +93,8 @@ router.post("/accounts/signup", async (req, res) => {
         email: email,
         password: hashedPassword
       },
-      process.env.MY_SECRET_TOKEN
+      process.env.MY_SECRET_KEY,
+      {expiration: "1d"}
     );
 
     res.send({token: jwtoken});
