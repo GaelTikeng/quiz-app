@@ -114,7 +114,7 @@ function CreateExercise() {
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                 >
-                  enter the question...
+                  enter the que...
                 </textarea>
               </div>
               <div className="iscorrrect_opt">
