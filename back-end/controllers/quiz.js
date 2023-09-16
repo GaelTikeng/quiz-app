@@ -50,7 +50,15 @@ const getQuizzes = async (req, res) => {
 
 // create questions
 const createQuestions = async (req, res) => {
+  const quiz = req.body.quiz
 
+  try {
+    await Quiz.create(quiz)
+    res.status(200).send(quiz)
+  }
+  catch(error) {
+    console.log("An error occured while creating quiz", err)
+  }
 };
 
 module.exports = {
