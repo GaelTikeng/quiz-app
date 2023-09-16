@@ -40,6 +40,31 @@
   padding: 1rem 0;
 }
 
+.p-quest {
+  font-size: 20px;
+}
+
+.questions span {
+  font-weight: 700;
+}
+
+.list-options {
+  /* background-color: red; */
+  display: flex;
+  padding: 10px 20px;
+  justify-content: baseline;
+  gap: 1.5rem;
+}
+
+.list-options input {
+  width: 25px;
+  height: 25px;
+}
+
+.list-options p {
+  font-size: 20px;
+}
+
 .actions {
   display: flex;
   justify-content: space-between;

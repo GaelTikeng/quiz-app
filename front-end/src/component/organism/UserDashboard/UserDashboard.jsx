@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
 import Dashboard from "../../../../public/image/Dashboard.png";
 import axios from "axios";
+import { timeAgo } from "../../../utiles/timeStamp";
 
 function UserDashboard () {
   const [quizzes, setQuizzes] = useState([]);
@@ -18,6 +19,7 @@ function UserDashboard () {
   let user = JSON.parse(infoUser);
 
   useEffect(() => {
+    // get all quizzes by userId
     axios
       .get(`http://localhost:3000/dashboard/${user?.id}`, {
         headers: { Authorization: `Bearer: ${token}` },
@@ -32,8 +34,6 @@ function UserDashboard () {
 
   },[]);
 
-  console.log(quizzes)
-
   const navigtosetquiz = () => {
     navigate("/createquiz");
   };
@@ -41,6 +41,7 @@ function UserDashboard () {
   const handleQuiz = (id, title) => {
 
     localStorage.setItem("quizTitle", JSON.stringify(title))
+    localStorage.setItem("quizId", JSON.stringify(id))
     navigate(`/dashboard/${user.id}/quiz-details/${id}`)
 
   }
@@ -83,7 +84,7 @@ function UserDashboard () {
                 <div key={quis.id} className="single-quiz">
                   <p className="p-quiz" onClick={() => handleQuiz(quis.id, quis.title)}>{quis.title}</p>
                   <div className="two-details">
-                    <p>15 days ago</p>
+                    <p>{timeAgo((quis.createdAt))}</p>
                     <span onClick={() => handleCopie(quis.id)}>copy link</span>
                   </div>
                 </div>
