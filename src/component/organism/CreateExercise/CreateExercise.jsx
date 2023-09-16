@@ -11,13 +11,13 @@ import axios from "axios";
 
 function CreateExercise() {
   const navigate = useNavigate();
-
   const [quizTitle, setQuizTitle] = useState("");
   const [question, setQuestion] = useState([]);
   const [options, setOptions] = useState([]);
   const [checkedCheckboxes, setCheckedCheckboxes] = useState([]);
   const [items, setItems] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(1);
+
 
   const handleAddItem = () => {
     setItems([
@@ -41,27 +41,19 @@ function CreateExercise() {
     }
   };
 
-  const navtoprevpage = () => {
-    navigate("-1");
-  };
-
-  const navtonextpage = () => {
-    navigate("1");
-  };
-
   const handleClick = () => {
     navigate("/dashboard:/userid");
   };
 
   const createquiz = async (e) => {
     e.preventDefault();
-    const data = {
+    const data = [{
       quizTitle,
       question,
       checkedCheckboxes,
       options,
       questionNumber,
-    };
+    }];
 
     await axios.post("url", data);
     setQuizTitle("");
@@ -70,14 +62,11 @@ function CreateExercise() {
     setOptions([]);
     setQuestionNumber(questionNumber + 1);
 
-    // .then((res) => {
-    //   alert(res.data.message);
-    // })
-    // .catch(function (error) {
-    //   if (error.response) {
-    //   }
-    // });
   };
+  const incrementCount = () => {
+    setQuestionNumber(questionNumber + 1);
+  };
+
 
   return (
     <>
@@ -103,10 +92,9 @@ function CreateExercise() {
                 <label
                   htmlFor="question"
                   className="textarea_label"
-                  value={questionNumber}
-                  onChange={(e) => setQuestionNumber(e.target.value)}
+                  
                 >
-                  Question
+                  Question:{questionNumber}
                 </label>
                 <textarea
                   name="question"
@@ -129,10 +117,7 @@ function CreateExercise() {
                       type="checkbox"
                       value="value"
                       checked={checkedCheckboxes.includes()}
-                      onChange={(e) => {
-                        setItems([...items, { ...item, text: e.target.value }]);
-                      }}
-                      name="option"
+                      onChange={(e) => setCheckedCheckboxes(e.target.value)}
                       className="checkbox_input"
                     />
                     <div className="answers">
@@ -167,16 +152,16 @@ function CreateExercise() {
                   <div className="three_btn">
                     <Button
                       title="Prev"
-                      onClick={navtoprevpage}
+                      // onClick={navtoprevpage}
                       className="previous"
                     />
                     <Button
                       title="Next"
-                     
+                      type="Submit" 
+                      onChange={incrementCount}
                       className="next_btn"
-                      type="Submit"
                     />
-                    <Button title="Done" className="done_btn" />
+                    <Button title="Done" className="done_btn"  type="Submit" />
                   </div>
                 </div>
               </div>
@@ -187,5 +172,6 @@ function CreateExercise() {
     </>
   );
 }
+
 
 export default CreateExercise;

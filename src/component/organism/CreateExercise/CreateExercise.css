@@ -12,9 +12,9 @@
   position: relative;
 }
 
-.quiz_header{
+.quiz_header {
   width: 88%;
-  padding: 3.5rem 0 2.5rem 1rem;  
+  padding: 3.5rem 0 2.5rem 1rem;
 }
 
 .quiz_header p {
@@ -24,21 +24,17 @@
 
 .inputs_container {
   width: 65%;
-  height: 616px;
+  height: 612px;
   left: 7rem;
-  border: 2px solid #3e9adc;
+  border: 2px solid #000;
   border-radius: 10px;
   position: relative;
-}
-
-.quiz_title {
-  
 }
 
 .texterea {
   display: flex;
   flex-direction: column;
-  margin: 0 .6rem 0 .6rem;
+  margin: 0 0.6rem 0 0.6rem;
 }
 
 textarea {
@@ -48,17 +44,17 @@ textarea {
 .textarea_label {
   font-size: 17px;
   font-weight: 600;
-  padding: 1rem 0 .5rem 0;
+  padding: 1rem 0 0.5rem 0;
 }
 
 .iscorrrect_opt {
   width: 55%;
   display: flex;
-  padding: 1rem 0 0 .6rem;
+  padding: 1rem 0 0 0.6rem;
   justify-content: space-between;
 }
 
-.iscorrrect_opt p{
+.iscorrrect_opt p {
   font-size: 18px;
   font-weight: 500;
 }
@@ -71,7 +67,7 @@ textarea {
   overflow: auto;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   background-color: black;
   width: 34px;
   height: 40px;
@@ -88,13 +84,13 @@ input[type=checkbox] {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  margin-top: .4rem;
+  margin-top: 0.4rem;
 }
 
 .adding {
   display: flex;
   justify-content: end;
-  padding: 2rem .7rem 0 0;
+  padding: 2rem 0.7rem 0 0;
 }
 
 .add_btn {
@@ -118,7 +114,7 @@ input[type=checkbox] {
 .buttom_btn {
   position: absolute;
   bottom: 0;
-  padding: 0 .6rem 1.5rem ;
+  padding: 0 0.6rem 1.5rem;
   width: 97.3%;
 }
 
