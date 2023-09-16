@@ -6,7 +6,7 @@ import UserLogin from './component/organism/UserLogin/UserLogin'
 import ParticipantsLogin from './component/organism/ParticipantsLogin/ParticipantsLogin'
 import UserDashboard from './component/organism/UserDashboard/UserDashboard'
 import CreateExercise from './component/organism/CreateExercise/CreateExercise'
-// import Studscore from './component/organism/Studscore/Studscore'
+import Studscore from './component/organism/Studscore/Studscore'
 
 function App() {
 

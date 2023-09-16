@@ -1,6 +1,5 @@
 import React from "react";
 import "./Sidebar.css";
-import Ellipse from "../../../../public/image/Ellipse1.png";
 import quiz from "../../../../public/image/quiz_button.png";
 import Scores from "../../../../public/image/scores_button.png";
 import Logout from "../../../../public/image/logout_button.png";
