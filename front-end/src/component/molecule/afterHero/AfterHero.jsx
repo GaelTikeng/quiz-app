@@ -4,16 +4,17 @@ import Logo1 from '../../../../public/image/vector1.png'
 import Logo2 from '../../../../public/image/vector2.png'
 import Logo3 from '../../../../public/image/vector3.png'
 import Logo4 from '../../../../public/image/Vector4.png'
+import Dash from '../../../../public/image/dash.png'
 
 
 function AfterHero() {
   return (
     <div className="afterhero">
+      {/* <img src={Dash} alt="vector" className="vector" /> */}
       <div className="afterhero_div">
         <div className="afterhero_header">
           <h1  className="head"> 
-            This Quiz will Take you Knowledge of General Knowledge, Science,
-            Chemistry and More.
+            You will be able to set a quiz on any of your subjects and test you student's understanding of the subject matter
           </h1>
         </div>
 
