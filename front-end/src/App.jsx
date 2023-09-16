@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Landing from "./component/organism/Landing";
+import SignUp from "./component/organism/Sign_up/SignUp";
+import UserLogin from "./component/organism/UserLogin/UserLogin";
+import ParticipantsLogin from "./component/organism/ParticipantsLogin/ParticipantsLogin";
+import UserDashboard from "./component/organism/UserDashboard/UserDashboard";
+import CreateExercise from "./component/organism/CreateExercise/CreateExercise";
+import DisplayQuiz from "./pages/displayQuizDetails/displayQuizDetail";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/account/signup" element={<SignUp />} />
+          <Route path="/account/login" element={<UserLogin />} />
+          <Route path="/welcome" element={<ParticipantsLogin />} />
+          <Route path="/dashboard/:userid" element={<UserDashboard />} />
+          <Route
+            path="/dashboard/createexercise"
+            element={<CreateExercise />}
+          />
+          <Route path="/dashboard/:userId/quiz-details/:quizId" element={<DisplayQuiz/>}/>
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;

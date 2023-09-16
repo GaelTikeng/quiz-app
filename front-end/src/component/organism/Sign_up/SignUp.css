@@ -1,0 +1,107 @@
+/* * {
+  outline: 2px solid red;
+} */
+
+.signup_title {
+  width: 219px;
+  height: 83px;
+  padding: 1rem 1.2rem 2rem .5rem  ;
+}
+
+.h1 {
+  color: #000;
+  text-align: left;
+  font-weight: 600;
+}
+
+
+.signup_form {
+  padding-top: 2rem;
+}
+
+.signUp_div {
+  width: 57%;
+  min-height: 69vh;
+  height: fit-content;
+  border: 1px solid ; 
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.sign_up{
+  width: 50%;
+}
+
+.signUp_div {
+  display: flex;
+}
+
+.login_amico {
+  width: 50%;
+  background-color: #3E9ADC;
+  display: flex;
+  justify-content: center;
+}
+
+.signup_log {
+  width: 350px;
+  height: 400px;
+  padding-top: 2rem;
+}
+
+.pi-tag {
+  padding-left: 15px;
+  color: red;
+  font-size: 15px;
+}
+
+.signup_field {
+  padding-top: 1rem;
+}
+
+.signup_btn {
+  background-color: #3E9ADC;
+  color: #ffff;  
+  padding: 0.5rem;
+  font-size: 20px;
+  border: none;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.signup_btn:hover {
+  cursor: pointer;
+  background-color: #3e9adcd2;
+}
+
+.divsignup_btn {
+  padding: 0.7rem;
+}
+
+.smart {
+  color: #3E9ADC;
+  text-decoration: none !important;
+}
+
+.span {
+  color: #058ae9;
+}
+
+.span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.h1 > span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+} */

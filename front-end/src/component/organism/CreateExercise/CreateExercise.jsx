@@ -152,7 +152,7 @@ function CreateExercise() {
                   <div className="three_btn">
                     <Button
                       title="Prev"
-                      onClick={navtoprevpage}
+                      // onClick={navtoprevpage}
                       className="previous"
                     />
                     <Button
