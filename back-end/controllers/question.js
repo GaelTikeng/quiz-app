@@ -28,7 +28,7 @@ const createQuestion = async (req, res) => {
   const questions = req.body.questions
 
   for (const quest of questions) {
-    await Question.create({question: quest})
+    await Question.bulkCreate({question: quest})
   }
 
   res.send(quest)

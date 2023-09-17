@@ -6,6 +6,8 @@ const { getQuizzes, createQuiz, getQuizByID } = require("../controllers/quiz");
 
 const { getQuestion, createQuestion } = require("../controllers/question");
 
+const {createOption} = require('../controllers/option')
+
 const AuthMiddleWare = require("../middlewares/authMiddleWares");
 
 // non protected routes

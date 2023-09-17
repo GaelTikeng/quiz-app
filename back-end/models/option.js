@@ -22,7 +22,7 @@ const Option = sequel.define('option', {
 })
 
 Question.hasMany(Option, {
-  foreignKey: 'questionId'
+  foreignKey: 'questId'
 })
 Option.belongsTo(Question)
 
