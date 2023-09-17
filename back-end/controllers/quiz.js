@@ -6,7 +6,7 @@ const User = require("../models/user");
 // get quizzes by id
 const getQuizByID = async (req, res) => {
   const { id } = req.user;
-  const quizId = req.params.quizId
+  const quizId = req.params.quizId;
 
   const existingUser = await User.findOne({ where: { id } });
 
@@ -48,16 +48,18 @@ const getQuizzes = async (req, res) => {
   }
 };
 
-// create questions
+// create quiz
 const createQuestions = async (req, res) => {
-  const quiz = req.body.quiz
-
+  const quiz = req.body.quiz;
+  const { userId } = req.params;
   try {
-    await Quiz.create(quiz)
-    res.status(200).send(quiz)
-  }
-  catch(error) {
-    console.log("An error occured while creating quiz", err)
+    await Quiz.create({
+      title: quiz,
+      userId: userId,
+    });
+    res.status(200).send(quiz);
+  } catch (error) {
+    console.log("An error occured while creating quiz", err);
   }
 };
 

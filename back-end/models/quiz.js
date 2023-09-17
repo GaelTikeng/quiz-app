@@ -19,7 +19,9 @@ const Quiz = sequel.define('quiz', {
   }
 })
 
-User.hasMany(Quiz)
+User.hasMany(Quiz, {
+  foreignKey: 'userId'
+})
 Quiz.belongsTo(User)
 
 sequel

@@ -4,7 +4,7 @@ const Option = require("../models/option");
 
 // get all questions per quiz
 const getQuestion = async (req, res) => {
-  const { userId, quizId } = req.params;
+  const { quizId } = req.params;
 
   try {
     let allQuestions = await Question.findAll({
@@ -18,10 +18,18 @@ const getQuestion = async (req, res) => {
 
     res.send(allQuestions);
   } catch (err) {
-    console.log("error occured while creating quiz");
+    console.log("error occured while creating quiz", err);
   }
 };
 
+const createQuestion = async (req, res) => {
+  
+  const questions = req.body.questions
+
+
+}
+
 module.exports = {
-  getQuestion
+  getQuestion,
+  createQuestion
 }

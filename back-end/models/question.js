@@ -13,11 +13,14 @@ const Question = sequel.define("question", {
     allowNull: false
   },
   quizId: {
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
+    foreignKey: true
   },
 })
 
-Quiz.hasMany(Question)
+Quiz.hasMany(Question, {
+  foreignKey: "quizId"
+})
 Question.belongsTo(Quiz)
 
 sequel

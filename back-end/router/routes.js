@@ -17,6 +17,7 @@ router.post("/currentUser", getCurrentUser);
 router.use(AuthMiddleWare);
 router.get("/dashboard/:userId", getQuizzes);
 router.get("/dashboard/:quizId", getQuizByID)
+router.post("/dashboard/:userId/create-quiz", createQuestions)
 router.get("/dashboard/:userId/:quizId", getQuestion);
 
 module.exports = router;
