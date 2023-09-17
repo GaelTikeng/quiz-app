@@ -22,11 +22,16 @@ const getQuestion = async (req, res) => {
   }
 };
 
+// create questions
 const createQuestion = async (req, res) => {
   
   const questions = req.body.questions
 
+  for (const quest of questions) {
+    await Question.create({question: quest})
+  }
 
+  res.send(quest)
 }
 
 module.exports = {

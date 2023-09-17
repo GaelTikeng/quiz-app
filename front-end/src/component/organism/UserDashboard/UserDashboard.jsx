@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
 import Dashboard from "../../../../public/image/Dashboard.png";
 import axios from "axios";
+import { FaPlusCircle } from "react-icons/fa";
 import { timeAgo } from "../../../utiles/timeStamp";
 
 function UserDashboard () {
@@ -73,7 +74,8 @@ function UserDashboard () {
                 onClick={navigtosetquiz}
                 className="createquiz_btn"
               >
-                <img src={Dashboard} alt="icon" />
+                <FaPlusCircle/>
+                {/* <img src={Dashboard} alt="icon" /> */}
               </Button>
             </div>
           </div>

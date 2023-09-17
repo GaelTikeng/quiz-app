@@ -2,9 +2,9 @@ const { createUser, getCurrentUser } = require("../controllers/users");
 const { login } = require("../controllers/login");
 const express = require("express");
 const router = express.Router();
-const { getQuizzes, createQuestions, getQuizByID } = require("../controllers/quiz");
+const { getQuizzes, createQuiz, getQuizByID } = require("../controllers/quiz");
 
-const { getQuestion } = require("../controllers/question");
+const { getQuestion, createQuestion } = require("../controllers/question");
 
 const AuthMiddleWare = require("../middlewares/authMiddleWares");
 
@@ -17,7 +17,8 @@ router.post("/currentUser", getCurrentUser);
 router.use(AuthMiddleWare);
 router.get("/dashboard/:userId", getQuizzes);
 router.get("/dashboard/:quizId", getQuizByID)
-router.post("/dashboard/:userId/create-quiz", createQuestions)
+router.post("/dashboard/:userId/create-quiz", createQuiz)
+router.post("/dashboard/:userId/create-question", createQuestion)
 router.get("/dashboard/:userId/:quizId", getQuestion);
 
 module.exports = router;

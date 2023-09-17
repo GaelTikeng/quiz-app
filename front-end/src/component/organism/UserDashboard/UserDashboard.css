@@ -52,7 +52,8 @@
   align-items: center;
   font-size: 16px;
   position: relative;
-  font-weight: 800;
+  font-weight: 500;
+  font-size: 20px;
   border: none;
 }
 
@@ -76,17 +77,18 @@
 }
 
 .second_part h3 {
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
   border-bottom: 3px solid #fff;
 }
 
 .quizes_details {                 
   /* background-color: lightcoral; */
-  width: 951px;
+  /* width: 100%; */
   height: 500px;
   overflow: auto;
+  margin: 0 auto !important;
   /* text-align:center; */
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   padding: 1rem 0;
 }
 
@@ -101,7 +103,7 @@
   justify-content: space-between;
   background-color: #fff;
   padding: 15px 10px;
-  width: 87%;
+  width: 100%;
 }
 
 .single-quiz > p {

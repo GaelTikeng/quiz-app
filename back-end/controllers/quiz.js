@@ -49,7 +49,7 @@ const getQuizzes = async (req, res) => {
 };
 
 // create quiz
-const createQuestions = async (req, res) => {
+const createQuiz = async (req, res) => {
   const quiz = req.body.quiz;
   const { userId } = req.params;
   try {
@@ -65,6 +65,6 @@ const createQuestions = async (req, res) => {
 
 module.exports = {
   getQuizzes,
-  createQuestions,
+  createQuiz,
   getQuizByID,
 };
