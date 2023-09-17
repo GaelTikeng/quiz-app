@@ -6,7 +6,7 @@ const { getQuizzes, createQuiz, getQuizByID } = require("../controllers/quiz");
 
 const { getQuestion, createQuestion } = require("../controllers/question");
 
-const {createOption} = require('../controllers/option')
+const { createOption } = require("../controllers/option");
 
 const AuthMiddleWare = require("../middlewares/authMiddleWares");
 
@@ -18,9 +18,10 @@ router.post("/currentUser", getCurrentUser);
 // protected routes
 router.use(AuthMiddleWare);
 router.get("/dashboard/:userId", getQuizzes);
-router.get("/dashboard/:quizId", getQuizByID)
-router.post("/dashboard/:userId/create-quiz", createQuiz)
-router.post("/dashboard/:userId/create-question", createQuestion)
+router.get("/dashboard/:quizId", getQuizByID);
+router.post("/dashboard/:userId/create-quiz", createQuiz);
+router.post("/dashboard/:userId/create-question", createQuestion);
+router.post("/dashboard/:userId/create-option", createOption);
 router.get("/dashboard/:userId/:quizId", getQuestion);
 
 module.exports = router;

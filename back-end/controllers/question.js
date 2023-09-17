@@ -27,11 +27,12 @@ const createQuestion = async (req, res) => {
   
   const questions = req.body.questions
 
+  let kestion
   for (const quest of questions) {
-    await Question.bulkCreate({question: quest})
+    kestion = await Question.bulkCreate({question: quest})
   }
 
-  res.send(quest)
+  res.send(kestion)
 }
 
 module.exports = {
