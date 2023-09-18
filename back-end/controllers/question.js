@@ -1,7 +1,6 @@
 const Question = require("../models/question");
 const Option = require("../models/option");
 
-
 // get all questions per quiz
 const getQuestion = async (req, res) => {
   const { quizId } = req.params;
@@ -24,27 +23,27 @@ const getQuestion = async (req, res) => {
 
 // create questions
 const createQuestion = async (req, res) => {
-  
-  const questions = req.body.questions
+  const { quizId } = req.params;
+  const questions = req.body.questions;
 
-  let kestion
-  console.log(questions)
+  let kestion;
+  console.log(questions);
 
   try {
-    kestion = await questions?.map((kest) => Question.create({question: kest}))
-
-  }
-  catch(err) {
-    console.log("error while creating question", err)
+    kestion = await questions?.map((kest) =>
+      Question.create({ question: kest.title, quizId: kest.quizId })
+    );
+  } catch (err) {
+    console.log("error while creating question", err);
   }
   // for (const quest of questions) {
   //   kestion = await Question.bulkCreate({question: quest})
   // }
 
-  res.send(kestion)
-}
+  res.send(kestion);
+};
 
 module.exports = {
   getQuestion,
-  createQuestion
-}
+  createQuestion,
+};

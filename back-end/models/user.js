@@ -21,6 +21,7 @@ const User = sequel.define("user", {
   },
 });
 
+
 sequel
   .sync()
   .then(() => {

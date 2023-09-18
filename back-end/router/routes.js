@@ -20,8 +20,8 @@ router.post("/currentUser", getCurrentUser);
 router.get("/dashboard/:userId", getQuizzes);
 router.get("/dashboard/:quizId", getQuizByID);
 router.post("/dashboard/:userId/create-quiz", createQuiz);
-router.post("/dashboard/:userId/create-question", createQuestion);
-router.post("/dashboard/:userId/create-option", createOption);
+router.post("/dashboard/:userId/create-question/:quizId", createQuestion);
+router.post("/dashboard/:userId/create-option/:quizId", createOption);
 router.get("/dashboard/:userId/:quizId", getQuestion);
 
 module.exports = router;

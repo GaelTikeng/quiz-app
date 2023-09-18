@@ -19,9 +19,9 @@ const navigatetoLogin =()=> {
         <div className="nav_img">
           <img src={Logo} alt="logo" />
         </div>
-        <div className="logbtn">
+        {/* <div className="logbtn">
           <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

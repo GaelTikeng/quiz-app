@@ -36,7 +36,7 @@ function UserDashboard () {
   },[]);
 
   const navigtosetquiz = () => {
-    navigate("/createquiz");
+    navigate("/dashboard/create-quiz");
   };
 
   const handleQuiz = (id, title) => {

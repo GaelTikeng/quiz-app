@@ -14,7 +14,7 @@ function CreateExercise() {
   const [quizTitle, setQuizTitle] = useState("");
   const [question, setQuestion] = useState([]);
   const [options, setOptions] = useState([]);
-  const [checkedCheckboxes, setCheckedCheckboxes] = useState([]);
+  const [checkedCheckboxes, setCheckedCheckboxes] = useState(false);
   const [items, setItems] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(1);
 
@@ -42,7 +42,7 @@ function CreateExercise() {
   };
 
   const handleClick = () => {
-    navigate("/dashboard:/userid");
+    navigate(`/dashboard/${userId}`);
   };
 
   const createquiz = async (e) => {
@@ -94,15 +94,16 @@ function CreateExercise() {
                   className="textarea_label"
                   
                 >
-                  Question:{questionNumber}
+                  Question {questionNumber}
                 </label>
                 <textarea
                   name="question"
                   id="question"
                   value={question}
+                  placeholder="Type the question..."
                   onChange={(e) => setQuestion(e.target.value)}
                 >
-                  enter the question...
+                  
                 </textarea>
               </div>
               <div className="iscorrrect_opt">

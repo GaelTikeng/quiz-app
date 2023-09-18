@@ -14,20 +14,19 @@ const Option = sequel.define('option', {
   isCorrect: {
     type: DataTypes.ENUM("true", "false")
   },
-  questionId: {
-    type: DataTypes.INTEGER
-  }
+  // questionId: {
+  //   type: DataTypes.INTEGER
+  // }
 }, {
   timestamps: false
 })
+Option.drop()
 
-Question.hasMany(Option, {
-  foreignKey: 'questId'
-})
+Question.hasMany(Option)
 Option.belongsTo(Question)
 
 sequel
-  .sync({force: true})
+  .sync()
   .then(() => {
     console.log('option table created successfully')
   })

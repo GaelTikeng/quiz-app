@@ -19,7 +19,7 @@ function App() {
           <Route path="/welcome" element={<ParticipantsLogin />} />
           <Route path="/dashboard/:userid" element={<UserDashboard />} />
           <Route
-            path="/dashboard/createexercise"
+            path="/dashboard/create-quiz"
             element={<CreateExercise />}
           />
           <Route path="/dashboard/:userId/quiz-details/:quizId" element={<DisplayQuiz/>}/>

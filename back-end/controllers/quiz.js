@@ -30,10 +30,12 @@ const getQuizByID = async (req, res) => {
 
 // get quiz per userId
 const getQuizzes = async (req, res) => {
-  const user = req.user;
+  // const user = req.user;
+  // console.log(req.user)
+  const {userId} = req.params
 
   try {
-    const existingUser = await User.findOne({ where: { email: user.email }});
+    const existingUser = await User.findOne({ where: { id:userId }});
 
     if (existingUser !== null) {
       const id = req.params.userId;
@@ -45,7 +47,8 @@ const getQuizzes = async (req, res) => {
 
       return res.send(userQuiz);
     } else {
-      res.send("Access forbidden");
+      console.log('user not exist')
+      res.send("User does not exist");
     }
   } catch (err) {
     console.log("error while getting quiz", err);
@@ -59,7 +62,7 @@ const createQuiz = async (req, res) => {
   try {
     await Quiz.create({
       title: quiz,
-      // userId: userId,
+      userId: userId,
     });
     res.status(200).send(quiz);
   } catch (err) {
