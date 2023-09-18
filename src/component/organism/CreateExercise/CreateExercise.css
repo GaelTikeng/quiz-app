@@ -1,0 +1,154 @@
+* {
+  /* outline: 1px solid green; */
+}
+
+.createquiz_container {
+  display: flex;
+}
+
+.right_side {
+  background-color: #f1f1f1;
+  width: 100%;
+  position: relative;
+}
+
+.quiz_header {
+  width: 88%;
+  padding: 3.5rem 0 2.5rem 1rem;
+}
+
+.quiz_header p {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.inputs_container {
+  width: 65%;
+  height: 612px;
+  left: 7rem;
+  border: 2px solid #000;
+  border-radius: 10px;
+  position: relative;
+}
+
+.texterea {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.6rem 0 0.6rem;
+}
+
+textarea {
+  height: 100px;
+}
+
+.textarea_label {
+  font-size: 17px;
+  font-weight: 600;
+  padding: 1rem 0 0.5rem 0;
+}
+
+.iscorrrect_opt {
+  width: 55%;
+  display: flex;
+  padding: 1rem 0 0 0.6rem;
+  justify-content: space-between;
+}
+
+.iscorrrect_opt p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 98%;
+  overflow: auto;
+}
+
+input[type="checkbox"] {
+  background-color: black;
+  width: 34px;
+  height: 40px;
+}
+
+.answers {
+  width: 82%;
+  margin-left: 1rem;
+}
+
+.clear_btn {
+  color: #ffff;
+  background-color: #000;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+}
+
+.adding {
+  display: flex;
+  justify-content: end;
+  padding: 2rem 0.7rem 0 0;
+}
+
+.add_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ffff;
+  width: 150px;
+  height: 30px;
+  border: 1px solid black;
+  font-weight: 600;
+  font-size: 17px;
+  position: relative;
+}
+
+.md_add {
+  width: 25px;
+  height: 25px;
+}
+
+.buttom_btn {
+  position: absolute;
+  bottom: 0;
+  padding: 0 0.6rem 1.5rem;
+  width: 97.3%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.three_btn {
+  display: flex;
+  gap: 20px;
+}
+
+.cancel {
+  color: orangered;
+  width: 60px;
+  height: 28px;
+  font-weight: 600;
+}
+
+.previous {
+  width: 60px;
+  height: 28px;
+  font-weight: 600;
+}
+
+.next_btn {
+  width: 60px;
+  height: 28px;
+  font-weight: 600;
+}
+
+.done_btn {
+  width: 60px;
+  height: 28px;
+  font-weight: 600;
+}
