@@ -20,11 +20,14 @@ function Navbar() {
     navigate("/account/signup");
   };
 
+  const handleClickLanding = () => {
+    navigate('/')
+  }
 
   return (
     <div className="nav_container">
-      <div className="navImage">
-        <img src={Logo} alt="quiz_app logo" onClick={navigatetoHome}/>
+      <div className="navImage" onClick={handleClickLanding}>
+        <img src={Logo} alt="quiz_app logo" />
       </div>
       <div className="leftNav">
         <div className="navParagraph">

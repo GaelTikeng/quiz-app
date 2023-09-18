@@ -31,6 +31,12 @@
 .userlogin_p {
   margin-left: .5rem;
   font-size: 13px;
+  color: #3E9ADC;
+}
+
+.userlogin_p:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .userloginbtn_container {
@@ -46,12 +52,13 @@
   color: #fff;
   border: none;
   margin-left: .5rem;
+  margin-top: -10px;
 }
 
 .userlogin_btn:hover {
    cursor: pointer;
    background-color: #3e9adc;
-   opacity: .6;
+   opacity: .8;
 }
 
 .userimage_container {
@@ -62,6 +69,7 @@
 }
 
 .userlogin_image {
-  padding-top: .7rem;
+  width: 90%;
+  margin: auto;
 }
 

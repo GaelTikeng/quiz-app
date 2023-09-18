@@ -1,0 +1,84 @@
+.useronboard_container {
+  background-color: #f1f1f1;
+}
+
+.div_elements {
+  background-color: #fff;
+  width: 85%;
+  height: 80vh;
+  margin: auto;
+}
+
+.header_icon {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.welcome_header h1 {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.useronboarding_img img{
+ width: 360px;
+}
+
+.welcome_text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2rem;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.prev_navig {
+  border-radius: 2px solid #000;
+  background-color: #3e9adc;
+  font-size: 12px;
+  color: #fff;
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding-top: .5rem;
+}
+
+.prev_icon {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  padding-top: .1rem;
+}
+
+.next_navig {
+  border-radius: 2px solid #000;
+  background-color: #3e9adc;
+  font-size: 12px;
+  color: #fff;
+  width: 100px;
+  height: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  padding-top: .5rem;
+}
+
+.next_icon {
+  background-color: #fff;
+  border-radius: 50%;
+  height: 12px;
+  width: 12px;
+  padding-top: .1rem;
+}
+
+
+
+
+

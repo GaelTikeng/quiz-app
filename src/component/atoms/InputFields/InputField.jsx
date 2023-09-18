@@ -1,7 +1,7 @@
 import React from "react";
 import './InputField.css'
 
-function InputField({ type, name,label, onChange }) {
+function InputField({ type, name,label, onChange, value }) {
   return (
     <div className="form-group">
      <label htmlFor="input-field" className="html_label">{label}</label>
@@ -9,7 +9,9 @@ function InputField({ type, name,label, onChange }) {
       className="form_control"
        type={type} 
        name={name} 
-       onChange={onChange}/>
+       onChange={onChange}
+       value={value}
+       />
     </div>
   );
 }

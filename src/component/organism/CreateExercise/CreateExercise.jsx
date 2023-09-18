@@ -37,7 +37,7 @@ function CreateExercise() {
       setCheckedCheckboxes([...checkedCheckboxes, value]);
     } else {
       const index = checkedCheckboxes.indexOf(value);
-      checkedCheckboxes.splice(index, 1);
+      // checkedCheckboxes.splice(index, 1);
     }
   };
 
@@ -56,7 +56,7 @@ function CreateExercise() {
     }];
 
     await axios.post("url", data);
-    setQuizTitle("");
+    setQuizTitle(""); 
     setQuestion("");
     setCheckedCheckboxes;
     setOptions([]);
@@ -124,7 +124,6 @@ function CreateExercise() {
                       <InputField
                         type="text"
                         name="option"
-                        handleoptionshandleoptions
                         className="text_input"
                         value={options}
                         onChange={(e) => setOptions(e.target.value)}

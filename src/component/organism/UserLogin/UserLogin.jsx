@@ -4,32 +4,56 @@ import Navbar from "../../molecule/navbar/Navbar";
 import InputField from "../../atoms/InputFields/InputField";
 import Button from "../../atoms/button/Button";
 import Logo from "../../../../public/image/login-amico1.png";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function UserLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-  let token = ""
+  let userId = "";
   const handleClick = (event) => {
-    event.preventDefault()
-    console.log(email)
-    axios.post("http://localhost:3000/account/login", {
-      email,
-      password
-    })
-    .then((resp) => {
-      console.log('this is the response', resp)
-      setMessage(resp.data.message)
-    })
-    .catch((error) => console.log("error occured on fe", error)) 
+    event.preventDefault();
+    // console.log(password)
+    let mes = "";
 
+    axios
+      .post("http://localhost:3000/account/login", {
+        email,
+        password,
+      })
+      .then((resp) => {
+        console.log("this is the response", resp);
+        localStorage.setItem("token", resp.data.token);
+        mes = resp.data.message;
+        setMessage(resp.data.message);
+      })
+      .catch((error) => console.log("error occured on fe", error));
+
+    // getting currenct user
+    setTimeout(() => {
+      console.log("this is the message", mes);
+      axios
+        .post("http://localhost:3000/currentUser", {
+          email,
+        })
+        .then((res) => {
+          localStorage.setItem("currentUser", JSON.stringify(res.data));
+          userId = res.data.id;
+          navigate(`/dashboard/${userId}`);
+          // navigate(`/dashboard/${res.data.id}`)
+          console.log("here is the current user", res);
+        })
+        .catch((err) => console.log("Could not get current user", err))
+      
+    }, 2000);
   };
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="userlogin_container">
         <form action="submit" className="uselogin_formcontainer">
           <div className="userlogin_input">
