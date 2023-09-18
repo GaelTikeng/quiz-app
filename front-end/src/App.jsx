@@ -7,6 +7,7 @@ import ParticipantsLogin from "./component/organism/ParticipantsLogin/Participan
 import UserDashboard from "./component/organism/UserDashboard/UserDashboard";
 import CreateExercise from "./component/organism/CreateExercise/CreateExercise";
 import DisplayQuiz from "./pages/displayQuizDetails/displayQuizDetail";
+import Useronboardinga from "./pages/Useronboardinga/Useronboardinga";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             path="/dashboard/createexercise"
             element={<CreateExercise />}
           />
+          <Route path="/useronboardinga" element={<Useronboardinga/>}/>
           <Route path="/dashboard/:userId/quiz-details/:quizId" element={<DisplayQuiz/>}/>
         </Routes>
       </Router>
