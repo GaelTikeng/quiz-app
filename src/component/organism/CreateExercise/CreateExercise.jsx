@@ -37,7 +37,7 @@ function CreateExercise() {
       setCheckedCheckboxes([...checkedCheckboxes, value]);
     } else {
       const index = checkedCheckboxes.indexOf(value);
-      // checkedCheckboxes.splice(index, 1);
+      checkedCheckboxes.splice(index, 1);
     }
   };
 
@@ -56,7 +56,7 @@ function CreateExercise() {
     }];
 
     await axios.post("url", data);
-    setQuizTitle(""); 
+    setQuizTitle("");
     setQuestion("");
     setCheckedCheckboxes;
     setOptions([]);
