@@ -4,7 +4,6 @@ import Logo from "../../../../public/image/smartbrain.jpg";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
-import Dashboard from "../../../../public/image/Dashboard.png";
 import axios from "axios";
 import { FaPlusCircle } from "react-icons/fa";
 import { timeAgo } from "../../../utiles/timeStamp";

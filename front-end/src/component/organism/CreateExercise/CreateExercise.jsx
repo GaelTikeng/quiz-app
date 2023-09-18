@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "./CreateExercise.css";
 import Usersnav from "../../molecule/Usersnav/Usersnav";
 import Sidebar from "../../molecule/Sidebar/Sidebar";
@@ -11,13 +11,17 @@ import axios from "axios";
 
 function CreateExercise() {
   const navigate = useNavigate();
-  const [quizTitle, setQuizTitle] = useState("");
+  const [quiz, setQuiz] = useState("");
   const [question, setQuestion] = useState([]);
   const [options, setOptions] = useState([]);
-  const [checkedCheckboxes, setCheckedCheckboxes] = useState(false);
+  const [checkBoxes, setCheckBoxes] = useState(false);
+
+  const reducer = (state, action) => {
+    return { count: state.count + 1 };
+  };
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
   const [items, setItems] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(1);
-
 
   const handleAddItem = () => {
     setItems([
@@ -34,10 +38,10 @@ function CreateExercise() {
     const value = checkbox.value;
 
     if (checkbox.checked) {
-      setCheckedCheckboxes([...checkedCheckboxes, value]);
+      setCheckBoxes([...checkBoxes, value]);
     } else {
-      const index = checkedCheckboxes.indexOf(value);
-      // checkedCheckboxes.splice(index, 1);
+      const index = checkBoxes.indexOf(value);
+      // checkBoxes.splice(index, 1);
     }
   };
 
@@ -45,28 +49,70 @@ function CreateExercise() {
     navigate(`/dashboard/${userId}`);
   };
 
-  const createquiz = async (e) => {
-    e.preventDefault();
-    const data = [{
-      quizTitle,
-      question,
-      checkedCheckboxes,
-      options,
-      questionNumber,
-    }];
+  // const createquiz = async (e) => {
+  //   e.preventDefault();
+  //   const data = [
+  //     {
+  //       quizTitle,
+  //       question,
+  //       checkBoxes,
+  //       options,
+  //       questionNumber,
+  //     },
+  //   ];
 
-    await axios.post("url", data);
-    setQuizTitle(""); 
-    setQuestion("");
-    setCheckedCheckboxes;
-    setOptions([]);
-    setQuestionNumber(questionNumber + 1);
-
-  };
+  //   await axios.post("url", data);
+  //   setQuizTitle("");
+  //   setQuestion("");
+  //   setCheckBoxes;
+  //   setOptions([]);
+  //   setQuestionNumber(questionNumber + 1);
+  // };
   const incrementCount = () => {
     setQuestionNumber(questionNumber + 1);
   };
 
+  const handleDone = () => {
+    // post quiz
+    axios
+      .post(`http://localhost:3000/dashboard/${userId}/create-quiz`, quiz, {
+        headers: { Authorization: `Bearer: ${token}` },
+      })
+      .then((res) => {
+        console.log("The response is successfull", res);
+      })
+      .catch((err) => console.log("Could not create quiz", err));
+
+    // post question
+    axios
+      .post(
+        `http://localhost:3000/dashboard/${userId}/create-question/${quizId}`,
+        question,
+        {
+          headers: { Authorization: `Bearer: ${token}` },
+        }
+      )
+      .then((response) => {
+        console.log("successfully post questions", response);
+      })
+      .catch((err) => {
+        console.log("could not post question", err);
+      });
+
+    // post options
+    axios
+      .post(
+        `http://localhost:3000/dashboard/${userId}/create-option/${quiz}`,
+        options,
+        {
+          headers: { Authorization: `Bearer: ${token}` },
+        }
+      )
+      .then((res) => {
+        console.log("Options created successfuly", res);
+      })
+      .catch((error) => console.log("Could not post options", error));
+  };
 
   return (
     <>
@@ -77,7 +123,9 @@ function CreateExercise() {
           <div className="quiz_header">
             <p>Dashboard</p>
           </div>
-          <form onSubmit={createquiz}>
+          <form
+          // onSubmit={createquiz}
+          >
             <div className="inputs_container">
               <div className="creat_quiz">
                 <InputField
@@ -89,12 +137,8 @@ function CreateExercise() {
                 />
               </div>
               <div className="texterea">
-                <label
-                  htmlFor="question"
-                  className="textarea_label"
-                  
-                >
-                  Question {questionNumber}
+                <label htmlFor="question" className="textarea_label">
+                  Question {state.count}
                 </label>
                 <textarea
                   name="question"
@@ -102,9 +146,7 @@ function CreateExercise() {
                   value={question}
                   placeholder="Type the question..."
                   onChange={(e) => setQuestion(e.target.value)}
-                >
-                  
-                </textarea>
+                ></textarea>
               </div>
               <div className="iscorrrect_opt">
                 <p>Correct</p>
@@ -117,15 +159,14 @@ function CreateExercise() {
                       key="index"
                       type="checkbox"
                       value="value"
-                      checked={checkedCheckboxes.includes()}
-                      onChange={(e) => setCheckedCheckboxes(e.target.value)}
+                      checked={checkBoxes}
+                      onChange={(e) => setCheckBoxes(e.target.value)}
                       className="checkbox_input"
                     />
                     <div className="answers">
                       <InputField
                         type="text"
                         name="option"
-                        handleoptionshandleoptions
                         className="text_input"
                         value={options}
                         onChange={(e) => setOptions(e.target.value)}
@@ -158,11 +199,16 @@ function CreateExercise() {
                     />
                     <Button
                       title="Next"
-                      type="Submit" 
-                      onChange={incrementCount}
+                      type="Submit"
+                      onChange={() => dispatch()}
                       className="next_btn"
                     />
-                    <Button title="Done" className="done_btn"  type="Submit" />
+                    <Button
+                      title="Done"
+                      className="done_btn"
+                      type="Submit"
+                      onClick={() => handleDone()}
+                    />
                   </div>
                 </div>
               </div>
@@ -173,6 +219,5 @@ function CreateExercise() {
     </>
   );
 }
-
 
 export default CreateExercise;

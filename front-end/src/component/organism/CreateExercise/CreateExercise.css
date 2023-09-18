@@ -1,4 +1,3 @@
-
 .createquiz_container {
   display: flex;
 }
@@ -28,10 +27,6 @@
   position: relative;
 }
 
-/* .quiz_title {
-  
-} */
-
 .texterea {
   display: flex;
   flex-direction: column;
@@ -58,7 +53,7 @@ textarea {
   justify-content: space-between;
 }
 
-.iscorrrect_opt p{
+.iscorrrect_opt p {
   font-size: 18px;
   font-weight: 500;
 }
@@ -116,7 +111,8 @@ input[type=checkbox] {
 }
 
 .add_btn:hover {
-  
+  cursor: pointer;
+  color: #000000d8;
 }
 
 .md_add {
