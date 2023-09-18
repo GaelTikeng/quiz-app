@@ -27,7 +27,7 @@ Question.hasMany(Option, {
 Option.belongsTo(Question)
 
 sequel
-  .sync()
+  .sync({force: true})
   .then(() => {
     console.log('option table created successfully')
   })

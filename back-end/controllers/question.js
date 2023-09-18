@@ -28,9 +28,18 @@ const createQuestion = async (req, res) => {
   const questions = req.body.questions
 
   let kestion
-  for (const quest of questions) {
-    kestion = await Question.bulkCreate({question: quest})
+  console.log(questions)
+
+  try {
+    kestion = await questions?.map((kest) => Question.create({question: kest}))
+
   }
+  catch(err) {
+    console.log("error while creating question", err)
+  }
+  // for (const quest of questions) {
+  //   kestion = await Question.bulkCreate({question: quest})
+  // }
 
   res.send(kestion)
 }
