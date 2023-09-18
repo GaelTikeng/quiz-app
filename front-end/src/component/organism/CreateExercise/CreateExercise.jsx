@@ -56,7 +56,7 @@ function CreateExercise() {
     }];
 
     await axios.post("url", data);
-    setQuizTitle("");
+    setQuizTitle(""); 
     setQuestion("");
     setCheckedCheckboxes;
     setOptions([]);
