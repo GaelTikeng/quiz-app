@@ -13,7 +13,8 @@ import { v4 as uuidv4 } from "uuid";
 function CreateExercise() {
   const navigate = useNavigate();
   const [quiz, setQuiz] = useState("");
-  const [question, setQuestion] = useState([]);
+  const [question, setQuestion] = useState("");
+  const [allQuestion, setAllQuestion] = useState([])
   // const [options, setOptions] = useState([]);
   const [checkBoxes, setCheckBoxes] = useState(false);
 
@@ -22,7 +23,6 @@ function CreateExercise() {
   };
   const [state, dispatch] = useReducer(reducer, { count: 1 });
   const [items, setItems] = useState([]);
-  const [questionNumber, setQuestionNumber] = useState(1);
   const [questionId, setQuestionId] = useState(
     "4d27ea39-0324-4d5c-a3f2-593d7a67f470"
   );
@@ -47,15 +47,11 @@ function CreateExercise() {
   };
 
   const handleAddQuestions = () => {
-    setQuestion([...question, { id: uuidv4(), title: "" }]);
+    setAllQuestion([...allQuestion, { id: questionId, title: question }]);
   };
 
   const handleClick = () => {
     navigate(`/dashboard/${userId}`);
-  };
-
-  const incrementCount = () => {
-    setQuestionNumber(questionNumber + 1);
   };
 
   const handleDone = () => {
@@ -108,8 +104,9 @@ function CreateExercise() {
     dispatch();
     handleAddQuestions();
     setQuestionId(uuidv4())
-
-    console.log("theseare the set questions", question)
+    setQuestion("")
+    console.log('this is th e current question', question)
+    console.log("theseare the set questions", allQuestion)
   };
 
   const handleDelete = (index) => {
@@ -156,11 +153,7 @@ function CreateExercise() {
                   // value={question}
                   placeholder="Type the question..."
                   onChange={(e) =>
-                    setQuestion((prev) => {
-                      let update = [...prev];
-                      update.title = e.target.value;
-                      return update;
-                    })
+                    setQuestion(e.target.value)
                   }
                 ></textarea>
               </div>

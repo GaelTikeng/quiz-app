@@ -10,12 +10,14 @@ import { timeAgo } from "../../../utiles/timeStamp";
 import { BASE_URL } from "../../../services/contants";
 import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 
 function UserDashboard () {
   const [quizzes, setQuizzes] = useState([]);
 
   const navigate = useNavigate();
 
+  const notify = () => toast("Copied!");
   let infoUser = localStorage.getItem("currentUser");
   let token = localStorage.getItem("token");
 
@@ -41,18 +43,19 @@ function UserDashboard () {
     navigate("/dashboard/create-quiz");
   };
 
-  const handleQuiz = (id, title) => {
+  const handleQuiz = (quizId, title) => {
 
     localStorage.setItem("quizTitle", JSON.stringify(title))
-    localStorage.setItem("quizId", JSON.stringify(id))
-    navigate(`/dashboard/${user.id}/quiz-details/${id}`)
+    localStorage.setItem("quizId", JSON.stringify(quizId))
+    navigate(`/dashboard/${user.id}/quiz-details/${quizId}`)
 
   }
 
-  const handleCopie = (id) => {
-    let link = BASE_URL + `student/${user.id}/${id}`
+  const handleCopie = (quizId) => {
+    const link = BASE_URL+`student/${user.id}/${quizId}`
+    toast("Copied!");
     navigator.clipboard.writeText(link)
-      .then(() => alert("link copied"))
+      .then(() => console.log("link copied"))
   }
 
   return (
@@ -91,7 +94,10 @@ function UserDashboard () {
                   <p className="p-quiz" onClick={() => handleQuiz(quis.id, quis.title)}>{quis.title}</p>
                   <div className="two-details">
                     <p>{timeAgo((quis.createdAt))}</p>
-                    <span onClick={() => handleCopie(quis.id)}>copy link</span>
+                    <div>
+                      <span onClick={() => handleCopie(quis.id)}>copy link</span>
+                      <ToastContainer autoClose={500} />
+                    </div>
                   </div>
                 </div>
               ))}
