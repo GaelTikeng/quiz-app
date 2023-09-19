@@ -20,7 +20,6 @@ const Option = sequel.define('option', {
 }, {
   timestamps: false
 })
-Option.drop()
 
 Question.hasMany(Option)
 Option.belongsTo(Question)

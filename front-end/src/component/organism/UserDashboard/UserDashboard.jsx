@@ -7,6 +7,9 @@ import Sidebar from "../../molecule/Sidebar/Sidebar";
 import axios from "axios";
 import { FaPlusCircle } from "react-icons/fa";
 import { timeAgo } from "../../../utiles/timeStamp";
+import { BASE_URL } from "../../../services/contants";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function UserDashboard () {
   const [quizzes, setQuizzes] = useState([]);
@@ -47,7 +50,9 @@ function UserDashboard () {
   }
 
   const handleCopie = (id) => {
-    let link = `http://localhost:5173/student/${user.id}/${id}`
+    let link = BASE_URL + `student/${user.id}/${id}`
+    navigator.clipboard.writeText(link)
+      .then(() => alert("link copied"))
   }
 
   return (

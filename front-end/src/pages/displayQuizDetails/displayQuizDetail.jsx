@@ -18,6 +18,7 @@ export default function DisplayQuiz () {
   let token = localStorage.getItem("token");
   
   useEffect(() => {
+    // get all questions and corresponding options
     axios
     .get(`http://localhost:3000/dashboard/${user?.Id}/${quizId}`, {
       headers: {Authorization: `Bearer: ${token}`}
@@ -60,7 +61,7 @@ export default function DisplayQuiz () {
                   <p className="p-quest"><span>{index + 1}</span>. {ques.question}</p>
                   <ul>
                     {ques.options?.map((opt) => (
-                      <li key={opt.id}className="list-options">
+                      <li key={opt.id} className="list-options">
                         <input
                           type="checkbox" className="check-box"
                           checked = {opt.checked}

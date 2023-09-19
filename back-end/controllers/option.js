@@ -1,12 +1,12 @@
 const Option = require("../models/option");
 
 const createOption = async (req, res) => {
-  const { options } = req.body;
+  const { option } = req.body;
 
   let proposition;
   console.log(option);
   try {
-    proposition = await options?.map((opt) =>
+    proposition = await option?.map((opt) =>
       Option.create({
         title: opt.title,
         questionId: opt.questionId,
