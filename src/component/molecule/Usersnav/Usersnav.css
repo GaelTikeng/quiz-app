@@ -1,0 +1,9 @@
+.userDashboard-nav {
+    margin: auto;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    height: 5rem;
+    background-color: #ffff;
+  }

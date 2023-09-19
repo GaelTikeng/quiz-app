@@ -1,0 +1,78 @@
+.userDashboard-nav {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  height: 5rem;
+  background-color: #ffff;
+}
+
+.nav_img {
+  margin: auto 0;
+  align-self: center;
+}
+
+.second_part {
+  width: 88%;
+  border: 3px solid #fff;
+  height: 615px;
+  margin-left: 1.1rem;
+  position: relative;
+
+}
+
+.h3-quiz {
+  padding: 1.5rem;
+  border-bottom: 3px solid #fff;
+}
+
+.h3-quiz:hover {
+  cursor: pointer;
+}
+
+.quizes_details {                 
+  /* background-color: lightcoral; */
+  width: 951px;
+  height: 500px;
+  overflow: auto;
+  /* text-align:center; */
+  margin-left: 1rem;
+  padding: 1rem 0;
+}
+
+.p-quest {
+  font-size: 20px;
+}
+
+.questions span {
+  font-weight: 700;
+}
+
+.list-options {
+  /* background-color: red; */
+  display: flex;
+  padding: 10px 20px;
+  justify-content: baseline;
+  gap: 1.5rem;
+}
+
+.list-options input {
+  width: 25px;
+  height: 25px;
+}
+
+.list-options p {
+  font-size: 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  padding: 3.5rem 0 2.5rem 1rem;
+}
+
+.main_dashboard {
+  background-color: #f1f1f1;
+  width: 100%;
+}
