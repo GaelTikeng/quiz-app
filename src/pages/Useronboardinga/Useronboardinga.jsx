@@ -12,6 +12,10 @@ function Useronboardinga() {
     navigate("/useronboardingb");
   };
 
+  const handleClickPrev = () => {
+    navigate('/welcome')
+  }
+
   return (
     <div className="all">
       <div className="nav-img">
@@ -29,7 +33,7 @@ function Useronboardinga() {
             </p>
             <div className="two-btns">
               <button
-                // onClick={handleClickPrev}
+                onClick={handleClickPrev}
                 className="prev-btns"
               >
                 <FaAngleLeft />

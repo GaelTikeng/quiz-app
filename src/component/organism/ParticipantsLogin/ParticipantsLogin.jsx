@@ -10,7 +10,7 @@ function ParticipantsLogin() {
   const navigate = useNavigate()
   
   const handlenavigate=() => {
-    navigate('/useronboard');
+    navigate('/useronboardinga');
   }
 
   return (
