@@ -29,8 +29,7 @@ function Useronboardinga() {
           </div>
           <div>
             <p>
-              Are you ready to test your knowledge? This quiz app was <br />{" "}
-              created by your teacher to help you learn the material.
+              Are you ready to test your knowledge? This quiz app was <br />
             </p>
           </div>
           <div className="btns">
