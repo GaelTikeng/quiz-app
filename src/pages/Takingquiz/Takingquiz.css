@@ -1,0 +1,40 @@
+.taking_quiz {
+  background-color: #f1f1f1;
+}
+
+.quiz_cont {
+  width: 84%;
+  height: 87vh;
+  border: 1px solid black;
+  margin: 0  8%;       
+}
+
+.name_time {
+  padding-top: .5rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+}
+
+.div_ques {
+  background-color: lightblue;
+  margin-top: 2rem;
+  height: 69vh;
+  padding-top: 2rem;
+  overflow: scroll;
+}
+
+.btn_done {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.quiz-button {
+  color: #fff;
+  background-color: #3e9edc;
+  padding: .5rem 1.5rem;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+}
