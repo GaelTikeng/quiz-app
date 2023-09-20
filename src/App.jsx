@@ -9,6 +9,7 @@ import CreateExercise from "./component/organism/CreateExercise/CreateExercise";
 import DisplayQuiz from "./pages/displayQuizDetails/displayQuizDetail";
 import Useronboardinga from "./pages/Useronboardinga/Useronboardinga";
 import Useronboardingb from "./pages/Useronboardingb/Useronboardingb";
+import Takingquiz from "./pages/Takingquiz/Takingquiz";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/useronboardinga" element={<Useronboardinga/>}/>
           <Route path="/useronboardingb" element={<Useronboardingb/>}/>
           <Route path="/dashboard/:userId/quiz-details/:quizId" element={<DisplayQuiz/>}/>
+          <Route path="/takingquiz" element={<Takingquiz/>}/>
         </Routes>
       </Router>
     </div>
