@@ -102,9 +102,9 @@ function CreateExercise() {
 
   const handleNext = () => {
     dispatch();
-    handleAddQuestions();
+    // handleAddQuestions();
+    handleAddQuestions()
     setQuestionId(uuidv4())
-    setQuestion("")
     console.log('this is th e current question', question)
     console.log("theseare the set questions", allQuestion)
   };
