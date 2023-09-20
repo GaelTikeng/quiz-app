@@ -10,6 +10,7 @@ import DisplayQuiz from "./pages/displayQuizDetails/displayQuizDetail";
 import Useronboardinga from "./pages/Useronboardinga/Useronboardinga";
 import Useronboardingb from "./pages/Useronboardingb/Useronboardingb";
 import Takingquiz from "./pages/Takingquiz/Takingquiz";
+import WelcomeSudent from "./pages/invitePage/welcomeStudent";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/useronboardingb" element={<Useronboardingb/>}/>
           <Route path="/dashboard/:userId/quiz-details/:quizId" element={<DisplayQuiz/>}/>
           <Route path="/takingquiz" element={<Takingquiz/>}/>
+          <Route path="/welcomestud" element={<WelcomeSudent/>}/>
         </Routes>
       </Router>
     </div>

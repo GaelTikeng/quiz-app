@@ -15,13 +15,11 @@ function Takingquiz() {
   };
 
   // Use the useEffect hook to fetch the quiz data when the component mounts.
-  useEffect =
-    (() => {
-      fetchquizdata().then((data) => {
-        setQuizData(data);
-      });
-    },
-    []);
+  useEffect(() => {
+    fetchquizdata().then((data) => {
+      setQuizData(data);
+    });
+  }, []);
 
   return (
     <>
