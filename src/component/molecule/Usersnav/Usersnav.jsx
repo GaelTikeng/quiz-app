@@ -8,8 +8,8 @@ import Button from "../../atoms/button/Button";
 function Usersnav() {
 const navigate = useNavigate();
 
-const navigatetoLogin =()=> {
-  navigate('/account/login')
+const navigatetoLanding =()=> {
+  navigate('/')
 }
 
 
@@ -17,7 +17,7 @@ const navigatetoLogin =()=> {
     <div>
       <div className="userDashboard-nav">
         <div className="nav_img">
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" onClick={navigatetoLanding}/>
         </div>
       </div>
     </div>

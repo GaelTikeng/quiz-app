@@ -1,10 +1,10 @@
 import React from "react";
 import "./Useronboardinga.css";
-import Logo from "../../../public/image/smartbrain.jpg";
 import Welcome from "../../../public/image/useronboard1.png";
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
+import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 
 function Useronboardinga() {
   const navigate = useNavigate();
@@ -12,32 +12,39 @@ function Useronboardinga() {
     navigate("/useronboardingb");
   };
 
-  const handleClickPrev = () => {
-    navigate('/welcome')
-  }
+  // const handleClick = () => {
+  //   navigate('/welcome')
+  // }
+
 
   return (
     <>
-      <Usersnav />
-      <div className="useronboard_container">
-        <div className="div_elements">
-          <div className="header">
-            <h1>You are in</h1>
+       <Usersnav/>
+      <div className="grey-section">
+        <div className="welcome">
+          <h2>You are in !</h2>
+          <img src = {Welcome} alt="welcome image" className="image"/>
+          <p className="p-tag">Are you ready to test your knowledge? This quiz was created by your teacher to help you learn the material.</p>
+          <div className="two-btns">
+            <button
+              // onClick={handleClickPrev}
+              className="prev-btns"
+            >
+              <FaAngleLeft/>
+              Prev
+            </button>
+              <p>1/2</p>
+            <button
+              onClick={handleClickNext}
+              className="next-btn"
+            >
+              Next
+              <FaAngleRight/>
+            </button>
           </div>
-          <div className="useronboarding_img">
-            <img src={Logo} alt="img" />
-          </div>
-          <div>
-            <p>
-              Are you ready to test your knowledge? This quiz app was <br />
-            </p>
-          </div>
-          <div className="btns">
-            <p className="prev_navig"><GrFormPrevious/> Prev</p>
-            <p>1/2</p>
-            <p className="next_navig"><GrFormNext/> Next</p>
-          </div>
+          
         </div>
+
       </div>
 
     </>
