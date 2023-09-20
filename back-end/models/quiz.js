@@ -5,8 +5,7 @@ const User = require('./user')
 
 const Quiz = sequel.define('quiz', {
   id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
+    type: DataTypes.STRING,
     primaryKey: true,
     
   },

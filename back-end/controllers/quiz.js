@@ -8,6 +8,7 @@ const getQuizByID = async (req, res) => {
   const { id } = req.user;
   const quizId = req.params.quizId;
 
+
   const existingUser = await User.findOne({ where: { id } });
 
   if (existingUser !== null) {
@@ -55,16 +56,22 @@ const getQuizzes = async (req, res) => {
   }
 };
 
-// create quiz
+// post / create quiz
 const createQuiz = async (req, res) => {
   const quiz = req.body.quiz;
-  const { userId } = req.params;
+
+  console.log('front-end', quiz)
+
   try {
-    await Quiz.create({
-      title: quiz,
-      userId: userId,
-    });
-    res.status(200).send(quiz);
+    await quiz?.map((item) => {
+      Quiz.create({
+        id: item.id,
+        userId: item.userId,
+        title: item.title
+      })
+    })
+
+    res.status(200).send("Quiz posted successfully");
   } catch (err) {
     console.log("An error occured while creating quiz", err);
   }

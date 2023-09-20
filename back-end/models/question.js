@@ -4,16 +4,15 @@ const Quiz = require('./quiz')
 
 const Question = sequel.define("question", {
   id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+    type: DataTypes.STRING,
+    primaryKey: true
   },
   question: {
     type: DataTypes.STRING(1024),
     allowNull: false
   },
   quizId: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     foreignKey: true
   },
 })

@@ -23,15 +23,20 @@ const getQuestion = async (req, res) => {
 
 // create questions
 const createQuestion = async (req, res) => {
-  const { quizId } = req.params;
-  const questions = req.body.questions;
+  const allQuestion = req.body.allQuestion;
+
+  console.log('front-end', allQuestion)
 
   let kestion;
-  console.log(questions);
+  console.log(allQuestion);
 
   try {
-    kestion = await questions?.map((kest) =>
-      Question.create({ question: kest.title, quizId: kest.quizId })
+    kestion = await allQuestion?.map((kest) =>
+      Question.create({
+        question: kest.title,
+        quizId: kest.quizId,
+        id: kest.id,
+      })
     );
   } catch (err) {
     console.log("error while creating question", err);
@@ -40,7 +45,7 @@ const createQuestion = async (req, res) => {
   //   kestion = await Question.bulkCreate({question: quest})
   // }
 
-  res.send(kestion);
+  res.send("Questions posted successfully").status(200);
 };
 
 module.exports = {

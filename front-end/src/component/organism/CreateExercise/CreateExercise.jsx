@@ -8,21 +8,24 @@ import { MdOutlineAddCircle } from "react-icons/md";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
 
 function CreateExercise() {
   const navigate = useNavigate();
-  const [quiz, setQuiz] = useState("");
+  const [quizTitle, setQuizTitle] = useState("");
+  const [quisId, setQuisId] = useState("")
+  const [quiz, setQuiz] = useState([])
   const [question, setQuestion] = useState("");
-  const [allQuestion, setAllQuestion] = useState([])
-  // const [options, setOptions] = useState([]);
+  const [items, setItems] = useState([]);
+  const [allQuestion, setAllQuestion] = useState([]);
+  const [options, setOptions] = useState([]);
   const [checkBoxes, setCheckBoxes] = useState(false);
 
   const reducer = (state, action) => {
     return { count: state.count + 1 };
   };
   const [state, dispatch] = useReducer(reducer, { count: 1 });
-  const [items, setItems] = useState([]);
   const [questionId, setQuestionId] = useState(
     "4d27ea39-0324-4d5c-a3f2-593d7a67f470"
   );
@@ -34,20 +37,16 @@ function CreateExercise() {
   // const questionId = uuidv4()
 
   const handleAddItem = () => {
-    setItems([
-      ...items,
-      {
-        questionId: questionId,
-        isCorrect: checkBoxes,
-        text: "",
-      },
+    setItems((prev) => [
+      ...prev,
+      { isCorrect: checkBoxes, text: "", questionId: questionId },
     ]);
-    console.log("this items", items);
-    console.log(question);
+    // setOptions(items)
+    console.log("this are items", items);
   };
 
   const handleAddQuestions = () => {
-    setAllQuestion([...allQuestion, { id: questionId, title: question }]);
+    setAllQuestion((prev) => [...prev, { id: questionId, title: question, quizId: quisId}]);
   };
 
   const handleClick = () => {
@@ -55,6 +54,10 @@ function CreateExercise() {
   };
 
   const handleDone = () => {
+
+    // set quiz object
+    setQuiz((prev) => [...prev, {id: quisId, userId: userId, title: quizTitle}])
+
     // post quiz
     axios
       .post(`http://localhost:3000/dashboard/${userId}/create-quiz`, quiz, {
@@ -65,11 +68,11 @@ function CreateExercise() {
       })
       .catch((err) => console.log("Could not create quiz", err));
 
-    // post question
+    // post questions
     axios
       .post(
-        `http://localhost:3000/dashboard/${userId}/create-question/${quizId}`,
-        question,
+        `http://localhost:3000/dashboard/${userId}/create-question`,
+        allQuestion,
         {
           headers: { Authorization: `Bearer: ${token}` },
         }
@@ -84,29 +87,42 @@ function CreateExercise() {
     // post options
     axios
       .post(
-        `http://localhost:3000/dashboard/${userId}/create-option/${quiz}`,
-        items,
+        `http://localhost:3000/dashboard/${userId}/create-option`,
+        options,
         {
           headers: { Authorization: `Bearer: ${token}` },
         }
       )
       .then((res) => {
         console.log("Options created successfuly", res);
+        toast("Quizz created successfully!")
       })
-      .catch((error) => console.log("Could not post options", error));
+      .catch((error) => console.log("Could not post options", error))
+
+    setTimeout(() => {
+      navigate(`/dashboard/${userId}`);
+    }, 2000);
+
+    
   };
 
-  const handlePrev = () => {
-
-  }
+  const handlePrev = () => {};
 
   const handleNext = () => {
     dispatch();
+
     // handleAddQuestions();
-    handleAddQuestions()
-    setQuestionId(uuidv4())
-    console.log('this is th e current question', question)
-    console.log("theseare the set questions", allQuestion)
+    handleAddQuestions();
+
+    setQuestionId(uuidv4());
+    setQuestion("");
+    // let newOption = [...items];
+    setOptions((prev) => [...prev, ...items]);
+
+    setItems([]);
+    console.log("this is quiz", quiz);
+    console.log("these are the set questions", allQuestion);
+    console.log("this is new options", options);
   };
 
   const handleDelete = (index) => {
@@ -140,7 +156,10 @@ function CreateExercise() {
                   type="text"
                   className="quiz_title"
                   // value={quizTitle}
-                  onChange={(e) => setQuiz(e.target.value)}
+                  onChange={(e) => {
+                    setQuizTitle(e.target.value)
+                    setQuisId(uuidv4())
+                  }}
                 />
               </div>
               <div className="texterea">
@@ -152,9 +171,8 @@ function CreateExercise() {
                   id="question"
                   // value={question}
                   placeholder="Type the question..."
-                  onChange={(e) =>
-                    setQuestion(e.target.value)
-                  }
+                  value={question}
+                  onChange={(e) => setQuestion(e.target.value)}
                 ></textarea>
               </div>
               <div className="iscorrrect_opt">
@@ -181,7 +199,7 @@ function CreateExercise() {
                         key={index}
                         onChange={(e) =>
                           setItems((prev) => {
-                            const update = [...prev];
+                            let update = [...prev];
                             update[index].text = e.target.value;
                             return update;
                           })
@@ -219,12 +237,15 @@ function CreateExercise() {
                       onClick={() => handleNext()}
                       className="next_btn"
                     />
-                    <Button
-                      title="Done"
-                      className="done_btn"
-                      type="button"
-                      onClick={() => handleDone()}
-                    />
+                    <div>
+                      <Button
+                        title="Done"
+                        className="done_btn"
+                        type="button"
+                        onClick={() => handleDone()}
+                      />
+                      <ToastContainer autoClose={1000} />
+                    </div>
                   </div>
                 </div>
               </div>
