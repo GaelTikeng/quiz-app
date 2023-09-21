@@ -5,6 +5,7 @@ import Avatar from "react-avatar";
 import { GrScorecard } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { BiLogOutCircle } from "react-icons/bi";
+import  LOGO  from '../../../../public/image/smartbrain.jpg';
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ function Sidebar() {
 
   return (
     <div className="side_container">
+      {/* <img src={LOGO} alt="logo" /> */}
       <div className="avatar_container">
         <div className="avatar_infos">
           <Avatar
@@ -46,7 +48,7 @@ function Sidebar() {
               alt="quiz_button"
               onClick={handlequiz}
               className="quiz_btn"
-            />{" "}
+            />
             Quiz
           </p>
 
