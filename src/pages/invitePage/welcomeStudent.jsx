@@ -1,6 +1,5 @@
 import React from "react";
 import './welcomeStudent.css'
-import Logo from "../../../public/image/smartbrain.jpg"
 import Welcome from "../../../public/image/Welcome-bro.png"
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
