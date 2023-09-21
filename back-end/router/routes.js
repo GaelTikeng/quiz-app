@@ -16,7 +16,7 @@ router.post("/account/login", login);
 router.post("/currentUser", getCurrentUser);
 
 // protected routes
-router.use(AuthMiddleWare);
+// router.use(AuthMiddleWare);
 router.get("/dashboard/:userId", getQuizzes);
 router.get("/dashboard/:quizId", getQuizByID);
 router.post("/dashboard/:userId/create-quiz", createQuiz);

@@ -11,10 +11,14 @@ const Question = sequel.define("question", {
     type: DataTypes.STRING(1024),
     allowNull: false
   },
-  quizId: {
+  // quizId: {
+  //   type: DataTypes.STRING,
+  //   foreignKey: true
+  // },
+  questionId: {
     type: DataTypes.STRING,
     foreignKey: true
-  },
+  }
 })
 
 Quiz.hasMany(Question, {

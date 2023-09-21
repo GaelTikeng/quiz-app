@@ -13,9 +13,12 @@ const Quiz = sequel.define('quiz', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  // userId: {
-  //   type: DataTypes.INTEGER
-  // }
+  userId: {
+    type: DataTypes.INTEGER
+  },
+  questionId: {
+    type: DataTypes.STRING
+  }
 })
 
 User.hasMany(Quiz)

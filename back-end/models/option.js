@@ -12,14 +12,15 @@ const Option = sequel.define('option', {
     type: DataTypes.STRING,
   },
   isCorrect: {
-    type: DataTypes.ENUM("true", "false")
+    type: DataTypes.ENUM('true', 'false')
   },
-  // questionId: {
-  //   type: DataTypes.INTEGER
-  // }
+  questionId: {
+    type: DataTypes.STRING(255)
+  }
 }, {
   timestamps: false
 })
+// Option.drop()
 
 Question.hasMany(Option)
 Option.belongsTo(Question)

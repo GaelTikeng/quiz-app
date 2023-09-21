@@ -19,6 +19,9 @@ const User = sequel.define("user", {
     type: DataTypes.STRING(1024),
     allowNull: false,
   },
+  userId: {
+    type: DataTypes.STRING
+  }
 });
 
 

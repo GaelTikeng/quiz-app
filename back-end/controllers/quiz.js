@@ -8,7 +8,6 @@ const getQuizByID = async (req, res) => {
   const { id } = req.user;
   const quizId = req.params.quizId;
 
-
   const existingUser = await User.findOne({ where: { id } });
 
   if (existingUser !== null) {
@@ -33,10 +32,10 @@ const getQuizByID = async (req, res) => {
 const getQuizzes = async (req, res) => {
   // const user = req.user;
   // console.log(req.user)
-  const {userId} = req.params
+  const { userId } = req.params;
 
   try {
-    const existingUser = await User.findOne({ where: { id:userId }});
+    const existingUser = await User.findOne({ where: { id: userId } });
 
     if (existingUser !== null) {
       const id = req.params.userId;
@@ -48,7 +47,7 @@ const getQuizzes = async (req, res) => {
 
       return res.send(userQuiz);
     } else {
-      console.log('user not exist')
+      console.log("user not exist");
       res.send("User does not exist");
     }
   } catch (err) {
@@ -58,23 +57,24 @@ const getQuizzes = async (req, res) => {
 
 // post / create quiz
 const createQuiz = async (req, res) => {
-  const quiz = req.body.quiz;
+  const { quiz } = req.body;
 
-  console.log('front-end', quiz)
+  console.log("front-end quiz", quiz);
 
   try {
-    await quiz?.map((item) => {
+    await quiz?.map((item) =>  {
       Quiz.create({
         id: item.id,
         userId: item.userId,
-        title: item.title
-      })
-    })
-
-    res.status(200).send("Quiz posted successfully");
+        title: item.title,
+        questionId: item.questionId,
+      });
+    });
   } catch (err) {
     console.log("An error occured while creating quiz", err);
   }
+
+  res.status(200).send("Quiz posted successfully");
 };
 
 module.exports = {

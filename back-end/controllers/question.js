@@ -25,7 +25,7 @@ const getQuestion = async (req, res) => {
 const createQuestion = async (req, res) => {
   const allQuestion = req.body.allQuestion;
 
-  console.log('front-end', allQuestion)
+  console.log('front-end question', allQuestion)
 
   let kestion;
   console.log(allQuestion);
@@ -34,8 +34,9 @@ const createQuestion = async (req, res) => {
     kestion = await allQuestion?.map((kest) =>
       Question.create({
         question: kest.title,
-        quizId: kest.quizId,
+        // quizId: kest.quizId,
         id: kest.id,
+        questionId: kest.id
       })
     );
   } catch (err) {

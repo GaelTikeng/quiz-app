@@ -14,8 +14,8 @@ import { v4 as uuidv4 } from "uuid";
 function CreateExercise() {
   const navigate = useNavigate();
   const [quizTitle, setQuizTitle] = useState("");
-  const [quisId, setQuisId] = useState("")
-  const [quiz, setQuiz] = useState([])
+  const [quisId, setQuisId] = useState("");
+  const [quiz, setQuiz] = useState([]);
   const [question, setQuestion] = useState("");
   const [items, setItems] = useState([]);
   const [allQuestion, setAllQuestion] = useState([]);
@@ -26,9 +26,7 @@ function CreateExercise() {
     return { count: state.count + 1 };
   };
   const [state, dispatch] = useReducer(reducer, { count: 1 });
-  const [questionId, setQuestionId] = useState(
-    "4d27ea39-0324-4d5c-a3f2-593d7a67f470"
-  );
+  const [questionId, setQuestionId] = useState(uuidv4());
 
   const token = localStorage.getItem("token");
   const quizId = JSON.parse(localStorage.getItem("quizId"));
@@ -46,7 +44,10 @@ function CreateExercise() {
   };
 
   const handleAddQuestions = () => {
-    setAllQuestion((prev) => [...prev, { id: questionId, title: question, quizId: quisId}]);
+    setAllQuestion((prev) => [
+      ...prev,
+      { id: questionId, title: question, quizId: quisId, questionId: questionId },
+    ]);
   };
 
   const handleClick = () => {
@@ -54,15 +55,20 @@ function CreateExercise() {
   };
 
   const handleDone = () => {
-
     // set quiz object
-    setQuiz((prev) => [...prev, {id: quisId, userId: userId, title: quizTitle}])
+    setQuiz((prev) => [
+      ...prev,
+      { id: quisId, userId: userId, title: quizTitle, questionId: quisId },
+    ]);
 
     // post quiz
     axios
-      .post(`http://localhost:3000/dashboard/${userId}/create-quiz`, quiz, {
-        headers: { Authorization: `Bearer: ${token}` },
-      })
+      .post(
+        `http://localhost:3000/dashboard/${userId}/create-quiz`, { quiz },
+        {
+          headers: { Authorization: `Bearer: ${token}` },
+        }
+      )
       .then((res) => {
         console.log("The response is successfull", res);
       })
@@ -72,7 +78,7 @@ function CreateExercise() {
     axios
       .post(
         `http://localhost:3000/dashboard/${userId}/create-question`,
-        allQuestion,
+        { allQuestion },
         {
           headers: { Authorization: `Bearer: ${token}` },
         }
@@ -88,22 +94,20 @@ function CreateExercise() {
     axios
       .post(
         `http://localhost:3000/dashboard/${userId}/create-option`,
-        options,
+        { options },
         {
           headers: { Authorization: `Bearer: ${token}` },
         }
       )
       .then((res) => {
         console.log("Options created successfuly", res);
-        toast("Quizz created successfully!")
+        toast("Quizz created successfully!");
       })
-      .catch((error) => console.log("Could not post options", error))
+      .catch((error) => console.log("Could not post options", error));
 
-    setTimeout(() => {
-      navigate(`/dashboard/${userId}`);
-    }, 2000);
-
-    
+    // setTimeout(() => {
+    //   navigate(`/dashboard/${userId}`);
+    // }, 2000);
   };
 
   const handlePrev = () => {};
@@ -157,8 +161,8 @@ function CreateExercise() {
                   className="quiz_title"
                   // value={quizTitle}
                   onChange={(e) => {
-                    setQuizTitle(e.target.value)
-                    setQuisId(uuidv4())
+                    setQuizTitle(e.target.value);
+                    setQuisId(uuidv4());
                   }}
                 />
               </div>
