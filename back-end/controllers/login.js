@@ -33,6 +33,7 @@ const login = async (req, res) => {
     res.send({ message: "Welcome back", token: jwtoken });
   } catch (error) {
     console.log("An error occured while signing in user", error);
+    throw error
   }
 };
 

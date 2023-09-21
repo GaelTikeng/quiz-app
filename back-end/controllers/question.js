@@ -41,6 +41,7 @@ const createQuestion = async (req, res) => {
     );
   } catch (err) {
     console.log("error while creating question", err);
+    throw err
   }
   // for (const quest of questions) {
   //   kestion = await Question.bulkCreate({question: quest})

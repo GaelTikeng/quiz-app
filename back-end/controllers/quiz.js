@@ -52,6 +52,7 @@ const getQuizzes = async (req, res) => {
     }
   } catch (err) {
     console.log("error while getting quiz", err);
+    throw err
   }
 };
 
@@ -72,6 +73,7 @@ const createQuiz = async (req, res) => {
     });
   } catch (err) {
     console.log("An error occured while creating quiz", err);
+    throw err
   }
 
   res.status(200).send("Quiz posted successfully");
