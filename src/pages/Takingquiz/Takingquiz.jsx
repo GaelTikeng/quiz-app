@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 import "./Takingquiz.css";
 import Button from "../../component/atoms/button/Button";
+import QuizTimer from "../../component/atoms/QuizTimer";
 
 function Takingquiz() {
   // Declaring the state to store the quiz data
@@ -9,7 +10,7 @@ function Takingquiz() {
 
   // Function to fetch data from the api
   const fetchquizdata = async () => {
-    const response = await fetch(" ");
+    const response = await fetch("Url");
     const data = await response.json();
     return data;
   };
@@ -19,7 +20,14 @@ function Takingquiz() {
     fetchquizdata().then((data) => {
       setQuizData(data);
     });
+
   }, []);
+
+  const handleClick =() =>{
+    
+  }
+
+
 
   return (
     <>
@@ -28,7 +36,7 @@ function Takingquiz() {
         <div className="quiz_cont ">
           <div className="name_time">
             <p>Name :</p>
-            <p>Time left :</p>
+            <div>Time left :<QuizTimer durationInMinutes={60}/></div>
           </div>
           <div className="div_ques">
             <ol>
@@ -45,7 +53,7 @@ function Takingquiz() {
             </ol>
           </div>
           <div className="btn_done">
-            <Button title="Done" className="quiz-button" />
+            <Button title="Done" className="quiz-button" onClick={handleClick}/>
           </div>
         </div>
       </div>

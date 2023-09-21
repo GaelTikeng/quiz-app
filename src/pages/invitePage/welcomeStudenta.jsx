@@ -1,5 +1,5 @@
 import React from "react";
-import './welcomeStudent.css'
+import './welcomeStudenta.css'
 import Welcome from "../../../public/image/Welcome-bro.png"
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
@@ -8,11 +8,11 @@ import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 
 
 
-export default function WelcomeSudent () {
+export default function WelcomeSudenta () {
 
   const navigate = useNavigate()
   const handleClickNext = () => {
-    navigate('/student/2')
+    navigate('/welcomestudb')
   }
 
   return (
@@ -30,7 +30,7 @@ export default function WelcomeSudent () {
           <div className="two-btns">
             <button
               // onClick={handleClickPrev}
-              className="prev-btns"
+              className="prev-btn"
             >
               <FaAngleLeft/>
               Prev
