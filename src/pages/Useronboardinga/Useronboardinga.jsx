@@ -28,7 +28,7 @@ function Useronboardinga() {
           <div className="two-btns">
             <button
               // onClick={handleClickPrev}
-              className="prev-btns"
+              className="prev-btn"
             >
               <FaAngleLeft/>
               Prev

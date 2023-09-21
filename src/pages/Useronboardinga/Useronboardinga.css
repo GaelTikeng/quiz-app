@@ -60,7 +60,7 @@ h2 {
   justify-content: space-around;
 }
 
-.prev-btns {
+.prev-btn {
   display: flex;
   justify-content: first baseline;
   gap: 10px;

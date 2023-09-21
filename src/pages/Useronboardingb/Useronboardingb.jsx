@@ -4,6 +4,7 @@ import Logo from "../../../public/image/smartbrain.jpg";
 import Welcome from "../../../public/image/onboardinga.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 
 function Useronboardingb() {
   const navigate = useNavigate()
@@ -17,9 +18,7 @@ function Useronboardingb() {
 
   return (
     <div>
-      <div className="nav-img">
-        <img src={Logo} alt="quiz_app logo" />
-      </div>
+      <Usersnav/>
       <div className="grey-sec">
         <div className="grey-section">
           <div className="welcome">
@@ -34,13 +33,13 @@ function Useronboardingb() {
                 learn!
               </p>
               <div className="two-btns">
-                <button onClick={handleClickPrev} className="prev-btns">
+                <button onClick={handleClickPrev} className="prev-btn">
                   <FaAngleLeft />
                   Prev
                 </button>
                 <p>2/2</p>
                 <button onClick={handleClickNext} className="next-btn">
-                  Next
+                  Create quiz
                   <FaAngleRight />
                 </button>
               </div>

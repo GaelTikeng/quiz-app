@@ -4,7 +4,7 @@
 
 .quiz_cont {
   width: 84%;
-  height: 87vh;
+  height: 85vh;
   border: 1px solid black;
   margin: 0  8%;       
 }
@@ -18,8 +18,8 @@
 
 .div_ques {
   background-color: lightblue;
-  margin-top: 2rem;
-  height: 69vh;
+  margin-top: 1.5rem;
+  height: 65vh;
   padding-top: 2rem;
   overflow: scroll;
 }

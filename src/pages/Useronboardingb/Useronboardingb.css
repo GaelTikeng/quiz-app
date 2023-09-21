@@ -40,9 +40,10 @@
     color: #3e9adc;
   }
   
-  h2 {
+  .elt-holder h2 {
     text-align: center;
     padding-top: 30px;
+    
   }
   
   .image {
@@ -63,7 +64,7 @@
     justify-content: space-around;
   }
   
-  .prev-btns {
+  .prev-btn {
     display: flex;
     justify-content: first baseline;
     gap: 10px;
@@ -96,4 +97,3 @@
   .next-btns:hover {
     cursor: not-allowed;
   }
-  

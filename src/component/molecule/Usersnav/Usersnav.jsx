@@ -1,8 +1,7 @@
 import React from "react";
-import "./Usersnav";
+import "./Usersnav.css";
 import { useNavigate } from "react-router-dom";
 import  Logo from '../../../../public/image/smartbrain.jpg'
-import Button from "../../atoms/button/Button";
 
 
 function Usersnav() {
