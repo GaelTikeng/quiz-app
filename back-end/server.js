@@ -20,7 +20,7 @@ app.use(morgan('dev'))
 
 let userRouter = require("./router/user");
 let loginRouter = require("./controllers/login");
-let participantRouter = require("./router/participantInfo");
+// let participantRouter = require("./router/participantInfo");
 let dashboardRouter = require('./router/dashboard')
 
 let routes = require('./router/routes')

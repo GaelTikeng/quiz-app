@@ -7,7 +7,7 @@ import Sidebar from "../../molecule/Sidebar/Sidebar";
 import axios from "axios";
 import { FaPlusCircle } from "react-icons/fa";
 import { timeAgo } from "../../../utiles/timeStamp";
-import { BASE_URL } from "../../../services/contants";
+import { BASE_URL, AXIOS_BASE_URL } from "../../../services/contants";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -25,7 +25,7 @@ function UserDashboard () {
   useEffect(() => {
     // get all quizzes by userId
     axios
-      .get(`http://localhost:3000/dashboard/${user?.id}`, {
+      .get(AXIOS_BASE_URL+`dashboard/${user?.id}`, {
         headers: { Authorization: `Bearer: ${token}` },
       })
       .then((response) => {

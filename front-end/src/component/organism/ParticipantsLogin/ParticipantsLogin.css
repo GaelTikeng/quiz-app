@@ -18,7 +18,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 6rem 22rem;
+  /* padding: 6rem 22rem; */
+  padding: 4rem;
+  box-shadow: 0 4px 8px 0 #8f8888, 0 6px 20px 0 #685b5b;
   margin-top: 3rem;
   background-color: #fff;
 }
@@ -31,6 +33,10 @@
 
 .welcome_inputs {
   padding-top: 3rem;
+}
+
+span {
+    color: #3e9adc;
 }
 
 .welcome_btn {

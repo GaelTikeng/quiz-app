@@ -6,6 +6,7 @@ import Button from "../../atoms/button/Button";
 import Logo from "../../../../public/image/login-amico1.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AXIOS_BASE_URL } from "../../../services/contants";
 
 function UserLogin() {
   const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ function UserLogin() {
     let mes = "";
 
     axios
-      .post("http://localhost:3000/account/login", {
+      .post(AXIOS_BASE_URL+"account/login", {
         email,
         password,
       })
@@ -36,7 +37,7 @@ function UserLogin() {
     setTimeout(() => {
       console.log("this is the message", mes);
       axios
-        .post("http://localhost:3000/currentUser", {
+        .post(AXIOS_BASE_URL+"currentUser", {
           email,
         })
         .then((res) => {

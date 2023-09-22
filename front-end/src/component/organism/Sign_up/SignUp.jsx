@@ -6,6 +6,7 @@ import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
 import axios from "../../../api/axios";
+import { AXIOS_BASE_URL } from "../../../services/contants";
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -54,7 +55,7 @@ function SignUp() {
     setIsLoading(true);
 
     axios
-      .post("http://localhost:3000/account/signup", {
+      .post(AXIOS_BASE_URL+"account/signup", {
         username,
         email,
         password,

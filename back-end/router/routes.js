@@ -2,6 +2,8 @@ const { createUser, getCurrentUser } = require("../controllers/users");
 const { login } = require("../controllers/login");
 const express = require("express");
 const router = express.Router();
+
+const { createParticipant } = require("../controllers/participantInfo");
 const { getQuizzes, createQuiz, getQuizByID } = require("../controllers/quiz");
 
 const { getQuestion, createQuestion } = require("../controllers/question");
@@ -23,5 +25,6 @@ router.post("/dashboard/:userId/create-quiz", createQuiz);
 router.post("/dashboard/:userId/create-question", createQuestion);
 router.post("/dashboard/:userId/create-option", createOption);
 router.get("/dashboard/:userId/:quizId", getQuestion);
+router.post("/student", createParticipant)
 
 module.exports = router;
