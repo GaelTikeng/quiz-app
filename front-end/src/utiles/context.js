@@ -1,4 +1,6 @@
+import { createContext } from "react"
 
 
+export const TokenContext = createContext()
 
-export const tokenContext = createContext()
+export const StudQuizIdContext = createContext()

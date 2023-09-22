@@ -10,19 +10,17 @@ import axios from "../../../api/axios";
 function ParticipantsLogin() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
 
   const handlenavigate = () => {
+    setIsLoading(true);
+
+    // post student/participant credentials
     axios
-      .post(
-        AXIOS_BASE_URL+`student`,
-        { name, email },
-        {
-          headers: { Authorization: `Bearer: ${token}` },
-        }
-      )
+      .post(AXIOS_BASE_URL+`student`, { name, email })
       .then((res) => {
         console.log("Student credentials posted successfully", res);
         localStorage.setItem("studentName", JSON.stringify(res.data));
@@ -31,7 +29,24 @@ function ParticipantsLogin() {
         console.log("Error occured while posting", err);
       });
 
-    // navigate("/useronboard");
+    // get the student's id
+    axios
+      .post(AXIOS_BASE_URL+`getStudentInfo`, { name })
+      .then((res) => {
+        console.log("getting student id", res);
+        localStorage.setItem("student", res.data);
+        setIsLoading(false)
+      })
+      .catch((err) => {
+        console.log("Error occured", err);
+        throw err;
+      })
+    
+    setTimeout(() => {
+      navigate("/student/onboarding/1")
+    }, 2500)
+
+    
   };
 
   return (
@@ -57,9 +72,10 @@ function ParticipantsLogin() {
               />
             </div>
             <Button
-              title="Start quiz"
+              title={isLoading ? "Loading..." : "Continue"}
+              disabled={isLoading}
               className="welcome_btn"
-              onClick={handlenavigate}
+              onClick={() => handlenavigate()}
             />
           </div>
         </div>

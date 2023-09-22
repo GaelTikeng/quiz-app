@@ -84,7 +84,7 @@ function SignUp() {
           console.log("here is the current user", res);
         })
         .catch((err) => console.log("Could not get current user", err))
-        .finally(() => {
+        .finaly(() => {
           setIsLoading(false);
         });
     }, 3000);

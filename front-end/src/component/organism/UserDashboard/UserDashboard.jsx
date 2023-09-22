@@ -52,6 +52,7 @@ function UserDashboard () {
 
   const handleCopie = (quizId) => {
     const link = BASE_URL+`student/${user.id}/${quizId}`
+    localStorage.setItem("studQuizId", quizId)
     toast("Copied!");
     navigator.clipboard.writeText(link)
       .then(() => console.log("link copied"))

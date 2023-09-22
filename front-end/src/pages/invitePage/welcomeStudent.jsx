@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import './welcomeStudent.css'
 import Logo from "../../../public/image/smartbrain.jpg"
 import Welcome from "../../../public/image/welcome-bro.png"
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 import { useNavigate } from 'react-router-dom'
+import { StudQuizIdContext } from "../../utiles/context";
 
 
 
 export default function WelcomeSudent () {
 
+  const quizId = useContext(StudQuizIdContext)
   const navigate = useNavigate()
   const handleClickNext = () => {
-    navigate('/student/2')
+    navigate('/student/onboarding/2')
+    console.log(quizId)
   }
 
   return (

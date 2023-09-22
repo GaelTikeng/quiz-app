@@ -21,7 +21,7 @@ const createParticipant = async (req, res) => {
       participantName: name,
       participantEmail: email
     };
-    
+
     res.send(studentCedential);
   } catch (error) {
     console.log("could not save student credentials", error);
@@ -29,4 +29,21 @@ const createParticipant = async (req, res) => {
   }
 };
 
-module.exports = { createParticipant };
+// get the participant info
+const getParticipant = async(req, res) => {
+  const name = req.body.name
+
+  console.log("this is name", name)
+  try {
+    let info = await Participant.findOne({
+      attributes: ['name', 'id', 'email'],
+      where: {name}
+    })
+    res.send(info).status(200)
+  }
+  catch (err) {
+    console.log("Could not get student info", err)
+  }
+}
+
+module.exports = { createParticipant, getParticipant };

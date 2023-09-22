@@ -3,7 +3,7 @@ const { login } = require("../controllers/login");
 const express = require("express");
 const router = express.Router();
 
-const { createParticipant } = require("../controllers/participantInfo");
+const { createParticipant, getParticipant } = require("../controllers/participantInfo");
 const { getQuizzes, createQuiz, getQuizByID } = require("../controllers/quiz");
 
 const { getQuestion, createQuestion } = require("../controllers/question");
@@ -16,6 +16,7 @@ const AuthMiddleWare = require("../middlewares/authMiddleWares");
 router.post("/account/signup", createUser);
 router.post("/account/login", login);
 router.post("/currentUser", getCurrentUser);
+router.get("/getStudentInfo", getParticipant)
 
 // protected routes
 // router.use(AuthMiddleWare);

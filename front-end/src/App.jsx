@@ -7,24 +7,33 @@ import ParticipantsLogin from "./component/organism/ParticipantsLogin/Participan
 import UserDashboard from "./component/organism/UserDashboard/UserDashboard";
 import CreateExercise from "./component/organism/CreateExercise/CreateExercise";
 import DisplayQuiz from "./pages/displayQuizDetails/displayQuizDetail";
+import WelcomeSudent from "./pages/invitePage/welcomeStudent";
+import { TokenContext, StudQuizIdContext } from "./utiles/context";
+import WelcomeSudent2 from "./pages/welcomePage2/welcomeStudent";
 
 function App() {
+  const studentQuizId = localStorage.getItem("studQuizId");
+
   return (
     <div className="app">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/account/signup" element={<SignUp />} />
-          <Route path="/account/login" element={<UserLogin />} />
-          <Route path="/welcome" element={<ParticipantsLogin />} />
-          <Route path="/dashboard/:userid" element={<UserDashboard />} />
-          <Route
-            path="/dashboard/create-quiz"
-            element={<CreateExercise />}
-          />
-          <Route path="/dashboard/:userId/quiz-details/:quizId" element={<DisplayQuiz/>}/>
-        </Routes>
-      </Router>
+      <StudQuizIdContext.Provider value={studentQuizId}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/account/signup" element={<SignUp />} />
+            <Route path="/account/login" element={<UserLogin />} />
+            <Route path="/welcome" element={<ParticipantsLogin />} />
+            <Route path="/dashboard/:userid" element={<UserDashboard />} />
+            <Route path="/dashboard/create-quiz" element={<CreateExercise />} />
+            <Route
+              path="/dashboard/:userId/quiz-details/:quizId"
+              element={<DisplayQuiz />}
+            />
+            <Route path="/student/onboarding/1" element={<WelcomeSudent/>} />
+            <Route path="/student/onboarding/2" element={<WelcomeSudent2/>} />
+          </Routes>
+        </Router>
+      </StudQuizIdContext.Provider>
     </div>
   );
 }
