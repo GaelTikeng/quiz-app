@@ -8,7 +8,8 @@ import axios from "axios";
 function Takingquiz() {
   // Declaring the state to store the quiz data
   const [quizData, setQuizData] = useState([]);
-  const url = "http://localhost:5173/student/:userId/:quizId";
+  const url = "http://localhost:3000/dashboard/";
+
   // Use the useEffect hook to fetch the quiz data when the component mounts.
   const getData = () => {
     axios.get(url).then((response) => 
@@ -20,7 +21,7 @@ function Takingquiz() {
 
   useEffect(() => getData(), []);
 
-  const handleClick = () => {};
+  const handleStopcounter = () => {};
 
   return (
     <>
@@ -29,8 +30,8 @@ function Takingquiz() {
         <div className="quiz_cont ">
           <div className="name_time">
             <p>Name :</p>
-            <div>
-              Time left :<QuizTimer durationInMinutes={10} />
+            <div className="counter">
+              Time left :<QuizTimer durationInMinutes={10} className/>
             </div>
           </div>
           <div className="div_ques">
@@ -51,7 +52,7 @@ function Takingquiz() {
             <Button
               title="Done"
               className="quiz-button"
-              onClick={handleClick}
+              onClick={handleStopcounter}
             />
           </div>
         </div>

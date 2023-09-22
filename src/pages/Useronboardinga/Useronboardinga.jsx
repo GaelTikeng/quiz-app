@@ -31,7 +31,9 @@ function Useronboardinga() {
         <div className="welcome">
           <h2>You are in !</h2>
           <img src = {Welcome} alt="welcome image" className="image"/>
-          <p className="p-tag">Are you ready to test your knowledge? This quiz was created by your teacher to help you learn the material.</p>
+          <p className="p-tag">Welcome to the quiz app admin panel! <br /> Here you can manage quizzes, questions, and users.
+
+</p>
           <div className="two-btns">
             <button
               // onClick={handleClickPrev}

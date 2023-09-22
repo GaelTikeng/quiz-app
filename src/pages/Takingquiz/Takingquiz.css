@@ -17,6 +17,12 @@
   font-weight: 800;
 }
 
+.counter {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
 .div_ques {
   background-color: lightblue;
   margin-top: 1.5rem;
@@ -29,6 +35,11 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+}
+
+.quiz-button:hover{
+  color: #000;
+  background-color: #fff;
 }
 
 .quiz-button {

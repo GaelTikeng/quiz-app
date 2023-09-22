@@ -83,7 +83,7 @@ function QuizTimer() {
             <h2>{timer}</h2>
             <button onClick={onClickReset}>Reset</button>
         </div>
-    )
-}
+    );
+};
 
 export default QuizTimer;
