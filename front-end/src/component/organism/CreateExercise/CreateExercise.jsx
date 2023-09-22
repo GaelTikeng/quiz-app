@@ -105,9 +105,9 @@ function CreateExercise() {
       })
       .catch((error) => console.log("Could not post options", error));
 
-    // setTimeout(() => {
-    //   navigate(`/dashboard/${userId}`);
-    // }, 2000);
+    setTimeout(() => {
+      navigate(`/dashboard/${userId}`);
+    }, 2500);
   };
 
   const handlePrev = () => {};
@@ -115,7 +115,6 @@ function CreateExercise() {
   const handleNext = () => {
     dispatch();
 
-    // handleAddQuestions();
     handleAddQuestions();
 
     setQuestionId(uuidv4());
