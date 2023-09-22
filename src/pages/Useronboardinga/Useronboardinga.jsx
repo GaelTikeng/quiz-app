@@ -1,6 +1,6 @@
 import React from "react";
 import "./Useronboardinga.css";
-import Welcome from "../../../public/image/useronboard1.png";
+import Welcome from "../../../public/image/Online learning-bro.png";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
@@ -15,6 +15,13 @@ function Useronboardinga() {
   // const handleClick = () => {
   //   navigate('/welcome')
   // }
+
+  const calculateEndTime = (durationInMinutes) => {
+    const now = new Date();
+    const endTime = new Date(now.getTime() + durationInMinutes * 60 * 1000);
+    console.log('duration is', endTime)
+    // setEndTime(endTime); 
+  };
 
 
   return (
@@ -35,7 +42,8 @@ function Useronboardinga() {
             </button>
               <p>1/2</p>
             <button
-              onClick={handleClickNext}
+              // onClick={handleClickNext}
+              onClick={calculateEndTime(10)}
               className="next-btn"
             >
               Next

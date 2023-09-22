@@ -1,7 +1,6 @@
 import React from "react";
 import "./Useronboardingb.css";
-import Logo from "../../../public/image/smartbrain.jpg";
-import Welcome from "../../../public/image/onboardinga.png";
+import Welcome from "../../../public/image/Onlinelearning-rafiki.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Usersnav from "../../component/molecule/Usersnav/Usersnav";

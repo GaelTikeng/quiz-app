@@ -1,11 +1,12 @@
 .taking_quiz {
   background-color: #f1f1f1;
+  height: 100vh;
 }
 
 .quiz_cont {
   width: 84%;
-  height: 85vh;
-  border: 1px solid black;
+  height: 80vh;
+  border: 1px solid #000;
   margin: 0  8%;       
 }
 
