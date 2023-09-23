@@ -29,8 +29,8 @@ function App() {
               path="/dashboard/:userId/quiz-details/:quizId"
               element={<DisplayQuiz />}
             />
-            <Route path="/student/onboarding/1" element={<WelcomeSudent/>} />
-            <Route path="/student/onboarding/2" element={<WelcomeSudent2/>} />
+            <Route path="/student/:userId/:quizId/onboarding/1" element={<WelcomeSudent/>} />
+            <Route path="/student/:userId/:quizId/onboarding/2" element={<WelcomeSudent2/>} />
           </Routes>
         </Router>
       </StudQuizIdContext.Provider>

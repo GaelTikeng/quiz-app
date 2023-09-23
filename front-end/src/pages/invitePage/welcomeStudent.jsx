@@ -11,7 +11,7 @@ export default function WelcomeSudent() {
   const quizId = useContext(StudQuizIdContext);
   const navigate = useNavigate();
   const handleClickNext = () => {
-    navigate("/student/onboarding/2");
+    navigate(`/student/${quizId}/onboarding/2`);
     console.log(quizId);
   };
 
