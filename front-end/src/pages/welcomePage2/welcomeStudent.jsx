@@ -5,20 +5,20 @@ import Exam from "../../../public/image/Exams-bro.png"
 import NextBtn from "../../component/atoms/nextbtn/nextBtn";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
-import { StudQuizIdContext } from "../../utiles/context";
+import { StudContext } from "../../utiles/context";
 
 
 export default function WelcomeSudent2 () {
 
-  const quizId = useContext(StudQuizIdContext)
+  const quizId = useContext(StudContext)
   const navigate = useNavigate()
   const handleClickPrev = () => {
-    navigate('/student/onboarding/1')
+    navigate(`/student/${quizId.user.id}/${quizId.studentQuizId}/onboarding/1`);
   }
 
   const handleClickNext = () => {
 
-    navigate("/")
+    navigate(`/student/${quizId.user.id}/${quizId.studentQuizId}/quiz`);
   }
 
   return (

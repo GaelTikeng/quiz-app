@@ -5,13 +5,14 @@ import Welcome from "../../../public/image/welcome-bro.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
-import { StudQuizIdContext } from "../../utiles/context";
+import { StudContext } from "../../utiles/context";
+
 
 export default function WelcomeSudent() {
-  const quizId = useContext(StudQuizIdContext);
+  const quizId = useContext(StudContext);
   const navigate = useNavigate();
   const handleClickNext = () => {
-    navigate(`/student/${quizId}/onboarding/2`);
+    navigate(`/student/${quizId.user.id}/${quizId.studentQuizId}/onboarding/2`);
     console.log(quizId);
   };
 

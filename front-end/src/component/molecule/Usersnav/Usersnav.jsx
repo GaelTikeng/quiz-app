@@ -5,7 +5,7 @@ import  Logo from '../../../../public/image/smartbrain.png'
 import Button from "../../atoms/button/Button";
 
 
-function Usersnav() {
+function Usersnav () {
   const navigate = useNavigate();
 
   const navigatetoLogin =()=> {

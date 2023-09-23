@@ -3,9 +3,6 @@ import { createContext } from "react"
 
 export const TokenContext = createContext()
 
-export const StudQuizIdContext = createContext({
-  quizId: "",
-  userId: ""
-})
+export const StudContext = createContext()
 
 export const UserInfo = createContext()

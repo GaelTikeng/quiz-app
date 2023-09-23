@@ -1,7 +1,7 @@
 const Question = require("../models/question");
 const Option = require("../models/option");
 
-// get all questions per quiz
+// get all questions per quiz id
 const getQuestion = async (req, res) => {
   const { quizId } = req.params;
 
