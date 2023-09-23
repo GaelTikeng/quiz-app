@@ -34,7 +34,7 @@
 }
 
 .mainbtn:hover {
-  color: #3e9adc;
+  cursor: pointer;
   text-decoration: underline;
 }
 
