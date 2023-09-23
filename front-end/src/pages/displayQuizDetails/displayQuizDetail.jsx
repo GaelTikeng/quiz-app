@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../../public/image/smartbrain.jpg";
+import Logo from "../../../public/image/smartbrain.png";
 
 import Sidebar from "../../component/molecule/Sidebar/Sidebar";
 import axios from "axios";

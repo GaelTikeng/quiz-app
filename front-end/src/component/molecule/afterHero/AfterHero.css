@@ -1,6 +1,6 @@
 .afterhero {
   background-color: #fff;
-  height: 80vh;
+  height: 70vh;
 }
 
 .afterhero_div {
@@ -11,9 +11,14 @@
   padding-top: 6rem;
 }
 
+.afterhero_header h1{
+  color: #000 !important;
+  text-align: left;
+  line-height: 1.5;
+}
+
 .afterhero_header {
   width: 50%;
-  padding-top: 5rem;
 }
 
 .head {
@@ -36,6 +41,16 @@ li {
   list-style: none;
   padding: 1.5rem;
   width: 85%;
+}
+
+.image-text {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.image-text h4 {
+  width: 30px;
 }
 
 .vector_text {

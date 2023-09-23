@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import './welcomeStudent.css'
-import Logo from "../../../public/image/smartbrain.jpg"
+import Logo from "../../../public/image/smartbrain.png"
 import Welcome from "../../../public/image/welcome-bro.png"
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
