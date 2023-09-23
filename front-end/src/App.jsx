@@ -10,6 +10,8 @@ import DisplayQuiz from "./pages/displayQuizDetails/displayQuizDetail";
 import WelcomeSudent from "./pages/invitePage/welcomeStudent";
 import { TokenContext, StudQuizIdContext } from "./utiles/context";
 import WelcomeSudent2 from "./pages/welcomePage2/welcomeStudent";
+import Useronboard1 from "./pages/Useronboard1/Useronboard1";
+import Useronboard2 from "./pages/Useronboard2/Useronboard2";
 
 function App() {
   const studentQuizId = localStorage.getItem("studQuizId");
@@ -31,6 +33,8 @@ function App() {
             />
             <Route path="/student/onboarding/1" element={<WelcomeSudent/>} />
             <Route path="/student/onboarding/2" element={<WelcomeSudent2/>} />
+            <Route path="/user/onboard1" element={<Useronboard1/>} />
+            <Route path="/User/onboard2" element={<Useronboard2/>} />
           </Routes>
         </Router>
       </StudQuizIdContext.Provider>
