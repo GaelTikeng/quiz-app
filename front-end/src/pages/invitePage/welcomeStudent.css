@@ -21,15 +21,35 @@
   padding-bottom: 35px;
 }
 
-h1 {
+/* h1 {
   text-align: center;
   padding-top: 10px;
   color: #3E9ADC;
-}
+} */
 
-h2 {
+.welcome h2 {
   text-align: center;
   padding-top: 30px;
+}
+
+.welcome span {
+  color: #3e9adc;
+}
+
+.tips {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 35px;
+  /* background-color: red; */
+}
+
+.tips h3 {
+  margin-left: 80px;
+}
+
+.tips ul {
+  width: 90%;
+  margin-left: 75px;
 }
 
 .image {
@@ -43,7 +63,7 @@ h2 {
 .p-tag {
   width: 500px;
   /* text-align: center; */
-  margin: 0 auto;
+  margin-left: 95px;
   line-height: 2;
 }
 

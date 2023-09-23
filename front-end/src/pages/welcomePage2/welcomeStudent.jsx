@@ -18,6 +18,7 @@ export default function WelcomeSudent2 () {
 
   const handleClickNext = () => {
 
+    navigate("/")
   }
 
   return (
