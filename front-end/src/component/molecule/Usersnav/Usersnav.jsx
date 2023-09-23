@@ -1,16 +1,16 @@
 import React from "react";
 import "./Usersnav";
 import { useNavigate } from "react-router-dom";
-import  Logo from '../../../../public/image/smartbrain.jpg'
+import  Logo from '../../../../public/image/smartbrain.png'
 import Button from "../../atoms/button/Button";
 
 
 function Usersnav() {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const navigatetoLogin =()=> {
-  navigate('/account/login')
-}
+  const navigatetoLogin =()=> {
+    navigate('/account/login')
+  }
 
 
   return (

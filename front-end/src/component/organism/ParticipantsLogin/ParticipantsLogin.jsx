@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ParticipantsLogin.css";
-import Logo from "../../../../public/image/smartbrain.jpg";
+import Logo from "../../../../public/image/smartbrain.png";
 import { AXIOS_BASE_URL } from "../../../services/contants";
 import InputField from "../../atoms/InputFields/InputField";
 import Button from "../../atoms/button/Button";
