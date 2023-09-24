@@ -17,7 +17,7 @@ function Usersnav() {
     <div>
       <div className="userDashboard-nav">
         <div className="nav_img">
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt="logo" onClick={navigatetoLogin} />
         </div>
         {/* <div className="logbtn">
           <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
