@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { StudContext } from "../../utiles/context";
 import "./studentBoard.css";
 import Usersnav from "../../component/molecule/Usersnav/Usersnav";
@@ -7,12 +7,13 @@ import Timer from "../../utiles/timer/timer";
 import axios from "axios";
 
 export default function StudentBoard() {
+  const validRef = useRef();
+  const [timeOut, setTimeOut] = useState(false);
   const info = useContext(StudContext);
   const [question, setQuestion] = useState([]);
   const student = JSON.parse(localStorage.getItem("studentName"));
   const user = info.user;
   const quizId = info.studentQuizId;
-
 
   useEffect(() => {
     // get all questions and corresponding options
@@ -28,13 +29,14 @@ export default function StudentBoard() {
   }, []);
 
   const handleToggleOption = (id) => {
-    const newOpt = [...question.options]
-    newOpt[id].checked = !newOpt[id].chacked
-  }
+    const newOpt = [...question.options];
+    newOpt[id].checked = !newOpt[id].chacked;
+  };
 
   // console.log("This is opt", question);
   // let { options } = opt;
   // console.log("object distructured", options);
+
   return (
     <div>
       <Usersnav />
@@ -45,7 +47,7 @@ export default function StudentBoard() {
               <h3>Name : {student.participantName}</h3>
               <h3>Subject : </h3>
             </div>
-            <Timer seconds = {5400} />
+            <Timer seconds={15} ref={validRef} />
           </div>
           <div className="quizz">
             {question?.map((kest, index) => (
@@ -59,9 +61,9 @@ export default function StudentBoard() {
                       <input
                         type="checkbox"
                         className="check-boxx"
-                        checked = {opt.checked}
+                        checked={opt.checked}
                         onChange={() => handleToggleOption(opt.id)}
-                      /> 
+                      />
                       <p>{opt.title}</p>
                     </li>
                   ))}
@@ -69,6 +71,18 @@ export default function StudentBoard() {
               </div>
             ))}
           </div>
+          {
+            (ref = { ref } && (
+              <Popup
+                content={
+                  <>
+                    <h1>Congratulations</h1>
+                  </>
+                }
+                handleClose={setTimeOut(!timeOut)}
+              />
+            ))
+          }
         </div>
       </div>
     </div>
