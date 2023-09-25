@@ -1,0 +1,31 @@
+.result-cont {
+  background-color: #f1f1f1;
+  height: ;
+}
+
+.action-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.restart-btn {
+  display: flex;
+  justify-content: first baseline;
+  gap: 10px;
+  align-items: first baseline;
+  padding: 10px 15px;
+  border: none;
+  color: #fff;
+  background-color: #3e9adc93;
+}
+
+.exit-btn {
+  display: flex;
+  justify-content: first baseline;
+  gap: 10px;
+  align-items: first baseline;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  background-color: #3e9adc93;
+}
