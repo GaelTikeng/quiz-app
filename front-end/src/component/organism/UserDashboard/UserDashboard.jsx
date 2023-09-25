@@ -51,7 +51,7 @@ function UserDashboard () {
   }
 
   const handleCopie = (quizId) => {
-    const link = BASE_URL+`student/${user.id}/${quizId}/onboarding/1`
+    const link = BASE_URL+`student/${user.id}/${quizId}/login`
     localStorage.setItem("studQuizId", quizId)
     toast("Copied!");
     navigator.clipboard.writeText(link)

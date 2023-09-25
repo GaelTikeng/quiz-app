@@ -3,41 +3,71 @@ import { StudContext } from "../../utiles/context";
 import "./studentBoard.css";
 import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 import { AXIOS_BASE_URL } from "../../services/contants";
+import Timer from "../../utiles/timer/timer";
 import axios from "axios";
 
 export default function StudentBoard() {
   const info = useContext(StudContext);
-  const [questiion, setQuestion] = useState([])
+  const [question, setQuestion] = useState([]);
   const student = JSON.parse(localStorage.getItem("studentName"));
-  const user = info.user
-  const quizId = info.studentQuizId
+  const user = info.user;
+  const quizId = info.studentQuizId;
+
 
   useEffect(() => {
     // get all questions and corresponding options
     axios
-    .get(AXIOS_BASE_URL+`dashboard/${user?.Id}/${quizId}`)
-    .then((response) => {
-      setQuestion(response.data)
-      console.log('Here are the questions', response)
-    })
-    .catch((err) => {
-      console.log("Error while fetching questions", err)
-    })
-  }, [])
+      .get(AXIOS_BASE_URL + `dashboard/${user?.Id}/${quizId}`)
+      .then((response) => {
+        setQuestion(response.data);
+        console.log("Here are the questions", response);
+      })
+      .catch((err) => {
+        console.log("Error while fetching questions", err);
+      });
+  }, []);
 
-  console.log("this ies the questions", questiion)
+  const handleToggleOption = (id) => {
+    const newOpt = [...question.options]
+    newOpt[id].checked = !newOpt[id].chacked
+  }
 
+  // console.log("This is opt", question);
+  // let { options } = opt;
+  // console.log("object distructured", options);
   return (
     <div>
       <Usersnav />
       <div className="gray-section">
         <div className="main-section">
           <div className="name-time">
-            <h3>Name : {student.participantName}</h3>
-            <h3>Time left : 00:21:01</h3>
+            <div className="two-h3">
+              <h3>Name : {student.participantName}</h3>
+              <h3>Subject : </h3>
+            </div>
+            <Timer seconds = {5400} />
           </div>
-          <div className="quiz">
-
+          <div className="quizz">
+            {question?.map((kest, index) => (
+              <div className="kuestions" key={index}>
+                <p className="p-element">
+                  <span>{index + 1}</span>. {kest.question}
+                </p>
+                <ul>
+                  {kest.options?.map((opt) => (
+                    <li key={opt.id} className="list-options">
+                      <input
+                        type="checkbox"
+                        className="check-boxx"
+                        checked = {opt.checked}
+                        onChange={() => handleToggleOption(opt.id)}
+                      /> 
+                      <p>{opt.title}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>

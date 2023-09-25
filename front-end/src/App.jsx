@@ -24,7 +24,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/account/signup" element={<SignUp />} />
             <Route path="/account/login" element={<UserLogin />} />
-            <Route path="/welcome" element={<ParticipantsLogin />} />
+            <Route path="/student/:userId/:quizId/login" element={<ParticipantsLogin />} />
             <Route path="/dashboard/:userid" element={<UserDashboard />} />
             <Route path="/dashboard/create-quiz" element={<CreateExercise />} />
             <Route

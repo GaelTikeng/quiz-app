@@ -20,6 +20,7 @@ export default function WelcomeSudent2 () {
 
     navigate(`/student/${quizId.user.id}/${quizId.studentQuizId}/quiz`);
   }
+  
 
   return (
     <div className="all">
