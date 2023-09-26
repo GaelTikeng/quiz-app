@@ -1,6 +1,5 @@
 import React from "react";
 import "./Sidebar.css";
-import Ellipse from "../../../../public/image/Ellipse1.png";
 import quiz from "../../../../public/image/quiz_button.png";
 import Scores from "../../../../public/image/scores_button.png";
 import Logout from "../../../../public/image/logout_button.png";
@@ -32,11 +31,11 @@ function Sidebar() {
         <div className="avatar_infos">
           <Avatar
             className="avatar"
-            name= {currentUser.username}
+            // name= {currentUser.username}
             color="#D9D9D9"
             round={true}
           />
-          <p>{currentUser.username}</p>
+          {/* <p>{currentUser.username}</p>  */}
         </div>
       </div>
       <div className="dashboard_btn">

@@ -13,6 +13,7 @@ import WelcomeSudent2 from "./pages/welcomePage2/welcomeStudent";
 import Useronboard1 from "./pages/Useronboard1/Useronboard1";
 import Useronboard2 from "./pages/Useronboard2/Useronboard2";
 import DisplayStudResult from "./pages/DisplayStudResult/DisplayStudResult";
+import StudPerformance from "./pages/StudPerformance/StudPerformance";
 
 function App() {
   const studentQuizId = localStorage.getItem("studQuizId");
@@ -37,6 +38,7 @@ function App() {
             <Route path="/user/onboard1" element={<Useronboard1/>} />
             <Route path="/User/onboard2" element={<Useronboard2/>} />
             <Route path="/student/result" element={<DisplayStudResult/>} />
+            <Route path="/user/student/ans" element={<StudPerformance/>} />
           </Routes>
         </Router>
       </StudQuizIdContext.Provider>
