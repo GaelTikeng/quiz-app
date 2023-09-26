@@ -218,7 +218,7 @@ function CreateExercise() {
                 ))}
               </div>
               <div className="adding">
-                <div className="add_btn" onClick={handleAddItem}>
+                <div className="add_btn" onClick={() => handleAddItem()}>
                   <MdOutlineAddCircle className="md_add" /> Add option
                 </div>
               </div>
@@ -227,12 +227,12 @@ function CreateExercise() {
                   <Button
                     title="cancel"
                     className="cancel"
-                    onClick={handleClick}
+                    onClick={() => handleClick()}
                   />
                   <div className="three_btn">
                     <Button
                       title="Prev"
-                      onClick={handlePrev()}
+                      onClick={() => handlePrev()}
                       className="previous"
                     />
                     <Button
@@ -248,7 +248,7 @@ function CreateExercise() {
                         type="button"
                         onClick={() => handleDone()}
                       />
-                      <ToastContainer autoClose={1000} />
+                      <ToastContainer autoClose={1500} />
                     </div>
                   </div>
                 </div>
