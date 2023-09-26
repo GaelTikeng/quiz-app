@@ -7,7 +7,6 @@ import Timer from "../../utiles/timer/timer";
 import axios from "axios";
 import Popup from "../../utiles/popup/popup";
 import { useNavigate } from "react-router-dom";
-import Button from "../../component/atoms/button/Button";
 
 export default function StudentBoard() {
   // const validRef = useRef(ref);
@@ -83,7 +82,6 @@ export default function StudentBoard() {
             timeSpent={timeSpent}
             setTimeSpent={setTimeSpent}
             ref={childRef}
-            // handleClick={handleClick()}
           />
         </div>
         <div className="main-section">
