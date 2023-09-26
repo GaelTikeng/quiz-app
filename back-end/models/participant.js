@@ -21,14 +21,9 @@ const Participant = sequel.define("participant", {
   quizId: {
     type: DataTypes.STRING,
   },
-  StartedAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  endedAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
+  timeSpent: {
+    type: DataTypes.STRING,
+  }
 });
 
 // creating a junction table ParticipantQuiz

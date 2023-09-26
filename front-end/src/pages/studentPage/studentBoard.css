@@ -1,0 +1,81 @@
+.gray-section {
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.main-section {
+  /* position: fixed; */
+  width: 83%;
+  margin: 0 auto;
+}
+
+.user-nav {
+  position: relative;
+  top: 0;
+}
+
+.name-time {
+  width: 83% !important;
+  margin: 0 auto !important;
+  display: flex;
+  justify-content: space-between;
+  /* position: fixed; */
+}
+.two-h3 {
+  line-height: 2;
+}
+
+.quizz {
+  overflow: auto;
+  /* background-color: red; */
+  padding: 35px 0;
+  position: relative;
+}
+
+/* .kuestions {
+  background-color: red; 
+} */
+
+.p-element {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.check-boxx {
+  width: 5px;
+  height: 5px;
+}
+
+.check-boxx:hover {
+  cursor: pointer;
+}
+
+.list-options:hover {
+  cursor: pointer;
+}
+
+hr {
+  margin: 35px 0;
+}
+
+.two-btns {
+  padding: 10px 0;
+}
+
+.done {
+  padding: 10px 100px;
+  margin: 0 auto;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 50px;
+  background-color: #3e9adc;
+  border: none;
+}
+
+.done:hover {
+  cursor: pointer;
+  transform: translateY(1.5px);
+  background-color: #3e9adce0;
+
+}

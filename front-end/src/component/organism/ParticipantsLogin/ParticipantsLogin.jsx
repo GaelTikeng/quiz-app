@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./ParticipantsLogin.css";
 import Logo from "../../../../public/image/smartbrain.png";
 import { AXIOS_BASE_URL } from "../../../services/contants";
@@ -6,13 +6,16 @@ import InputField from "../../atoms/InputFields/InputField";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "../../../api/axios";
+import { StudContext } from "../../../utiles/context";
 
 function ParticipantsLogin() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const quizId = useContext(StudContext);
 
+  // let user = JSON.parse(infoUser);
   const token = localStorage.getItem("token");
 
   const handlenavigate = () => {
@@ -43,7 +46,7 @@ function ParticipantsLogin() {
       })
     
     setTimeout(() => {
-      navigate("/student/onboarding/1")
+      navigate(`/student/${quizId.user.id}/${quizId.studentQuizId}/onboarding/1`)
     }, 2500)
 
     
