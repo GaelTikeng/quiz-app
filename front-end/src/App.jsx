@@ -8,32 +8,44 @@ import UserDashboard from "./component/organism/UserDashboard/UserDashboard";
 import CreateExercise from "./component/organism/CreateExercise/CreateExercise";
 import DisplayQuiz from "./pages/displayQuizDetails/displayQuizDetail";
 import WelcomeSudent from "./pages/invitePage/welcomeStudent";
-import { TokenContext, StudQuizIdContext } from "./utiles/context";
+import { TokenContext, StudContext } from "./utiles/context";
 import WelcomeSudent2 from "./pages/welcomePage2/welcomeStudent";
+import StudentBoard from "./pages/studentPage/studentBoard";
 
 function App() {
   const studentQuizId = localStorage.getItem("studQuizId");
+  const user = JSON.parse(localStorage.getItem("currentUser"));
 
   return (
     <div className="app">
-      <StudQuizIdContext.Provider value={studentQuizId}>
+      <StudContext.Provider value={{ studentQuizId, user }}>
         <Router>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/account/signup" element={<SignUp />} />
             <Route path="/account/login" element={<UserLogin />} />
-            <Route path="/welcome" element={<ParticipantsLogin />} />
+            <Route path="/student/:userId/:quizId/login" element={<ParticipantsLogin />} />
             <Route path="/dashboard/:userid" element={<UserDashboard />} />
             <Route path="/dashboard/create-quiz" element={<CreateExercise />} />
             <Route
               path="/dashboard/:userId/quiz-details/:quizId"
               element={<DisplayQuiz />}
             />
-            <Route path="/student/onboarding/1" element={<WelcomeSudent/>} />
-            <Route path="/student/onboarding/2" element={<WelcomeSudent2/>} />
+            <Route
+              path="/student/:userId/:quizId/onboarding/1"
+              element={<WelcomeSudent />}
+            />
+            <Route
+              path="/student/:userId/:quizId/onboarding/2"
+              element={<WelcomeSudent2 />}
+            />
+            <Route
+              path="/student/:userId/:quizId/quiz"
+              element={<StudentBoard />}
+            />
           </Routes>
         </Router>
-      </StudQuizIdContext.Provider>
+      </StudContext.Provider>
     </div>
   );
 }

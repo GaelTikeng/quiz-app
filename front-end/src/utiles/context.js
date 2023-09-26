@@ -3,4 +3,10 @@ import { createContext } from "react"
 
 export const TokenContext = createContext()
 
-export const StudQuizIdContext = createContext()
+export const StudContext = createContext()
+
+export const UserInfo = createContext()
+
+export const IsOpen = createContext()
+
+// export const al

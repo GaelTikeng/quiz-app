@@ -5,7 +5,7 @@ import  Logo from '../../../../public/image/smartbrain.png'
 import Button from "../../atoms/button/Button";
 
 
-function Usersnav() {
+function Usersnav ({className}) {
   const navigate = useNavigate();
 
   const navigatetoLogin =()=> {
@@ -14,7 +14,7 @@ function Usersnav() {
 
 
   return (
-    <div>
+    <div className={className}>
       <div className="userDashboard-nav">
         <div className="nav_img">
           <img src={Logo} alt="logo" />

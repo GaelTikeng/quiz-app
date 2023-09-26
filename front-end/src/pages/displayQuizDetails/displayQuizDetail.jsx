@@ -38,7 +38,6 @@ export default function DisplayQuiz () {
     newOpt[id].checked = !newOpt[id].chacked
   }
 
-
   return (
     <div>
       <div className="userDashboard-nav">
