@@ -1,7 +1,7 @@
 import React from "react";
 import './popup.css';
 
-const Popup = (props) => {
+export default function Popup (props) {
 
   return (
     <div className="popup-box" >
@@ -14,4 +14,3 @@ const Popup = (props) => {
     </div>
   );
 };
-export default Popup;

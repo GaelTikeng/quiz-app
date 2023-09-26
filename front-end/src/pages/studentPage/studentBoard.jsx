@@ -5,13 +5,16 @@ import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 import { AXIOS_BASE_URL } from "../../services/contants";
 import Timer from "../../utiles/timer/timer";
 import axios from "axios";
+import Popup from "../../utiles/popup/popup";
+import { useNavigate } from "react-router-dom";
 
 export default function StudentBoard() {
-  const validRef = useRef();
+  // const validRef = useRef(ref);
   const [timeOut, setTimeOut] = useState(false);
   const info = useContext(StudContext);
   const [question, setQuestion] = useState([]);
   const student = JSON.parse(localStorage.getItem("studentName"));
+  const navigate = useNavigate()
   const user = info.user;
   const quizId = info.studentQuizId;
 
@@ -33,9 +36,12 @@ export default function StudentBoard() {
     newOpt[id].checked = !newOpt[id].chacked;
   };
 
-  // console.log("This is opt", question);
-  // let { options } = opt;
-  // console.log("object distructured", options);
+  const handleClose = () => {
+    setTimeOut((prev) => !prev)
+    navigate("/")
+  }
+
+  
 
   return (
     <div>
@@ -47,7 +53,12 @@ export default function StudentBoard() {
               <h3>Name : {student.participantName}</h3>
               <h3>Subject : </h3>
             </div>
-            <Timer seconds={15} ref={validRef} />
+            <Timer
+              seconds={5400}
+              timeOut={timeOut}
+              setTimeOut={setTimeOut}
+              // handleClick={handleClick()}
+            />
           </div>
           <div className="quizz">
             {question?.map((kest, index) => (
@@ -71,18 +82,17 @@ export default function StudentBoard() {
               </div>
             ))}
           </div>
-          {
-            (ref = { ref } && (
-              <Popup
-                content={
-                  <>
-                    <h1>Congratulations</h1>
-                  </>
-                }
-                handleClose={setTimeOut(!timeOut)}
-              />
-            ))
-          }
+          {timeOut && (
+            <Popup
+              content={
+                <>
+                  <h1 style={{color: "red"}}>Time out</h1>
+                  <p style={{textAlign: "center", padding: "20px 0"}} >Checkout your results from your teacher</p>
+                </>
+              }
+              handleClose={() => handleClose()}
+            />
+          )}
         </div>
       </div>
     </div>
