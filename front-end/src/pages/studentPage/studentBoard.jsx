@@ -12,11 +12,13 @@ export default function StudentBoard() {
   // const validRef = useRef(ref);
   const [timeOut, setTimeOut] = useState(false);
   const info = useContext(StudContext);
+  const [timeSpent, setTimeSpent] = useState("")
   const [question, setQuestion] = useState([]);
   const student = JSON.parse(localStorage.getItem("studentName"));
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const user = info.user;
   const quizId = info.studentQuizId;
+  // let timeSpent = ""
 
   useEffect(() => {
     // get all questions and corresponding options
@@ -37,30 +39,32 @@ export default function StudentBoard() {
   };
 
   const handleClose = () => {
-    setTimeOut((prev) => !prev)
-    navigate("/")
-  }
-
-  
+    setTimeOut((prev) => !prev);
+    navigate("/");
+  };
+  console.log('timeSpent from child', timeSpent)
 
   return (
     <div>
-      <Usersnav />
+      <Usersnav className="user-nav" />
       <div className="gray-section">
-        <div className="main-section">
-          <div className="name-time">
-            <div className="two-h3">
-              <h3>Name : {student.participantName}</h3>
-              <h3>Subject : </h3>
-            </div>
-            <Timer
-              seconds={5400}
-              timeOut={timeOut}
-              setTimeOut={setTimeOut}
-              // handleClick={handleClick()}
-            />
+        <div className="name-time">
+          <div className="two-h3">
+            <h3>Name : {student.participantName}</h3>
+            <h3>Subject : </h3>
           </div>
+          <Timer
+            seconds={800}
+            timeOut={timeOut}
+            setTimeOut={setTimeOut}
+            timeSpent={timeSpent}
+            setTimeSpent ={setTimeSpent}
+            // handleClick={handleClick()}
+          />
+        </div>
+        <div className="main-section">
           <div className="quizz">
+            
             {question?.map((kest, index) => (
               <div className="kuestions" key={index}>
                 <p className="p-element">
@@ -81,18 +85,26 @@ export default function StudentBoard() {
                 </ul>
               </div>
             ))}
+            <div className="two-btns">
+            <button>Done</button>
+            <button>Submit</button>
           </div>
+          </div>
+          
           {timeOut && (
             <Popup
               content={
                 <>
-                  <h1 style={{color: "red"}}>Time out</h1>
-                  <p style={{textAlign: "center", padding: "20px 0"}} >Checkout your results from your teacher</p>
+                  <h1 style={{ color: "red" }}>Time out</h1>
+                  <p style={{ textAlign: "center", padding: "20px 0" }}>
+                    Checkout your results from your teacher
+                  </p>
                 </>
               }
               handleClose={() => handleClose()}
             />
           )}
+          
         </div>
       </div>
     </div>

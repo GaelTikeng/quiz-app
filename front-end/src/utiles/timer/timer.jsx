@@ -24,16 +24,16 @@ const formatTimer = (time) => {
     " " +
     minutes +
     " " +
-    "min"
-    //  +
-    // " " +
-    // seconds +
-    // " " +
-    // "sec"
+    "min" +
+    " " +
+    seconds +
+    " " +
+    "sec"
+     
   );
 };
 
-const Timer = ({ seconds, timeOut, setTimeOut,  }) => {
+const Timer = ({ seconds, timeOut, setTimeOut, timeSpent, setTimeSpent }) => {
   const [countDown, setCountDown] = useState(seconds);
 
   const [leftTime, setLeftTime] = useState(false);
@@ -43,7 +43,7 @@ const Timer = ({ seconds, timeOut, setTimeOut,  }) => {
 
   const handleClick = () => {
     clearInterval(timerId.current);
-
+    console.log(time)
   }
 
   useEffect(() => {
@@ -57,13 +57,11 @@ const Timer = ({ seconds, timeOut, setTimeOut,  }) => {
     if (countDown <= 300) setLeftTime(true);
     if (countDown <= 0) {
       clearInterval(timerId.current);
-      // ref={ref}
       setTimeOut((prev) => !prev);
-      // alert("time out");
+      setTimeSpent(() => time)
     }
-    // console.log('countDown in child', countDown)
   }, [countDown]);
-  // console.log('this is time left', time)
+
 
   return (
     <div>
@@ -72,6 +70,7 @@ const Timer = ({ seconds, timeOut, setTimeOut,  }) => {
       ) : (
         <h3 className="play">Time left: {time} </h3>
       )}
+      <button onClick={() => handleClick()}>done</button>
     </div>
   );
 };

@@ -8,3 +8,5 @@ export const StudContext = createContext()
 export const UserInfo = createContext()
 
 export const IsOpen = createContext()
+
+// export const al
