@@ -7,13 +7,15 @@ import Timer from "../../utiles/timer/timer";
 import axios from "axios";
 import Popup from "../../utiles/popup/popup";
 import { useNavigate } from "react-router-dom";
+import Button from "../../component/atoms/button/Button";
 
 export default function StudentBoard() {
   // const validRef = useRef(ref);
   const [timeOut, setTimeOut] = useState(false);
   const info = useContext(StudContext);
-  const [timeSpent, setTimeSpent] = useState("")
+  const [timeSpent, setTimeSpent] = useState("");
   const [question, setQuestion] = useState([]);
+  const childRef = useRef(null);
   const student = JSON.parse(localStorage.getItem("studentName"));
   const navigate = useNavigate();
   const user = info.user;
@@ -33,6 +35,22 @@ export default function StudentBoard() {
       });
   }, []);
 
+  const handleSubmit = () => {
+    // post time spent by student and score optained
+    axios
+      .post(AXIOS_BASE_URL + "update", {
+        name: student.participantName,
+        // score: score,
+        timeSpent: timeSpent,
+      })
+      .then((response) => {
+        console.log("Here i the response from post score", response);
+      })
+      .catch((err) => {
+        console.log("error occured", err);
+      });
+  };
+
   const handleToggleOption = (id) => {
     const newOpt = [...question.options];
     newOpt[id].checked = !newOpt[id].chacked;
@@ -42,7 +60,12 @@ export default function StudentBoard() {
     setTimeOut((prev) => !prev);
     navigate("/");
   };
-  console.log('timeSpent from child', timeSpent)
+
+  const handleClick = () => {
+    childRef.current.childFunction();
+  };
+
+  console.log("timeSpent from child", timeSpent);
 
   return (
     <div>
@@ -54,17 +77,17 @@ export default function StudentBoard() {
             <h3>Subject : </h3>
           </div>
           <Timer
-            seconds={800}
+            seconds={5430}
             timeOut={timeOut}
             setTimeOut={setTimeOut}
             timeSpent={timeSpent}
-            setTimeSpent ={setTimeSpent}
+            setTimeSpent={setTimeSpent}
+            ref={childRef}
             // handleClick={handleClick()}
           />
         </div>
         <div className="main-section">
           <div className="quizz">
-            
             {question?.map((kest, index) => (
               <div className="kuestions" key={index}>
                 <p className="p-element">
@@ -85,12 +108,17 @@ export default function StudentBoard() {
                 </ul>
               </div>
             ))}
+            <hr></hr>
             <div className="two-btns">
-            <button>Done</button>
-            <button>Submit</button>
+              <button
+                className="done"
+                onClick={() => handleClick()}
+              >
+                Submit
+              </button>
+            </div>
           </div>
-          </div>
-          
+
           {timeOut && (
             <Popup
               content={
@@ -104,7 +132,6 @@ export default function StudentBoard() {
               handleClose={() => handleClose()}
             />
           )}
-          
         </div>
       </div>
     </div>

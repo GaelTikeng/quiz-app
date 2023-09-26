@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef } from "react";
+import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import "./timer.css";
 
 const formatTimer = (time) => {
@@ -33,7 +33,7 @@ const formatTimer = (time) => {
   );
 };
 
-const Timer = ({ seconds, timeOut, setTimeOut, timeSpent, setTimeSpent }) => {
+const Timer = forwardRef (({ seconds, timeOut, setTimeOut, timeSpent, setTimeSpent }, ref) => {
   const [countDown, setCountDown] = useState(seconds);
 
   const [leftTime, setLeftTime] = useState(false);
@@ -41,10 +41,15 @@ const Timer = ({ seconds, timeOut, setTimeOut, timeSpent, setTimeSpent }) => {
 
   let time = formatTimer(countDown)
 
-  const handleClick = () => {
-    clearInterval(timerId.current);
-    console.log(time)
-  }
+  useImperativeHandle(ref, () => ({
+    childFunction () {
+      clearInterval(timerId.current);
+      console.log(time)
+      setTimeSpent(() => time)
+    }
+  }))
+
+  
 
   useEffect(() => {
     timerId.current = setInterval(() => {
@@ -70,8 +75,7 @@ const Timer = ({ seconds, timeOut, setTimeOut, timeSpent, setTimeSpent }) => {
       ) : (
         <h3 className="play">Time left: {time} </h3>
       )}
-      <button onClick={() => handleClick()}>done</button>
     </div>
   );
-};
+});
 export default Timer;
