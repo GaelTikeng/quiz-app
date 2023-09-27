@@ -59,26 +59,26 @@ function CreateExercise() {
     // set quiz object
     setQuiz((prev) => [
       ...prev,
-      { id: quisId, userId: userId, title: quizTitle, questionId: quisId },
+      { id: quisId, userId: userId, title: quizTitle, questionId: userId },
     ]);
 
     // post quiz
     axios
       .post(
-        AXIOS_BASE_URL+`dashboard/${userId}/create-quiz`, { quiz },
+        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-quiz`, { quiz },
         {
           headers: { Authorization: `Bearer: ${token}` },
         }
       )
       .then((res) => {
-        console.log("The response is successfull", res);
+        console.log("The create quiz response is successfull", res);
       })
       .catch((err) => console.log("Could not create quiz", err));
 
     // post questions
     axios
       .post(
-        AXIOS_BASE_URL+`dashboard/${userId}/create-question`,
+        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-question`,
         { allQuestion },
         {
           headers: { Authorization: `Bearer: ${token}` },
@@ -94,7 +94,7 @@ function CreateExercise() {
     // post options
     axios
       .post(
-        AXIOS_BASE_URL+`dashboard/${userId}/create-option`,
+        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-option`,
         { options },
         {
           headers: { Authorization: `Bearer: ${token}` },
@@ -114,6 +114,13 @@ function CreateExercise() {
   const handlePrev = () => {};
 
   const handleNext = () => {
+
+    // set quiz object
+    setQuiz((prev) => [
+      ...prev,
+      { id: quisId, userId: userId, title: quizTitle, questionId: quisId },
+    ]);
+
     dispatch();
 
     handleAddQuestions();
@@ -218,7 +225,7 @@ function CreateExercise() {
                 ))}
               </div>
               <div className="adding">
-                <div className="add_btn" onClick={handleAddItem}>
+                <div className="add_btn" onClick={() => handleAddItem()}>
                   <MdOutlineAddCircle className="md_add" /> Add option
                 </div>
               </div>
@@ -227,12 +234,12 @@ function CreateExercise() {
                   <Button
                     title="cancel"
                     className="cancel"
-                    onClick={handleClick}
+                    onClick={() => handleClick()}
                   />
                   <div className="three_btn">
                     <Button
                       title="Prev"
-                      onClick={handlePrev()}
+                      onClick={() => handlePrev()}
                       className="previous"
                     />
                     <Button
@@ -248,7 +255,7 @@ function CreateExercise() {
                         type="button"
                         onClick={() => handleDone()}
                       />
-                      <ToastContainer autoClose={1000} />
+                      <ToastContainer autoClose={1500} />
                     </div>
                   </div>
                 </div>

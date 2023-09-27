@@ -12,7 +12,7 @@ const Option = sequel.define('option', {
     type: DataTypes.STRING,
   },
   isCorrect: {
-    type: DataTypes.ENUM('true', 'false')
+    type: DataTypes.BOOLEAN
   },
   questionId: {
     type: DataTypes.STRING(255)
