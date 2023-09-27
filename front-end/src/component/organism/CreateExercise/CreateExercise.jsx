@@ -59,7 +59,7 @@ function CreateExercise() {
     // set quiz object
     setQuiz((prev) => [
       ...prev,
-      { id: quisId, userId: userId, title: quizTitle, questionId: quisId },
+      { id: quisId, userId: userId, title: quizTitle, questionId: userId },
     ]);
 
     // post quiz
@@ -71,7 +71,7 @@ function CreateExercise() {
         }
       )
       .then((res) => {
-        console.log("The response is successfull", res);
+        console.log("The create quiz response is successfull", res);
       })
       .catch((err) => console.log("Could not create quiz", err));
 
@@ -114,6 +114,13 @@ function CreateExercise() {
   const handlePrev = () => {};
 
   const handleNext = () => {
+
+    // set quiz object
+    setQuiz((prev) => [
+      ...prev,
+      { id: quisId, userId: userId, title: quizTitle, questionId: quisId },
+    ]);
+
     dispatch();
 
     handleAddQuestions();
