@@ -3,6 +3,8 @@ const { login } = require("../controllers/login");
 const express = require("express");
 const router = express.Router();
 
+const pool = require('./pool')
+
 const { createParticipant, getParticipant, updateParticipant } = require("../controllers/participant");
 const { getQuizzes, createQuiz, getQuizByID } = require("../controllers/quiz");
 
