@@ -106,7 +106,7 @@ export default function StudentBoard() {
             <h3>Subject : </h3>
           </div>
           <Timer
-            seconds={5430}
+            seconds={600}
             timeOut={timeOut}
             setTimeOut={setTimeOut}
             timeSpent={timeSpent}
