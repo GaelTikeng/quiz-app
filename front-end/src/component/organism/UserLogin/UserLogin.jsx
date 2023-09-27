@@ -21,7 +21,7 @@ function UserLogin() {
     let mes = "";
 
     axios
-      .post(AXIOS_BASE_URL+"account/login", {
+      .post(process.env.AXIOS_BASE_URL+"account/login", {
         email,
         password,
       })
@@ -37,7 +37,7 @@ function UserLogin() {
     setTimeout(() => {
       console.log("this is the message", mes);
       axios
-        .post(AXIOS_BASE_URL+"currentUser", {
+        .post(process.env.AXIOS_BASE_URL+"currentUser", {
           email,
         })
         .then((res) => {

@@ -65,7 +65,7 @@ function CreateExercise() {
     // post quiz
     axios
       .post(
-        AXIOS_BASE_URL+`dashboard/${userId}/create-quiz`, { quiz },
+        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-quiz`, { quiz },
         {
           headers: { Authorization: `Bearer: ${token}` },
         }
@@ -78,7 +78,7 @@ function CreateExercise() {
     // post questions
     axios
       .post(
-        AXIOS_BASE_URL+`dashboard/${userId}/create-question`,
+        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-question`,
         { allQuestion },
         {
           headers: { Authorization: `Bearer: ${token}` },
@@ -94,7 +94,7 @@ function CreateExercise() {
     // post options
     axios
       .post(
-        AXIOS_BASE_URL+`dashboard/${userId}/create-option`,
+        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-option`,
         { options },
         {
           headers: { Authorization: `Bearer: ${token}` },

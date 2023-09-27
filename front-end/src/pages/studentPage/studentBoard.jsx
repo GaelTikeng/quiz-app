@@ -54,8 +54,14 @@ export default function StudentBoard() {
   };
 
   const constructAnswer = () => {
-    setAnswers((prev) => [...prev, {optionId: optionId, isCorrect: checkBox}])
-    console.log({checkBox})
+
+    let q = question.options
+    console.log(question[1].options)
+    for (let i = 0; i<q.length; i++) {
+      console.log(q[i].title)
+    }
+    // setAnswers((prev) => [...prev, {optionId: optionId, isCorrect: checkBox}])
+    // console.log({checkBox})
   };
 
   const handleToggleOption = ({id, optIndx, checked, qusIndx}) => {
@@ -63,10 +69,13 @@ export default function StudentBoard() {
     console.log("optionid", checked);
     setOptionId(id)
     const newOpt = [...question[qusIndx].options];
-    setAnswers(newOpt);
+
+    setAnswers((prev) => [...prev, {optionId: optionId, isCorrect: checkBox}])
+
     newOpt[optIndx].checkBox = !newOpt[optIndx].checkBox;
     setCheckBox(checked)
     console.log('this is newOpt', newOpt)
+    console.log("options of one question", answers)
   };
 
   const handleClose = () => {
@@ -82,10 +91,10 @@ export default function StudentBoard() {
     console.log("checked? ", checkBox)
   };
 
-  React.useEffect(() => {
-    console.clear();
-    console.log({checkBox})
-  }, [checkBox])
+  // React.useEffect(() => {
+  //   console.clear();
+  //   console.log({checkBox})
+  // }, [checkBox])
 
   return (
     <div>
