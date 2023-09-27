@@ -11,9 +11,12 @@ import { useNavigate } from "react-router-dom";
 export default function StudentBoard() {
   // const validRef = useRef(ref);
   const [timeOut, setTimeOut] = useState(false);
+  const [checkBox, setCheckBox] = useState(false);
+  const [optionId, setOptionId] = useState(0);
   const info = useContext(StudContext);
   const [timeSpent, setTimeSpent] = useState("");
   const [question, setQuestion] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const childRef = useRef(null);
   const student = JSON.parse(localStorage.getItem("studentName"));
   const navigate = useNavigate();
@@ -50,9 +53,20 @@ export default function StudentBoard() {
       });
   };
 
-  const handleToggleOption = (id) => {
-    const newOpt = [...question.options];
-    newOpt[id].checked = !newOpt[id].chacked;
+  const constructAnswer = () => {
+    setAnswers((prev) => [...prev, {optionId: optionId, isCorrect: checkBox}])
+    console.log({checkBox})
+  };
+
+  const handleToggleOption = ({id, optIndx, checked, qusIndx}) => {
+    // setCheckBox((prev) => !prev)
+    console.log("optionid", checked);
+    setOptionId(id)
+    const newOpt = [...question[qusIndx].options];
+    setAnswers(newOpt);
+    newOpt[optIndx].checkBox = !newOpt[optIndx].checkBox;
+    setCheckBox(checked)
+    console.log('this is newOpt', newOpt)
   };
 
   const handleClose = () => {
@@ -62,9 +76,16 @@ export default function StudentBoard() {
 
   const handleClick = () => {
     childRef.current.childFunction();
+    constructAnswer()
+    console.log("these are answers", answers);
+    console.log("this is questionId", optionId);
+    console.log("checked? ", checkBox)
   };
 
-  console.log("timeSpent from child", timeSpent);
+  React.useEffect(() => {
+    console.clear();
+    console.log({checkBox})
+  }, [checkBox])
 
   return (
     <div>
@@ -92,13 +113,17 @@ export default function StudentBoard() {
                   <span>{index + 1}</span>. {kest.question}
                 </p>
                 <ul>
-                  {kest.options?.map((opt) => (
+                  {kest.options?.map((opt, indice) => (
                     <li key={opt.id} className="list-options">
                       <input
+                        key={opt.id}
+                        value={checkBox}
                         type="checkbox"
                         className="check-boxx"
-                        checked={opt.checked}
-                        onChange={() => handleToggleOption(opt.id)}
+                        // checked={checkBox}
+                        onChange={({target: {checked}}) => 
+                        // {id, optIndx, checked, qusIndx}
+                        handleToggleOption({id: opt.id, optIndx: indice, checked, qusIndx: index})}
                       />
                       <p>{opt.title}</p>
                     </li>
@@ -108,10 +133,7 @@ export default function StudentBoard() {
             ))}
             <hr></hr>
             <div className="two-btns">
-              <button
-                className="done"
-                onClick={() => handleClick()}
-              >
+              <button className="done" onClick={() => handleClick()}>
                 Submit
               </button>
             </div>
