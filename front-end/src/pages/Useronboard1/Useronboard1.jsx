@@ -1,6 +1,5 @@
 import React from "react";
-import "./Useronboard1";
-import Logo from "../../../public/image/smartbrain.png";
+import "./Useronboard1.css";
 import Welcome from "../../../public/image/onlineteacher1.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 

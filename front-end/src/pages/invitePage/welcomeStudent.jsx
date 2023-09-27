@@ -1,13 +1,7 @@
 import React, { useContext } from "react";
-<<<<<<< HEAD
-import './welcomeStudent.css'
-import Logo from "../../../public/image/smartbrain.png"
-import Welcome from "../../../public/image/Welcome-bro.png"
-=======
 import "./welcomeStudent.css";
 import Logo from "../../../public/image/smartbrain.png";
-import Welcome from "../../../public/image/welcome-bro.png";
->>>>>>> a47f8eef0e3f73b0a98ebba10ba12a5bc9ed438d
+// import Welcome from "../../../public/image/welcome-bro.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";

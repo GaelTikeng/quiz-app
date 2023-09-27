@@ -22,7 +22,7 @@ function SignUp() {
   let token = "";
 
   const navigatetoLogin = () => {
-    navigate("/account/login");
+    navigate("use");
   };
 
   function emailValidate(value) {
