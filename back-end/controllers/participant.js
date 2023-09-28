@@ -48,7 +48,7 @@ const getParticipant = async (req, res) => {
 // post participant score and timeSpent
 const updateParticipant = async (req, res) => {
   const { timeSpent, score, name } = req.body;
-
+  
   try {
     await Participant.update(
       {
