@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaPlusCircle } from "react-icons/fa";
 import { timeAgo } from "../../../utiles/timeStamp";
-import { BASE_URL, AXIOS_BASE_URL } from "../../../services/contants";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from "../../molecule/Sidebar/Sidebar";
