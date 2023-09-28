@@ -47,7 +47,12 @@ function CreateExercise() {
   const handleAddQuestions = () => {
     setAllQuestion((prev) => [
       ...prev,
-      { id: questionId, title: question, quizId: quisId, questionId: questionId },
+      {
+        id: questionId,
+        title: question,
+        quizId: quisId,
+        questionId: questionId,
+      },
     ]);
   };
 
@@ -57,54 +62,56 @@ function CreateExercise() {
 
   const handleDone = () => {
     // set quiz object
-    setQuiz((prev) => [
-      ...prev,
-      { id: quisId, userId: userId, title: quizTitle, questionId: userId },
-    ]);
+    // setQuiz((prev) => [
+    //   ...prev,
+    //   { id: quisId, userId: userId, title: quizTitle, questionId: quisId },
+    // ]);
 
     // post quiz
     axios
       .post(
-        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-quiz`, { quiz },
+        process.env.AXIOS_BASE_URL + `dashboard/${userId}/create-quiz`,
+        { quiz },
         {
           headers: { Authorization: `Bearer: ${token}` },
         }
       )
       .then((res) => {
         console.log("The create quiz response is successfull", res);
+
+        // post questions
+        axios
+          .post(
+            process.env.AXIOS_BASE_URL + `dashboard/${userId}/create-question`,
+            { allQuestion },
+            {
+              headers: { Authorization: `Bearer: ${token}` },
+            }
+          )
+          .then((response) => {
+            console.log("successfully post questions", response);
+
+            // post options
+            axios
+              .post(
+                process.env.AXIOS_BASE_URL +
+                  `dashboard/${userId}/create-option`,
+                { options },
+                {
+                  headers: { Authorization: `Bearer: ${token}` },
+                }
+              )
+              .then((res) => {
+                console.log("Options created successfuly", res);
+                toast("Quizz created successfully!");
+              })
+              .catch((error) => console.log("Could not post options", error));
+          })
+          .catch((err) => {
+            console.log("could not post question", err);
+          });
       })
       .catch((err) => console.log("Could not create quiz", err));
-
-    // post questions
-    axios
-      .post(
-        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-question`,
-        { allQuestion },
-        {
-          headers: { Authorization: `Bearer: ${token}` },
-        }
-      )
-      .then((response) => {
-        console.log("successfully post questions", response);
-      })
-      .catch((err) => {
-        console.log("could not post question", err);
-      });
-
-    // post options
-    axios
-      .post(
-        process.env.AXIOS_BASE_URL+`dashboard/${userId}/create-option`,
-        { options },
-        {
-          headers: { Authorization: `Bearer: ${token}` },
-        }
-      )
-      .then((res) => {
-        console.log("Options created successfuly", res);
-        toast("Quizz created successfully!");
-      })
-      .catch((error) => console.log("Could not post options", error));
 
     setTimeout(() => {
       navigate(`/dashboard/${userId}`);
@@ -114,11 +121,10 @@ function CreateExercise() {
   const handlePrev = () => {};
 
   const handleNext = () => {
-
-    // set quiz object
+    //set quiz object
     setQuiz((prev) => [
       ...prev,
-      { id: quisId, userId: userId, title: quizTitle, questionId: quisId },
+      { id: quisId, userId: userId, title: quizTitle },
     ]);
 
     dispatch();
@@ -131,9 +137,6 @@ function CreateExercise() {
     setOptions((prev) => [...prev, ...items]);
 
     setItems([]);
-    console.log("this is quiz", quiz);
-    console.log("these are the set questions", allQuestion);
-    console.log("this is new options", options);
   };
 
   const handleDelete = (index) => {

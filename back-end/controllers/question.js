@@ -34,7 +34,7 @@ const createQuestion = async (req, res) => {
     kestion = await allQuestion?.map((kest) =>
       Question.create({
         question: kest.title,
-        // quizId: kest.quizId,
+        quizId: kest.quizId,
         id: kest.id,
         questionId: kest.id
       })

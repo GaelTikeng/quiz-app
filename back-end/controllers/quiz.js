@@ -52,28 +52,27 @@ const getQuizzes = async (req, res) => {
     }
   } catch (err) {
     console.log("error while getting quiz", err);
-    throw err
+    throw err;
   }
 };
 
 // post / create quiz
 const createQuiz = async (req, res) => {
-  const { quiz } = req.body;
+  const quiz = req.body.quiz;
 
   console.log("front-end quiz", quiz);
+  console.log("one item of quiz array", quiz[0])
 
   try {
-    await quiz?.map((item) =>  {
-      Quiz.create({
-        id: item.id,
-        userId: item.userId,
-        title: item.title,
-        questionId: item.questionId,
-      });
+    await Quiz.create({
+      id: quiz[0].id,
+      userId: quiz[0].userId,
+      title: quiz[0].title,
+      questionId: quiz[0].questionId,
     });
   } catch (err) {
     console.log("An error occured while creating quiz", err);
-    throw err
+    throw err;
   }
 
   res.status(200).send("Quiz posted successfully");
