@@ -54,26 +54,31 @@ export default function StudentBoard() {
     setTimeOut((prev) => !prev);
     setDone((prev) => !prev)
     navigate("/");
+
+    // sending student's score
+    axios
+      .post(AXIOS_BASE_URL+"update", {
+        userId: user?.id,
+        quizId: quizId,
+        name: student.participantName,
+        score: score,
+        timeSpent: timeSpent,
+      })
+      .then((response) => {
+        console.log("Here i the response from post score", response);
+        
+      })
+      .catch((err) => {
+        console.log("error occured", err);
+      });
   };
 
   const handleClick = () => {
     childRef.current.childFunction();
     score = correction(question, answers)
     console.log("timespent", timeSpent)
-    // post time spent by student and score optained
-    axios
-      .post(AXIOS_BASE_URL+"update", {
-        name: name,
-        score: score,
-        timeSpent: timeSpent,
-      })
-      .then((response) => {
-        console.log("Here i the response from post score", response);
-        setDone((prev) => !prev)
-      })
-      .catch((err) => {
-        console.log("error occured", err);
-      });
+    setDone((prev) => !prev)
+    
   };
 
   return (
