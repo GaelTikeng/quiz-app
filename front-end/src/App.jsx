@@ -56,7 +56,7 @@ function App() {
             />
             <Route path="/user/onboard1/:userId" element={<Useronboard1 />} />
             <Route path="/user/onboard2/:userId" element={<Useronboard2 />} />
-            <Route path="/user/student/ans" element={<StudPerformance />} />
+            <Route path="/dashboard/score" element={<StudPerformance />} />
             <Route path="/student/result" element={<DisplayStudResult />} />
           </Routes>
         </Router>
