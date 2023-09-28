@@ -25,6 +25,7 @@ export default function StudentBoard() {
   const user = info.user;
   const quizId = info.studentQuizId;
   let score = 0
+  // let timeSpent = ""
 
   useEffect(() => {
     // get all questions and corresponding options
@@ -38,10 +39,6 @@ export default function StudentBoard() {
         console.log("Error while fetching questions", err);
       });
   }, []);
-
-  const handleSubmit = () => {
-    
-  };
 
   const handleToggleOption = ({id, optIndx, checked, qusIndx}) => {
     setOptionId(id)
@@ -64,19 +61,19 @@ export default function StudentBoard() {
     score = correction(question, answers)
     console.log("timespent", timeSpent)
     // post time spent by student and score optained
-    // axios
-    //   .post(AXIOS_BASE_URL + "update", {
-    //     name: "ricardo",
-    //     score: score,
-    //     timeSpent: timeSpent,
-    //   })
-    //   .then((response) => {
-    //     console.log("Here i the response from post score", response);
-    //     setDone((prev) => !prev)
-    //   })
-    //   .catch((err) => {
-    //     console.log("error occured", err);
-    //   });
+    axios
+      .post(AXIOS_BASE_URL+"update", {
+        name: name,
+        score: score,
+        timeSpent: timeSpent,
+      })
+      .then((response) => {
+        console.log("Here i the response from post score", response);
+        setDone((prev) => !prev)
+      })
+      .catch((err) => {
+        console.log("error occured", err);
+      });
   };
 
   return (
@@ -89,7 +86,7 @@ export default function StudentBoard() {
             <h3>Subject : </h3>
           </div>
           <Timer
-            seconds={5400}
+            seconds={330}
             timeOut={timeOut}
             setTimeOut={setTimeOut}
             timeSpent={timeSpent}
@@ -134,8 +131,8 @@ export default function StudentBoard() {
             <Popup
               content={
                 <>
-                  <p style={{padding: "20px", color: "black"}}>Thanks <b>{student.participantName}</b> for have taken the for our demo Presentation.</p>
-                  <p>Checkout your score from your teacher</p>
+                  <p style={{padding: "20px", color: "black", textAlign: "center"}}>Thanks <b>{student.participantName}</b> for have taken the quiz for our demo Presentation.</p>
+                  <p style={{padding: "20px", color: "black", textAlign: "center"}}>Checkout your score from your teacher</p>
                 </>
               }
               handleClose={() => handleClose()}
