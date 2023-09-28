@@ -22,7 +22,7 @@ function SignUp() {
   let token = "";
 
   const navigatetoLogin = () => {
-    navigate("use");
+    navigate("/user/onboard1");
   };
 
   function emailValidate(value) {
@@ -78,7 +78,7 @@ function SignUp() {
         })
         .then((res) => {
           localStorage.setItem("currentUser", JSON.stringify(res.data));
-          navigate(`/dashboard/${res.data.id}`);
+          navigate(`/user/onboard1/${res.data.id}`);
           userId = res.data.id;
           console.log(userId);
           console.log("here is the current user", res);
