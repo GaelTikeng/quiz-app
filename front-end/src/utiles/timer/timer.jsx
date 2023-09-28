@@ -49,8 +49,6 @@ const Timer = forwardRef (({ seconds, timeOut, setTimeOut, timeSpent, setTimeSpe
     }
   }))
 
-  
-
   useEffect(() => {
     timerId.current = setInterval(() => {
       setCountDown((prev) => prev - 1);
