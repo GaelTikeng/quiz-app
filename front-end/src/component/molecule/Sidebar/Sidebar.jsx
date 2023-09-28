@@ -18,7 +18,7 @@ function Sidebar() {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const handlescores = () => {
-    navigate("/account/scores");
+    navigate("/dashboard/score");
   };
 
   const handlelogout = () => {
