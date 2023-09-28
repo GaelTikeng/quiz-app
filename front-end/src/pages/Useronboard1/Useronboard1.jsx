@@ -20,9 +20,9 @@ function Useronboard1() {
         <div className="grey-section">
           <div className="welcome">
             <div className="elt-holder">
-              <div>
+              {/* <div> */}
               <h2>Welcome to Smart<span>Brain</span> admin panel</h2>
-              {/* <h1>Welcome to SmartBrain</h1> */}
+              {/* <h1>Welcome to SmartBrain</h1> */}  
               <img src={Welcome} alt="welcome image" className="image" />
               <p className="p-tag">
                 Welcome to the Quiz App admin panel! Here, you can create, edit,
@@ -44,7 +44,7 @@ function Useronboard1() {
                   Next
                   <FaAngleRight />
                 </button>
-              </div>
+              {/* </div> */}
               </div>
             </div>
           </div>

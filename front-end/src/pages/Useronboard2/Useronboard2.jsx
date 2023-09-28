@@ -23,15 +23,15 @@ function Useronboard2() {
       <div className="grey-sec">
         <div className="grey-section">
           <div className="welcome">
-            <div className="elt-holder">
+            <div className="elmt-holder">
               <div>
               <h2>You are almost there !</h2>
               {/* <h1>Welcome to SmartBrain</h1> */}
               <img src={Welcome} alt="welcome image" className="image" />
-              <p className="p-tag">
+              <p className="pa-tag">
                 Now that you're familiar with the basics, let's dive deeper into managing quizzes, questions, and users.
               </p>
-              <div className="two-btns">
+              <div className="two-butns">
                 <button onClick={handleClickPrev} className="prev-butn">
                   <FaAngleLeft />
                   Prev

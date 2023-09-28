@@ -6,39 +6,34 @@
     rgba(24, 54, 203, 0.6985644599636729) 13%,
     rgba(231, 233, 238, 1) 63%
   );
-  height: 87vh;
+  height: 100vh;
   width: 100%;
   padding-top: 2rem;
 }
 
 .welcome {
-  /* background-color: #fff; */
+  width: 60%;
+  height: 65vh;
+  margin: 2% 20%;
   background: rgb(24, 54, 203);
   background: radial-gradient(
     circle,
     rgba(24, 54, 203, 0.43806025828300066) 25%,
     rgba(188, 197, 219, 0.4632703423166141) 53%
   );
-  /* border-radius: 20px; */
+  border-radius: 5px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.elt-holder {
+.elmt-holder {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   text-align: center;
-  /* width: 50%; */
-  margin: 0 95px;
-  background-color: #fff;
-  background: rgb(24, 54, 203);
-  background: radial-gradient(
-    circle,
-    rgba(24, 54, 203, 0.43806025828300066) 27%,
-    rgba(188, 197, 219, 0.23077734511773462) 41%
-  );
+  margin: 20px 200px;
+  padding-top: 40px;
 }
-
+  
 h2 {
   text-align: center;
 }
@@ -49,7 +44,7 @@ h2 {
   margin: 0 auto;
 }
 
-.p-tag {
+.pa-tag {
   width: 500px;
   margin: 0 auto;
   line-height: 2;
@@ -57,11 +52,12 @@ h2 {
   font-weight: 600;
 }
 
-.two-btns {
+.two-butns {
   display: flex;
   justify-content: space-around;
-  gap: 120px;
+  gap: 100px;
   text-align: center;
+  padding-top: 20px;
 }
 
 .prev-butn {
@@ -76,7 +72,7 @@ h2 {
   background-color: #3e9adc;
 }
 
-.p-tag {
+.pa-tag {
   text-align: center;
 }
 
