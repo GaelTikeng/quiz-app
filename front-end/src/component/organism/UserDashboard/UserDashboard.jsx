@@ -23,7 +23,7 @@ function UserDashboard () {
   let user = JSON.parse(infoUser);
 
   useEffect(() => {
-    // get all quizzes by userId
+    // get all quizzes byuserId
     axios
       .get(process.env.AXIOS_BASE_URL+`dashboard/${user?.id}`, {
         headers: { Authorization: `Bearer: ${token}` },
