@@ -61,12 +61,6 @@ function CreateExercise() {
   };
 
   const handleDone = () => {
-    // set quiz object
-    // setQuiz((prev) => [
-    //   ...prev,
-    //   { id: quisId, userId: userId, title: quizTitle, questionId: quisId },
-    // ]);
-
     // post quiz
     axios
       .post(
