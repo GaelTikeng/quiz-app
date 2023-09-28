@@ -3,7 +3,7 @@ import Button from "../../atoms/button/Button";
 // import Button from "../../atoms/button/button";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import Logo from "../../../images/smartbrain.png"
+import Logo from "../../../images/smartbrain.png";
 
 function Navbar() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Navbar() {
   const navigatetoHome = () => {
     navigate("/");
   };
-  
+
   const navigatetoLogin = () => {
     navigate("/account/login");
   };
@@ -21,8 +21,8 @@ function Navbar() {
   };
 
   const handleClickLanding = () => {
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   return (
     <div className="nav_container">
@@ -34,10 +34,29 @@ function Navbar() {
           <p className="mainbtn" onClick={navigatetoHome}>
             Home
           </p>
-          <p className="homeBtn" >About</p>
-          <p className="homeBtn" >Features</p>
+          <p className="homeBtn">About</p>
+          <p className="homeBtn">Features</p>
         </div>
 
+        <div className="navBtn">
+          <Button
+            className="loginBtn"
+            onClick={navigatetoLogin}
+            title="Login"
+          />
+          <Button
+            className="signupBtn"
+            onClick={navigatetoSignup}
+            title="Sign Up"
+          />
+        </div>
+      </div>
+
+      {/* Media query */}
+      <div className="nav_query">
+        <div className="navImage" onClick={handleClickLanding}>
+          <img src={Logo} alt="quiz_app logo" />
+        </div>
         <div className="navBtn">
           <Button
             className="loginBtn"

@@ -6,7 +6,7 @@
   height: 5rem;
   width: 85%;
   background-color: #fff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .navImage {
@@ -67,7 +67,7 @@
 .loginBtn:hover {
   transform: translateY(2px);
   cursor: pointer;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .signupBtn {
@@ -79,11 +79,25 @@
   border: none;
 }
 
-.signupBtn:hover{
+.signupBtn:hover {
   background-color: #3e9adcc0;
-  /* opacity: .6; */
   cursor: pointer;
   border: none;
   transform: translateY(2px);
+}
+
+.nav_query {
+  display: none;
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav_container {
+   background-color: #fff;
+  }
+  
+  .nav_query {
+    display: flex;
+  }
 
 }
