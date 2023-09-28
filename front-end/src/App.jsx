@@ -54,8 +54,8 @@ function App() {
               path="/student/:userId/:quizId/quiz"
               element={<StudentBoard />}
             />
-            <Route path="/user/onboard1" element={<Useronboard1 />} />
-            <Route path="/User/onboard2" element={<Useronboard2 />} />
+            <Route path="/user/onboard1/:userId" element={<Useronboard1 />} />
+            <Route path="/user/onboard2/:userId" element={<Useronboard2 />} />
             <Route path="/user/student/ans" element={<StudPerformance />} />
             <Route path="/student/result" element={<DisplayStudResult />} />
           </Routes>

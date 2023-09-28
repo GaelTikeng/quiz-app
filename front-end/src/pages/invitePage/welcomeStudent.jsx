@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import "./welcomeStudent.css";
-import Logo from "../../../public/image/smartbrain.png";
-// import Welcome from "../../../public/image/welcome-bro.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
-
 import { useNavigate } from "react-router-dom";
 import { StudContext } from "../../utiles/context";
+import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 
 
 export default function WelcomeSudent() {
@@ -17,12 +15,11 @@ export default function WelcomeSudent() {
   };
 
   return (
-    <div className="all">
-      <div className="nav-image">
-        <img src={Logo} alt="quiz_app logo" />
-      </div>
-      <div className="grey-section">
-        <div className="welcome">
+    <>
+      <Usersnav/>
+      <div className="grey-sectn">
+        <div className="welcoming">
+          <div className="elemt-holder">
           <h2>You are in !</h2>
           <h2>
             Welcome to <span>Smart</span>Brain
@@ -51,10 +48,10 @@ export default function WelcomeSudent() {
             </p>
           </div>
           
-          <div className="two-btns">
+          <div className="two-butns">
             <button
               // onClick={handleClickPrev}
-              className="prev-btns"
+              className="prev-butns"
             >
               <FaAngleLeft />
               Prev
@@ -65,8 +62,9 @@ export default function WelcomeSudent() {
               <FaAngleRight />
             </button>
           </div>
+          </div>
         </div>
       </div>
-    </div>
+    </  >
   );
 }

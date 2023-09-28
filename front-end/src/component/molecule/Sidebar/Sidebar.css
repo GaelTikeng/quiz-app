@@ -35,14 +35,14 @@
 }
 
 .side_midle .p1 {
-  padding: 0.8rem;
+  padding: 0.8rem 2.5rem;
   display: flex;
   background-color: #fff;
   gap: 30px;
 }
 
 .side_midle .p2 {
-  padding: 0.8rem;
+  padding: 0.8rem 2.5rem;
   display: flex;
   background-color: #1882ce;
   gap: 30px;
@@ -67,11 +67,11 @@
 .logout {
   display: flex;
   background-color: #fff;
-  gap: 30px;
-  padding: 0.8rem;
+  gap: 26px;
+  padding: 0.8rem 2.5rem;
   background-color: #1882ce;
   margin-top: 1.3rem;
-}
+} 
 
 .logout:hover {
   cursor: pointer;
