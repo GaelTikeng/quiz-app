@@ -21,7 +21,7 @@ export default function DisplayQuiz () {
   useEffect(() => {
     // get all questions and corresponding options
     axios
-    .get(AXIOS_BASE_URL+`dashboard/${user?.Id}/${quizId}`, {
+    .get(process.env.AXIOS_BASE_URL+`dashboard/${user?.Id}/${quizId}`, {
       headers: {Authorization: `Bearer: ${token}`}
     })
     .then((response) => {
