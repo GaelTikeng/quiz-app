@@ -5,7 +5,7 @@ import "./SignUp.css";
 import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
-import axios from "../../../api/axios";
+import axios from "axios";
 import { AXIOS_BASE_URL } from "../../../services/contants";
 
 function SignUp() {
@@ -45,9 +45,6 @@ function SignUp() {
     if (!value.match(/(?=.*[^a-zA-Z0-9])(?!.*\s)/)) {
       setErrPwd("Your password must contain at least one special character");
     } else setErrPwd("");
-    // value.length < 6
-    //   ? setErrPwd("Email should be atleast 6 characters")
-    //   : setErrPwd("");
   }
 
   const handleValidation = (e) => {
@@ -74,7 +71,6 @@ function SignUp() {
             localStorage.setItem("currentUser", JSON.stringify(res.data));
             navigate(`/dashboard/${res.data.id}`);
             userId = res.data.id;
-            console.log(userId);
             console.log("here is the current user", res);
           })
           .catch((err) => console.log("Could not get current user", err))
