@@ -7,19 +7,24 @@ import Timer from "../../utiles/timer/timer";
 import axios from "axios";
 import Popup from "../../utiles/popup/popup";
 import { useNavigate } from "react-router-dom";
-import Button from "../../component/atoms/button/Button";
+import correction from "../../utiles/correction";
 
 export default function StudentBoard() {
   // const validRef = useRef(ref);
   const [timeOut, setTimeOut] = useState(false);
+  const [checkBox, setCheckBox] = useState(false);
+  const [done, setDone] = useState(false)
+  const [optionId, setOptionId] = useState(0);
   const info = useContext(StudContext);
   const [timeSpent, setTimeSpent] = useState("");
   const [question, setQuestion] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const childRef = useRef(null);
   const student = JSON.parse(localStorage.getItem("studentName"));
   const navigate = useNavigate();
   const user = info.user;
   const quizId = info.studentQuizId;
+  let score = 0
   // let timeSpent = ""
 
   useEffect(() => {
@@ -36,36 +41,43 @@ export default function StudentBoard() {
   }, []);
 
   const handleSubmit = () => {
-    // post time spent by student and score optained
-    axios
-      .post(AXIOS_BASE_URL + "update", {
-        name: student.participantName,
-        // score: score,
-        timeSpent: timeSpent,
-      })
-      .then((response) => {
-        console.log("Here i the response from post score", response);
-      })
-      .catch((err) => {
-        console.log("error occured", err);
-      });
+    
   };
 
-  const handleToggleOption = (id) => {
-    const newOpt = [...question.options];
-    newOpt[id].checked = !newOpt[id].chacked;
+  const handleToggleOption = ({id, optIndx, checked, qusIndx}) => {
+    setOptionId(id)
+    const newOpt = [...question[qusIndx].options];
+
+    setAnswers((prev) => [...prev, {optionId: optionId, isCorrect: checkBox}])
+
+    newOpt[optIndx].checkBox = !newOpt[optIndx].checkBox;
+    setCheckBox(checked)
   };
 
   const handleClose = () => {
     setTimeOut((prev) => !prev);
+    setDone((prev) => !prev)
     navigate("/");
   };
 
   const handleClick = () => {
     childRef.current.childFunction();
+    score = correction(question, answers)
+    // post time spent by student and score optained
+    axios
+      .post(AXIOS_BASE_URL + "update", {
+        name: student.participantName,
+        score: score,
+        timeSpent: timeSpent,
+      })
+      .then((response) => {
+        console.log("Here i the response from post score", response);
+        setDone((prev) => !prev)
+      })
+      .catch((err) => {
+        console.log("error occured", err);
+      });
   };
-
-  console.log("timeSpent from child", timeSpent);
 
   return (
     <div>
@@ -77,13 +89,12 @@ export default function StudentBoard() {
             <h3>Subject : </h3>
           </div>
           <Timer
-            seconds={5430}
+            seconds={5400}
             timeOut={timeOut}
             setTimeOut={setTimeOut}
             timeSpent={timeSpent}
             setTimeSpent={setTimeSpent}
             ref={childRef}
-            // handleClick={handleClick()}
           />
         </div>
         <div className="main-section">
@@ -94,13 +105,17 @@ export default function StudentBoard() {
                   <span>{index + 1}</span>. {kest.question}
                 </p>
                 <ul>
-                  {kest.options?.map((opt) => (
+                  {kest.options?.map((opt, indice) => (
                     <li key={opt.id} className="list-options">
                       <input
+                        key={opt.id}
+                        value={checkBox}
                         type="checkbox"
                         className="check-boxx"
-                        checked={opt.checked}
-                        onChange={() => handleToggleOption(opt.id)}
+                        // checked={checkBox}
+                        onChange={({target: {checked}}) => 
+                        // {id, optIndx, checked, qusIndx}
+                        handleToggleOption({id: opt.id, optIndx: indice, checked, qusIndx: index})}
                       />
                       <p>{opt.title}</p>
                     </li>
@@ -110,14 +125,22 @@ export default function StudentBoard() {
             ))}
             <hr></hr>
             <div className="two-btns">
-              <button
-                className="done"
-                onClick={() => handleClick()}
-              >
+              <button className="done" onClick={() => handleClick()}>
                 Submit
               </button>
             </div>
           </div>
+          {done && (
+            <Popup
+              content={
+                <>
+                  <p style={{padding: "20px", color: "black"}}>Thanks <b>{student.participantName}</b> for have taken the for our demo Presentation.</p>
+                  <p>Checkout your score from your teacher</p>
+                </>
+              }
+              handleClose={() => handleClose()}
+            />
+          )}
 
           {timeOut && (
             <Popup

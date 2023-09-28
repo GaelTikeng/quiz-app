@@ -55,7 +55,7 @@ function SignUp() {
     setIsLoading(true);
 
     axios
-      .post(AXIOS_BASE_URL+"account/signup", {
+      .post(process.env.AXIOS_BASE_URL+"account/signup", {
         username,
         email,
         password,
@@ -71,7 +71,7 @@ function SignUp() {
 
     setTimeout(() => {
       axios
-        .post("http://localhost:3000/currentUser", {
+        .post(process.env.AXIOS_BASE_URL+"currentUser", {
           username,
           email,
           password,

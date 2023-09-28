@@ -1,5 +1,5 @@
 .side_container {
-  width: 450px;
+  width: 23vw;
   height: 100%;
   background-color: #3e9adc;
 }
@@ -85,4 +85,15 @@
 .bi {
   width: 24px;
   height: 25px;
+}
+
+.p1:hover {
+  cursor: pointer;
+  transform: translateY(1.5px);
+}
+
+.p2:hover {
+  cursor: pointer;
+  transform: translateY(1.5px);
+
 }
