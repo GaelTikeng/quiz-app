@@ -64,9 +64,6 @@ function UserDashboard () {
         <div className="nav_img">
           <img src={Logo} alt="logo" />
         </div>
-        {/* <div className="logbtn">
-          <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
-        </div> */}
       </div>
       <div className="userdashboard_container">
         <div className="sidebar">
@@ -102,18 +99,6 @@ function UserDashboard () {
                 </div>
               ))}
             </div>
-            {/* <div className="next_prev">
-              <div className="prev">
-                <div onClick={handlePrev}>
-                  <GrPrevious className="fa_icons" /> Prev
-                </div>
-              </div>
-              <div className="next">
-                <div onClick={handlenext}>
-                  Next <GrNext className="fa_icons" />
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

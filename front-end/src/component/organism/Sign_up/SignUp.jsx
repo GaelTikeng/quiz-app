@@ -55,7 +55,7 @@ function SignUp() {
     setIsLoading(true);
 
     axios
-      .post(process.env.AXIOS_BASE_URL+"account/signup", {
+      .post(process.env.AXIOS_BASE_URL + "account/signup", {
         username,
         email,
         password,
@@ -63,31 +63,24 @@ function SignUp() {
       .then((resp) => {
         token = resp.data.token;
         localStorage.setItem("token", token);
-        console.log("this is the response", resp.data.token);
+        // get new users id
+        axios
+          .post(process.env.AXIOS_BASE_URL + "currentUser", {
+            username,
+            email,
+            password,
+          })
+          .then((res) => {
+            localStorage.setItem("currentUser", JSON.stringify(res.data));
+            navigate(`/dashboard/${res.data.id}`);
+            userId = res.data.id;
+            console.log(userId);
+            console.log("here is the current user", res);
+          })
+          .catch((err) => console.log("Could not get current user", err))
+          .finaly(setIsLoading(false));
       })
       .catch((err) => console.log("An error occure at frontend", err));
-
-    console.log({ username: username, email: email, pwd: password });
-
-    setTimeout(() => {
-      axios
-        .post(process.env.AXIOS_BASE_URL+"currentUser", {
-          username,
-          email,
-          password,
-        })
-        .then((res) => {
-          localStorage.setItem("currentUser", JSON.stringify(res.data));
-          navigate(`/dashboard/${res.data.id}`);
-          userId = res.data.id;
-          console.log(userId);
-          console.log("here is the current user", res);
-        })
-        .catch((err) => console.log("Could not get current user", err))
-        .finaly(() => {
-          setIsLoading(false);
-        });
-    }, 3000);
   };
 
   return (

@@ -77,7 +77,7 @@ function CreateExercise() {
         }
       )
       .then((res) => {
-        console.log("The create quiz response is successfull", res);
+        console.log("The create quiz request is successfull", res);
 
         // post questions
         axios
@@ -94,8 +94,7 @@ function CreateExercise() {
             // post options
             axios
               .post(
-                process.env.AXIOS_BASE_URL +
-                  `dashboard/${userId}/create-option`,
+                process.env.AXIOS_BASE_URL +`dashboard/${userId}/create-option`,
                 { options },
                 {
                   headers: { Authorization: `Bearer: ${token}` },

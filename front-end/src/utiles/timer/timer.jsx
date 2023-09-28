@@ -24,11 +24,12 @@ const formatTimer = (time) => {
     " " +
     minutes +
     " " +
-    "min" +
-    " " +
-    seconds +
-    " " +
-    "sec"
+    "min"
+    //  +
+    // " " +
+    // seconds +
+    // " " +
+    // "sec"
      
   );
 };

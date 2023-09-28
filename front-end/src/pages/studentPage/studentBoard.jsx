@@ -13,7 +13,7 @@ export default function StudentBoard() {
   // const validRef = useRef(ref);
   const [timeOut, setTimeOut] = useState(false);
   const [checkBox, setCheckBox] = useState(false);
-  const [done, setDone] = useState(false)
+  const [done, setDone] = useState(false);
   const [optionId, setOptionId] = useState(0);
   const info = useContext(StudContext);
   const [timeSpent, setTimeSpent] = useState("");
@@ -24,7 +24,7 @@ export default function StudentBoard() {
   const navigate = useNavigate();
   const user = info.user;
   const quizId = info.studentQuizId;
-  let score = 0
+  let score = 0;
   // let timeSpent = ""
 
   useEffect(() => {
@@ -40,24 +40,27 @@ export default function StudentBoard() {
       });
   }, []);
 
-  const handleToggleOption = ({id, optIndx, checked, qusIndx}) => {
-    setOptionId(id)
+  const handleToggleOption = ({ id, optIndx, checked, qusIndx }) => {
+    setOptionId(id);
     const newOpt = [...question[qusIndx].options];
 
-    setAnswers((prev) => [...prev, {optionId: optionId, isCorrect: checkBox}])
+    setAnswers((prev) => [
+      ...prev,
+      { optionId: optionId, isCorrect: checkBox },
+    ]);
 
     newOpt[optIndx].checkBox = !newOpt[optIndx].checkBox;
-    setCheckBox(checked)
+    setCheckBox(checked);
   };
 
   const handleClose = () => {
     setTimeOut((prev) => !prev);
-    setDone((prev) => !prev)
+    setDone((prev) => !prev);
     navigate("/");
 
     // sending student's score
     axios
-      .post(AXIOS_BASE_URL+"update", {
+      .post(AXIOS_BASE_URL + "update", {
         userId: user?.id,
         quizId: quizId,
         name: student.participantName,
@@ -66,7 +69,6 @@ export default function StudentBoard() {
       })
       .then((response) => {
         console.log("Here i the response from post score", response);
-        
       })
       .catch((err) => {
         console.log("error occured", err);
@@ -75,10 +77,9 @@ export default function StudentBoard() {
 
   const handleClick = () => {
     childRef.current.childFunction();
-    score = correction(question, answers)
-    console.log("timespent", timeSpent)
-    setDone((prev) => !prev)
-    
+    score = correction(question, answers);
+    console.log("timespent", timeSpent);
+    setDone((prev) => !prev);
   };
 
   return (
@@ -115,9 +116,15 @@ export default function StudentBoard() {
                         type="checkbox"
                         className="check-boxx"
                         // checked={checkBox}
-                        onChange={({target: {checked}}) => 
-                        // {id, optIndx, checked, qusIndx}
-                        handleToggleOption({id: opt.id, optIndx: indice, checked, qusIndx: index})}
+                        onChange={({ target: { checked } }) =>
+                          // {id, optIndx, checked, qusIndx}
+                          handleToggleOption({
+                            id: opt.id,
+                            optIndx: indice,
+                            checked,
+                            qusIndx: index,
+                          })
+                        }
                       />
                       <p>{opt.title}</p>
                     </li>
@@ -136,8 +143,25 @@ export default function StudentBoard() {
             <Popup
               content={
                 <>
-                  <p style={{padding: "20px", color: "black", textAlign: "center"}}>Thanks <b>{student.participantName}</b> for have taken the quiz for our demo Presentation.</p>
-                  <p style={{padding: "20px", color: "black", textAlign: "center"}}>Checkout your score from your teacher</p>
+                  <p
+                    style={{
+                      padding: "20px",
+                      color: "black",
+                      textAlign: "center",
+                    }}
+                  >
+                    Thanks <b>{student.participantName}</b> for have taken the
+                    quiz for our demo Presentation.
+                  </p>
+                  <p
+                    style={{
+                      padding: "20px",
+                      color: "black",
+                      textAlign: "center",
+                    }}
+                  >
+                    Checkout your score from your teacher
+                  </p>
                 </>
               }
               handleClose={() => handleClose()}
@@ -149,8 +173,24 @@ export default function StudentBoard() {
               content={
                 <>
                   <h1 style={{ color: "red" }}>Time out</h1>
-                  <p style={{ textAlign: "center", padding: "20px 0" }}>
-                    Checkout your results from your teacher
+                  <p
+                    style={{
+                      padding: "20px",
+                      color: "black",
+                      textAlign: "center",
+                    }}
+                  >
+                    Thanks <b>{student.participantName}</b> for have taken the
+                    quiz for our demo Presentation.
+                  </p>
+                  <p
+                    style={{
+                      padding: "20px",
+                      color: "black",
+                      textAlign: "center",
+                    }}
+                  >
+                    Checkout your score from your teacher
                   </p>
                 </>
               }
