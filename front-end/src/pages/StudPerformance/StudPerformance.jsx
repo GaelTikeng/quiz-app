@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./StudPerformance.css";
 import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 import Sidebar from "../../component/molecule/Sidebar/Sidebar";
@@ -6,12 +6,14 @@ import { StudContext } from "../../utiles/context";
 import axios from "axios";
 
 function StudPerformance() {
+  const [students, setstudents] = useState({});
   const info = useContext(StudContext);
   const userId = info.user.id;
   useEffect(() => {
     axios
       .post(process.env.AXIOS_BASE_URL + "getstudents", { userId })
       .then((response) => {
+        setstudents(response.data);
         console.log("Here are the students", response);
       })
       .catch((err) => {
@@ -31,26 +33,22 @@ function StudPerformance() {
               <h1 className="student_h1">Students Performances</h1>
               <hr />
               <div className="table">
-                <table>
-                  <tr className="line">
-                    <th>Full name</th>
-                    <th>quiz title</th>
-                    <th>score/10</th>
-                    <th>Time spent</th>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                  </tr>
-                </table>
+                {students?.map((stud, index) => (
+                  <table>
+                    <tr className="line">
+                      <th>Full name</th>
+                      <th>quiz title</th>
+                      <th>score/10</th>
+                      <th>Time spent</th>
+                    </tr>
+                    <tr>
+                      <td>{stud.name}</td>
+                      <td>{stud.title} </td>
+                      <td>{stud.score}</td>
+                      <td>{stud.timeSpent}</td>
+                    </tr>
+                  </table>
+                ))}
               </div>
             </div>
           </div>
