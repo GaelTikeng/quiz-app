@@ -4,14 +4,13 @@ import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 import Sidebar from "../../component/molecule/Sidebar/Sidebar";
 import { StudContext } from "../../utiles/context";
 import axios from "axios";
-import { AXIOS_BASE_URL } from "../../services/contants";
 
 function StudPerformance() {
   const info = useContext(StudContext);
   const userId = info.user.id;
   useEffect(() => {
     axios
-      .post(AXIOS_BASE_URL + "getstudents", { userId })
+      .post(process.env.AXIOS_BASE_URL + "getstudents", { userId })
       .then((response) => {
         console.log("Here are the students", response);
       })
