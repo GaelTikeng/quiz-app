@@ -80,5 +80,11 @@
 }
 
 .prev-btns:hover {
-  cursor: not-allowed;
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  cursor: pointer !important;
+  background-color: #3e9adc !important;
+  color: #fff;
 }

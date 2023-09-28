@@ -75,7 +75,7 @@ export default function StudentBoard() {
     newOpt[optIndx].checkBox = !newOpt[optIndx].checkBox;
     setCheckBox(checked)
     console.log('this is newOpt', newOpt)
-    console.log("options of one question", answers)
+    console.log("answers", answers)
   };
 
   const handleClose = () => {
