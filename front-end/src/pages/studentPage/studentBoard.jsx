@@ -25,7 +25,6 @@ export default function StudentBoard() {
   const user = info.user;
   const quizId = info.studentQuizId;
   let score = 0
-  // let timeSpent = ""
 
   useEffect(() => {
     // get all questions and corresponding options
