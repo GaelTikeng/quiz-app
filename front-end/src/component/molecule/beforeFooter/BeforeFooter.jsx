@@ -1,11 +1,11 @@
 import React from "react";
 import "./BeforeFooter.css";
 
-import svg1 from "../../../../public/image/svg1.png"
-import svg2 from "../../../../public/image/svg2.png"
-import svg3 from "../../../../public/image/svg3.png"
-import svg4 from "../../../../public/image/svg4.png"
-import Phone from "../../../../public/image/Online learning-amico.png";
+import svg1 from "../../../images/svg1.png"
+import svg2 from "../../../images/svg2.png"
+import svg3 from "../../../images/svg3.png"
+import svg4 from "../../../images/svg4.png"
+import Phone from "../../../images/Online learning-amico.png";
 
 function BeforeFooter() {
   return (

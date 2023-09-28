@@ -3,7 +3,7 @@ import Button from "../../atoms/button/Button";
 // import Button from "../../atoms/button/button";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import Logo from "../../../../public/image/smartbrain.png"
+import Logo from "../../../images/smartbrain.png"
 
 function Navbar() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Navbar() {
   const navigatetoHome = () => {
     navigate("/");
   };
-
+  
   const navigatetoLogin = () => {
     navigate("/account/login");
   };

@@ -1,6 +1,6 @@
 import React from "react";
 import './Useronboard1.css';
-import Welcome from "../../../public/image/onlineteacher1.png";
+import Welcome from "../../images/onlineteacher1.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Usersnav from "../../component/molecule/Usersnav/Usersnav";

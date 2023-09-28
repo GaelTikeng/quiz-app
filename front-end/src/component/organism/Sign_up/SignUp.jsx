@@ -3,7 +3,7 @@ import InputField from "../../atoms/InputFields/InputField";
 import Button from "../../atoms/button/Button";
 import "./SignUp.css";
 import Navbar from "../../molecule/navbar/Navbar";
-import Logo from "../../../../public/image/Sign up-amico1.png";
+import Logo from "../../../images/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
 import axios from "../../../api/axios";
 import { AXIOS_BASE_URL } from "../../../services/contants";

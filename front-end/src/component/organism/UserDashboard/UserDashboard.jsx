@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./UserDashboard.css";
-import Logo from "../../../../public/image/smartbrain.png";
+import Logo from "../../../images/smartbrain.png";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";

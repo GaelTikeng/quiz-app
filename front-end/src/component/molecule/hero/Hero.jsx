@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
 import "./Hero.css";
-import Logo from "../../../../public/image/college entrance exam-rafiki 1.png"
+import Logo from "../../../images/college entrance exam-rafiki 1.png"
 
 function Hero() {
   const navigate = useNavigate();

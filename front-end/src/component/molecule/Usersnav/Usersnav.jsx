@@ -1,8 +1,7 @@
 import React from "react";
 import "./Usersnav";
 import { useNavigate } from "react-router-dom";
-import  Logo from '../../../../public/image/smartbrain.png'
-import Button from "../../atoms/button/Button";
+import  Logo from '../../../images/smartbrain.png'
 
 
 function Usersnav ({className}) {
@@ -19,9 +18,6 @@ function Usersnav ({className}) {
         <div className="nav_img">
           <img src={Logo} alt="logo" onClick={navigatetoLogin} />
         </div>
-        {/* <div className="logbtn">
-          <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
-        </div> */}
       </div>
     </div>
   );
