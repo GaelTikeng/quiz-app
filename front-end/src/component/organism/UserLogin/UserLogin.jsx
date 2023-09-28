@@ -37,15 +37,13 @@ function UserLogin() {
     setTimeout(() => {
       console.log("this is the message", mes);
       axios
-        .post("http://localhost:3000/currentUser", {
+        .post(AXIOS_BASE_URL + "currentUser", {
           email,
         })
         .then((res) => {
           localStorage.setItem("currentUser", JSON.stringify(res.data));
           userId = res.data.id;
           navigate(`/dashboard/${userId}`);
-          // navigate(`/dashboard/${res.data.id}`)
-          console.log("here is the current user", res);
         })
         .catch((err) => console.log("Could not get current user", err))
       

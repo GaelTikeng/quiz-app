@@ -24,11 +24,12 @@ const formatTimer = (time) => {
     " " +
     minutes +
     " " +
-    "min" +
-    " " +
-    seconds +
-    " " +
-    "sec"
+    "min"
+    //  +
+    // " " +
+    // seconds +
+    // " " +
+    // "sec"
      
   );
 };
@@ -48,8 +49,6 @@ const Timer = forwardRef (({ seconds, timeOut, setTimeOut, timeSpent, setTimeSpe
       setTimeSpent(() => time)
     }
   }))
-
-  
 
   useEffect(() => {
     timerId.current = setInterval(() => {

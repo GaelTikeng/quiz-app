@@ -19,9 +19,6 @@ function Usersnav ({className}) {
         <div className="nav_img">
           <img src={Logo} alt="logo" onClick={navigatetoLogin} />
         </div>
-        {/* <div className="logbtn">
-          <Button title="Login" onClick={navigatetoLogin} className="log_btn" />
-        </div> */}
       </div>
     </div>
   );

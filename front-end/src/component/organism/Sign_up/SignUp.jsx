@@ -5,7 +5,7 @@ import "./SignUp.css";
 import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
-import axios from "../../../api/axios";
+import axios from "axios";
 import { AXIOS_BASE_URL } from "../../../services/contants";
 
 function SignUp() {
@@ -45,9 +45,6 @@ function SignUp() {
     if (!value.match(/(?=.*[^a-zA-Z0-9])(?!.*\s)/)) {
       setErrPwd("Your password must contain at least one special character");
     } else setErrPwd("");
-    // value.length < 6
-    //   ? setErrPwd("Email should be atleast 6 characters")
-    //   : setErrPwd("");
   }
 
   const handleValidation = (e) => {
@@ -55,7 +52,7 @@ function SignUp() {
     setIsLoading(true);
 
     axios
-      .post(process.env.AXIOS_BASE_URL+"account/signup", {
+      .post(process.env.AXIOS_BASE_URL + "account/signup", {
         username,
         email,
         password,
@@ -63,31 +60,23 @@ function SignUp() {
       .then((resp) => {
         token = resp.data.token;
         localStorage.setItem("token", token);
-        console.log("this is the response", resp.data.token);
+        // get new users id
+        axios
+          .post(process.env.AXIOS_BASE_URL + "currentUser", {
+            username,
+            email,
+            password,
+          })
+          .then((res) => {
+            localStorage.setItem("currentUser", JSON.stringify(res.data));
+            navigate(`/dashboard/${res.data.id}`);
+            userId = res.data.id;
+            console.log("here is the current user", res);
+          })
+          .catch((err) => console.log("Could not get current user", err))
+          .finaly(setIsLoading(false));
       })
       .catch((err) => console.log("An error occure at frontend", err));
-
-    console.log({ username: username, email: email, pwd: password });
-
-    setTimeout(() => {
-      axios
-        .post(process.env.AXIOS_BASE_URL+"currentUser", {
-          username,
-          email,
-          password,
-        })
-        .then((res) => {
-          localStorage.setItem("currentUser", JSON.stringify(res.data));
-          navigate(`/user/onboard1/${res.data.id}`);
-          userId = res.data.id;
-          console.log(userId);
-          console.log("here is the current user", res);
-        })
-        .catch((err) => console.log("Could not get current user", err))
-        .finaly(() => {
-          setIsLoading(false);
-        });
-    }, 3000);
   };
 
   return (
