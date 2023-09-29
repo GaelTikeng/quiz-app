@@ -8,20 +8,11 @@
   background-color: #ffff;
 }
 
-/* .log_btn {
-  background-color: #fff;
-  border: 2px solid #3e9adc;
-  padding: 8px 20px;
-  font-weight: 600;
-  font-size: 20px;
-} */
-
 .userdashboard_container {
   display: flex;
 }
 
 .nav_img {
-  /* padding: auto 0; */
   align-self: center;
 }
 

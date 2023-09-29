@@ -9,7 +9,6 @@ function Useronboard1() {
   const navigate = useNavigate();
   let signupId = JSON.parse(localStorage.getItem('currentUser'))
   const handleClickNext = () => {
-    // navigate(`/user/onboard2/${signupId.id}`);
     navigate('/user/onboard2/:userId')
   };
 
