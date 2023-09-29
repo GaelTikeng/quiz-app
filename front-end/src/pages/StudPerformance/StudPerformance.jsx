@@ -6,7 +6,7 @@ import { StudContext } from "../../utiles/context";
 import axios from "axios";
 
 function StudPerformance() {
-  const [students, setstudents] = useState({});
+  const [students, setstudents] = useState([]);
   const info = useContext(StudContext);
   const userId = info.user.id;
   useEffect(() => {
@@ -21,6 +21,10 @@ function StudPerformance() {
       });
   }, []);
 
+  const click = () => {
+    console.log(students)
+  }
+
   return (
     <>
       <Usersnav />
@@ -32,13 +36,14 @@ function StudPerformance() {
             <div>
               <h1 className="student_h1">Students Performances</h1>
               <hr />
+              <button onClick={() => click()}>click</button>
               <div className="table">
-                {students?.map((stud, index) => (
-                  <table>
-                    <tr className="line">
+                {students.map((stud, index) => (
+                  <table key={index}>
+                    <tr className="line" key={index}>
                       <th>Full name</th>
                       <th>quiz title</th>
-                      <th>score/10</th>
+                      <th>score</th>
                       <th>Time spent</th>
                     </tr>
                     <tr>

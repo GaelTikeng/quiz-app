@@ -52,7 +52,7 @@ function SignUp() {
     setIsLoading(true);
 
     axios
-      .post(process.env.AXIOS_BASE_URL + "account/signup", {
+      .post("https://smartbrain-server-esqy.onrender.com/account/signup", {
         username,
         email,
         password,
@@ -77,6 +77,8 @@ function SignUp() {
           .finaly(setIsLoading(false));
       })
       .catch((err) => console.log("An error occure at frontend", err));
+
+    console.log("this is env")
   };
 
   return (
