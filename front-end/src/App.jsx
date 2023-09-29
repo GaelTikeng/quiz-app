@@ -18,8 +18,7 @@ import StudPerformance from "./pages/StudPerformance/StudPerformance";
 import DisplayStudResult from "./pages/DisplayStudResult/DisplayStudResult";
 
 
-console.log(process.env.VITE_AXIOS_BASE_URL)
-
+// console.log(process.env.VITE_BASE_URL)
 
 function App() {
   const studentQuizId = localStorage.getItem("studQuizId");

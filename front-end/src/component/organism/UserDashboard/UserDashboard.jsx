@@ -51,7 +51,7 @@ function UserDashboard () {
 
   const handleCopie = (quizId) => {
     // console.log(process.env.BASE_URL)
-    const link = process.env.BASE_URL+`student/${user.id}/${quizId}/login`
+    const link = process.env.VITE_BASE_URL+`student/${user.id}/${quizId}/login`
     localStorage.setItem("studQuizId", quizId)
     toast("Copied!");
     navigator.clipboard.writeText(link)
