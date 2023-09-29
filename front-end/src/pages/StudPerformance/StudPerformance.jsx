@@ -31,7 +31,7 @@ function StudPerformance() {
           <div className="studperfom_mainpage">
             <div>
               <h1 className="student_h1">Students Performances</h1>
-              <hr className="hr"/>
+              <hr className="hr" />
               <div className="table">
                 <table>
                   <tr className="line">
