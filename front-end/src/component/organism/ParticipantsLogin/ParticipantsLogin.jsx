@@ -15,7 +15,6 @@ function ParticipantsLogin() {
   const navigate = useNavigate();
   const quizId = useContext(StudContext);
 
-  // let user = JSON.parse(infoUser);
   const token = localStorage.getItem("token");
 
   const handlenavigate = () => {
