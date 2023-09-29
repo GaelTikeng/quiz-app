@@ -52,7 +52,7 @@ function SignUp() {
     setIsLoading(true);
 
     axios
-      .post("https://smartbrain-server-esqy.onrender.com/account/signup", {
+      .post(process.env.AXIOS_BASE_URL + "account/signup", {
         username,
         email,
         password,

@@ -34,20 +34,22 @@ function StudPerformance() {
               <hr className="hr" />
               <div className="table">
                 <table>
-                  <tr className="line">
-                    <th>Full name</th>
-                    <th>quiz title</th>
-                    <th>score</th>
-                    <th>Time spent</th>
-                  </tr>
-                  {students?.map((stud, index) => (
-                    <tr key={index}>
-                      <td>{stud.name}</td>
-                      <td>{stud.title} </td>
-                      <td>{stud.score}</td>
-                      <td>{stud.timeSpent}</td>
+                  <tbody>
+                    <tr className="line">
+                      <th>Full name</th>
+                      <th>quiz title</th>
+                      <th>score</th>
+                      <th>Time spent</th>
                     </tr>
-                  ))}
+                    {students?.map((stud, index) => (
+                      <tr key={index}>
+                        <td>{stud.name}</td>
+                        <td>{stud.title} </td>
+                        <td>{stud.score}</td>
+                        <td>{stud.timeSpent}</td>
+                      </tr>
+                    ))}
+                  </tbody>
                 </table>
               </div>
             </div>
