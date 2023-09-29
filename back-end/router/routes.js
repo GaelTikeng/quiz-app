@@ -22,7 +22,6 @@ router.get("/getStudentInfo", getParticipant)
 router.post("/student", createParticipant)
 router.get("/dashboard/:userId/:quizId", getQuestion);
 router.post("/update", updateParticipant)
-router.post("/getstudents", getStudentPerformance)
 
 // protected routes
 // router.use(AuthMiddleWare);
@@ -31,6 +30,8 @@ router.get("/dashboard/:quizId", getQuizByID);
 router.post("/dashboard/:userId/create-quiz", createQuiz);
 router.post("/dashboard/:userId/create-question", createQuestion);
 router.post("/dashboard/:userId/create-option", createOption);
+router.post("/getstudents", getStudentPerformance)
+
 
 
 
