@@ -9,7 +9,7 @@ function Useronboard1() {
   const navigate = useNavigate();
   let signupId = JSON.parse(localStorage.getItem('currentUser'))
   const handleClickNext = () => {
-    navigate('/user/onboard2/:userId')
+    navigate(`/user/onboard2/${signupId?.id}`)
   };
 
   return (
@@ -33,7 +33,7 @@ function Useronboard1() {
               <div className="two-btns">
                 <button
                   // onClick={handleClickPrev}
-                  className="prev-butn"
+                  className="prev-btn"
                 >
                   <FaAngleLeft />
                   Prev

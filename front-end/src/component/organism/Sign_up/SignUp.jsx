@@ -69,7 +69,7 @@ function SignUp() {
           })
           .then((res) => {
             localStorage.setItem("currentUser", JSON.stringify(res.data));
-            navigate(`/dashboard/${res.data.id}`);
+            navigate(`/user/onboard2/${res.data.id}`);
             userId = res.data.id;
             console.log("here is the current user", res);
           })

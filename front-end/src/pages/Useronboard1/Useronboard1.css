@@ -59,7 +59,7 @@
     margin: 0 150px;
   }
   
-  .previous-btn {
+  .prev-btn {
     display: flex;
     justify-content: first baseline;
     gap: 10px;
@@ -79,14 +79,8 @@
     color: #fff;
   }
   
-  .previous-btn:hover {
+  .prev-btn:hover {
     cursor: not-allowed;
-    background: rgb(24, 54, 203);
-    background: radial-gradient(
-      circle,
-      rgba(24, 54, 203, 0.6985644599636729) 13%,
-      rgba(231, 233, 238, 1) 63%
-    );
   }
   
   .next-btn {
