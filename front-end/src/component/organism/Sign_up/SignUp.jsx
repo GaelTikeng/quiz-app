@@ -22,7 +22,7 @@ function SignUp() {
   let token = "";
 
   const navigatetoLogin = () => {
-    navigate("/user/onboard1");
+    navigate("/account/login");
   };
 
   function emailValidate(value) {
