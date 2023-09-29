@@ -57,6 +57,7 @@ export default function StudentBoard() {
     setTimeOut((prev) => !prev);
     setDone((prev) => !prev);
     navigate("/");
+    console.log(score)
 
     // sending student's score
     axios
@@ -92,7 +93,7 @@ export default function StudentBoard() {
             <h3>Subject : </h3>
           </div>
           <Timer
-            seconds={330}
+            seconds={350}
             timeOut={timeOut}
             setTimeOut={setTimeOut}
             timeSpent={timeSpent}
