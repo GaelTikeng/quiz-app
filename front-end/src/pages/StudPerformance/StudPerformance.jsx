@@ -21,10 +21,6 @@ function StudPerformance() {
       });
   }, []);
 
-  const click = () => {
-    console.log(students)
-  }
-
   return (
     <>
       <Usersnav />
@@ -35,25 +31,24 @@ function StudPerformance() {
           <div className="studperfom_mainpage">
             <div>
               <h1 className="student_h1">Students Performances</h1>
-              <hr />
-              <button onClick={() => click()}>click</button>
+              <hr className="hr"/>
               <div className="table">
-                {students.map((stud, index) => (
-                  <table key={index}>
-                    <tr className="line" key={index}>
-                      <th>Full name</th>
-                      <th>quiz title</th>
-                      <th>score</th>
-                      <th>Time spent</th>
-                    </tr>
-                    <tr>
+                <table>
+                  <tr className="line">
+                    <th>Full name</th>
+                    <th>quiz title</th>
+                    <th>score</th>
+                    <th>Time spent</th>
+                  </tr>
+                  {students?.map((stud, index) => (
+                    <tr key={index}>
                       <td>{stud.name}</td>
                       <td>{stud.title} </td>
                       <td>{stud.score}</td>
                       <td>{stud.timeSpent}</td>
                     </tr>
-                  </table>
-                ))}
+                  ))}
+                </table>
               </div>
             </div>
           </div>
