@@ -11,7 +11,7 @@ function StudPerformance() {
   const userId = info.user.id;
   useEffect(() => {
     axios
-      .post(process.env.AXIOS_BASE_URL + "getstudents", { userId })
+      .post(process.env.VITE_AXIOS_BASE_URL + "getstudents", { userId })
       .then((response) => {
         setstudents(response.data);
         console.log("Here are the students", response);

@@ -6,7 +6,7 @@ import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AXIOS_BASE_URL } from "../../../services/contants";
+import { VITE_AXIOS_BASE_URL } from "../../../services/contants";
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -52,7 +52,7 @@ function SignUp() {
     setIsLoading(true);
 
     axios
-      .post(process.env.AXIOS_BASE_URL + "account/signup", {
+      .post(process.env.VITE_AXIOS_BASE_URL + "account/signup", {
         username,
         email,
         password,
@@ -62,7 +62,7 @@ function SignUp() {
         localStorage.setItem("token", token);
         // get new users id
         axios
-          .post(process.env.AXIOS_BASE_URL + "currentUser", {
+          .post(process.env.VITE_AXIOS_BASE_URL + "currentUser", {
             username,
             email,
             password,

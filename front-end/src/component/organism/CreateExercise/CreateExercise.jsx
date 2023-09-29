@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
-import { AXIOS_BASE_URL } from "../../../services/contants";
 
 function CreateExercise() {
   const navigate = useNavigate();
@@ -64,7 +63,7 @@ function CreateExercise() {
     // post quiz
     axios
       .post(
-        process.env.AXIOS_BASE_URL + `dashboard/${userId}/create-quiz`,
+        process.env.VITE_AXIOS_BASE_URL + `dashboard/${userId}/create-quiz`,
         { quiz },
         {
           headers: { Authorization: `Bearer: ${token}` },
@@ -76,7 +75,7 @@ function CreateExercise() {
         // post questions
         axios
           .post(
-            process.env.AXIOS_BASE_URL + `dashboard/${userId}/create-question`,
+            process.env.VITE_AXIOS_BASE_URL + `dashboard/${userId}/create-question`,
             { allQuestion },
             {
               headers: { Authorization: `Bearer: ${token}` },
@@ -88,7 +87,7 @@ function CreateExercise() {
             // post options
             axios
               .post(
-                process.env.AXIOS_BASE_URL +`dashboard/${userId}/create-option`,
+                process.env.VITE_AXIOS_BASE_URL +`dashboard/${userId}/create-option`,
                 { options },
                 {
                   headers: { Authorization: `Bearer: ${token}` },

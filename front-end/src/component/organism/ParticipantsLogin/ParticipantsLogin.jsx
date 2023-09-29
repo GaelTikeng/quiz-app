@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./ParticipantsLogin.css";
 import Logo from "../../../../public/image/smartbrain.png";
-import { AXIOS_BASE_URL } from "../../../services/contants";
+import { VITE_AXIOS_BASE_URL } from "../../../services/contants";
 import InputField from "../../atoms/InputFields/InputField";
 import Button from "../../atoms/button/Button";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +23,7 @@ function ParticipantsLogin() {
 
     // post student/participant credentials
     axios
-      .post(process.env.AXIOS_BASE_URL+`student`, { name, email })
+      .post(process.env.VITE_AXIOS_BASE_URL+`student`, { name, email })
       .then((res) => {
         console.log("Student credentials posted successfully", res);
         localStorage.setItem("studentName", JSON.stringify(res.data));
@@ -34,7 +34,7 @@ function ParticipantsLogin() {
 
     // get the student's id
     axios
-      .post(process.env.AXIOS_BASE_URL+`getStudentInfo`, { name })
+      .post(process.env.VITE_AXIOS_BASE_URL+`getStudentInfo`, { name })
       .then((res) => {
         console.log("getting student id", res);
         localStorage.setItem("student", res.data);

@@ -3,7 +3,7 @@ import "./DisplayStudResult.css";
 import Usersnav from "../../component/molecule/Usersnav/Usersnav";
 import Button from "../../component/atoms/button/Button";
 import axios from "axios";
-import { AXIOS_BASE_URL } from "../../services/contants";
+import { VITE_AXIOS_BASE_URL } from "../../services/contants";
 
 function DisplayStudResult  () {
   const [quizResult, setQuizResult] = useState([]);
@@ -13,7 +13,7 @@ function DisplayStudResult  () {
 
   const getQuizResult = async (studentId, quizId) => {
     const response = await axios.get(
-      AXIOS_BASE_URL+ `dashboard/${studentId}/${quizId}`
+      VITE_AXIOS_BASE_URL+ `dashboard/${studentId}/${quizId}`
     );
     return response.quizResult;
   };

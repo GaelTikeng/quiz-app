@@ -24,7 +24,7 @@ function UserDashboard () {
   useEffect(() => {
     // get all quizzes byuserId
     axios
-      .get(process.env.AXIOS_BASE_URL+`dashboard/${user?.id}`, {
+      .get(process.env.VITE_AXIOS_BASE_URL+`dashboard/${user?.id}`, {
         headers: { Authorization: `Bearer: ${token}` },
       })
       .then((response) => {
