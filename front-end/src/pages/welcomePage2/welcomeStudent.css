@@ -1,67 +1,4 @@
- /* .grey-section {
-  background: rgb(24, 54, 203);
-  background: radial-gradient(
-    circle,
-    rgba(24, 54, 203, 0.6985644599636729) 13%,
-    rgba(231, 233, 238, 1) 63%
-  );
-  height: 87vh;
-  width: 100%;
-  padding-top: 2rem;
-}
-
-.welcome {
-  background: rgb(24, 54, 203);
-  background: radial-gradient(
-    circle,
-    rgba(24, 54, 203, 0.43806025828300066) 25%,
-    rgba(188, 197, 219, 0.4632703423166141) 53%
-  );
-  border-radius: 5px;
-  text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-.elt-holder {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  margin: 0 95px;
-  background-color: #fff;
-  background: rgb(24, 54, 203);
-  background: radial-gradient(
-    circle,
-    rgba(24, 54, 203, 0.43806025828300066) 27%,
-    rgba(188, 197, 219, 0.23077734511773462) 41%
-  );
-}
-
-h2 {
-  text-align: center;
-}
-
-.image {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-}
-
-.p-tag {
-  width: 500px;
-  margin: 0 auto;
-  line-height: 2;
-  color: #fff;
-  font-weight: 600;
-}
-
-.two-btns {
-  display: flex;
-  justify-content: space-around;
-  gap: 120px;
-  text-align: center;
-}
-
-.prev-butn {
+.previous-btn {
   display: flex;
   justify-content: first baseline;
   gap: 10px;
@@ -73,33 +10,7 @@ h2 {
   background-color: #3e9adc;
 }
 
-.p-tag {
-  text-align: center;
-}
-
-.prev-butn:hover {
-  cursor: not-allowed;
-  background: rgb(24, 54, 203);
-  background: radial-gradient(
-    circle,
-    rgba(24, 54, 203, 0.6985644599636729) 13%,
-    rgba(231, 233, 238, 1) 63%
-  );
-}
-
-.next-btn {
-  display: flex;
-  justify-content: first baseline;
-  gap: 10px;
-  align-items: first baseline;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 25px;
-  color: #fff;
-  background-color: #3e9adc;
-}
-
-.next-btn:hover {
+.previous-btn:hover {
   cursor: pointer;
   background: rgb(24, 54, 203);
   background: radial-gradient(
@@ -107,4 +18,4 @@ h2 {
     rgba(24, 54, 203, 0.6985644599636729) 13%,
     rgba(231, 233, 238, 1) 63%
   );
-}  */
+}
