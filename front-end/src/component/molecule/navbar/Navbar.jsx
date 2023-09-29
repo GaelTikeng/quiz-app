@@ -25,49 +25,64 @@ function Navbar() {
   };
 
   return (
-    <div className="nav_container">
-      <div className="navImage" onClick={handleClickLanding}>
-        <img src={Logo} alt="quiz_app logo" />
-      </div>
-      <div className="leftNav">
-        <div className="navParagraph">
-          <p className="mainbtn" onClick={navigatetoHome}>
-            Home
-          </p>
-          <p className="homeBtn">About</p>
-          <p className="homeBtn">Features</p>
+    <div className="nav-big-cont">
+      <div className="nav_container">
+        <div className="navImage" onClick={handleClickLanding}>
+          <img src={Logo} alt="quiz_app logo" />
         </div>
+        <div className="leftNav">
+          <div className="navParagraph">
+            <p className="mainbtn" onClick={navigatetoHome}>
+              Home
+            </p>
+            <p className="homeBtn">About</p>
+            <p className="homeBtn">Features</p>
+          </div>
 
-        <div className="navBtn">
-          <Button
-            className="loginBtn"
-            onClick={navigatetoLogin}
-            title="Login"
-          />
-          <Button
-            className="signupBtn"
-            onClick={navigatetoSignup}
-            title="Sign Up"
-          />
+          <div className="navBtn">
+            <Button
+              className="loginBtn"
+              onClick={navigatetoLogin}
+              title="Login"
+            />
+            <Button
+              className="signupBtn"
+              onClick={navigatetoSignup}
+              title="Sign Up"
+            />
+          </div>
         </div>
       </div>
 
       {/* Media query */}
-      <div className="nav_query">
-        <div className="navImage" onClick={handleClickLanding}>
-          <img src={Logo} alt="quiz_app logo" />
-        </div>
-        <div className="navBtn">
-          <Button
-            className="loginBtn"
-            onClick={navigatetoLogin}
-            title="Login"
-          />
-          <Button
-            className="signupBtn"
-            onClick={navigatetoSignup}
-            title="Sign Up"
-          />
+      <div className="nav-query-container">
+        <div>
+          <div className="nav_query">
+            <div className="navImage" onClick={handleClickLanding}>
+              <img src={Logo} alt="quiz_app logo" />
+            </div>
+            <div className="navBtn">
+              <Button
+                className="loginBtn"
+                onClick={navigatetoLogin}
+                title="Login"
+              />
+              <Button
+                className="signupBtn"
+                onClick={navigatetoSignup}
+                title="Sign Up"
+              />
+            </div>
+          </div>
+          <div className="standard">
+            <div className="navParagraph">
+              <p className="mainbtn" onClick={navigatetoHome}>
+                Home
+              </p>
+              <p className="homeBtn">About</p>
+              <p className="homeBtn">Features</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

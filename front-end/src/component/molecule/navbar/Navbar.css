@@ -93,11 +93,13 @@
 
 @media only screen and (max-width: 768px) {
   .nav_container {
-   background-color: #fff;
-  }
-  
-  .nav_query {
-    display: flex;
+    display: none;
+    visibility: hidden;
+    background-color: #fff;
   }
 
+  .nav_query {
+    display: flex;
+    background-color: #f2f2f2;
+  }
 }
