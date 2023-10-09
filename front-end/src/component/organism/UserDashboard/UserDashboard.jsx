@@ -24,7 +24,7 @@ function UserDashboard () {
   useEffect(() => {
     // get all quizzes byuserId
     axios
-      .get(process.env.AXIOS_BASE_URL+`dashboard/${user?.id}`, {
+      .get(process.env.VITE_AXIOS_BASE_URL+`dashboard/${user?.id}`, {
         headers: { Authorization: `Bearer: ${token}` },
       })
       .then((response) => {
@@ -50,7 +50,8 @@ function UserDashboard () {
   }
 
   const handleCopie = (quizId) => {
-    const link = process.env.BASE_URL+`student/${user.id}/${quizId}/login`
+    // console.log(process.env.BASE_URL)
+    const link = `https://smartbrain-dev.vercel.app/student/${user.id}/${quizId}/login`
     localStorage.setItem("studQuizId", quizId)
     toast("Copied!");
     navigator.clipboard.writeText(link)

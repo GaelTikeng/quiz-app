@@ -6,7 +6,7 @@ import Navbar from "../../molecule/navbar/Navbar";
 import Logo from "../../../../public/image/Sign up-amico1.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AXIOS_BASE_URL } from "../../../services/contants";
+import { VITE_AXIOS_BASE_URL } from "../../../services/contants";
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -22,7 +22,7 @@ function SignUp() {
   let token = "";
 
   const navigatetoLogin = () => {
-    navigate("/user/onboard1");
+    navigate("/account/login");
   };
 
   function emailValidate(value) {
@@ -52,7 +52,7 @@ function SignUp() {
     setIsLoading(true);
 
     axios
-      .post("https://smartbrain-server-esqy.onrender.com/account/signup", {
+      .post(process.env.VITE_AXIOS_BASE_URL + "account/signup", {
         username,
         email,
         password,
@@ -62,14 +62,14 @@ function SignUp() {
         localStorage.setItem("token", token);
         // get new users id
         axios
-          .post(process.env.AXIOS_BASE_URL + "currentUser", {
+          .post(process.env.VITE_AXIOS_BASE_URL + "currentUser", {
             username,
             email,
             password,
           })
           .then((res) => {
             localStorage.setItem("currentUser", JSON.stringify(res.data));
-            navigate(`/dashboard/${res.data.id}`);
+            navigate(`/user/onboard1/${res.data.id}`);
             userId = res.data.id;
             console.log("here is the current user", res);
           })

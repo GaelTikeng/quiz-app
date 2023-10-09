@@ -77,12 +77,12 @@ h2 {
 }
 
 .prev-butn:hover {
-  cursor: not-allowed;
-  background: rgb(24, 54, 203);
+  cursor: pointer;
+  background: #1836cb;
   background: radial-gradient(
     circle,
-    rgba(24, 54, 203, 0.6985644599636729) 13%,
-    rgba(231, 233, 238, 1) 63%
+    #1836cbb2 13%,
+    #e7e9ee 63%
   );
 }
 

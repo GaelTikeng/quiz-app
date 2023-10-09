@@ -11,7 +11,7 @@ function StudPerformance() {
   const userId = info.user.id;
   useEffect(() => {
     axios
-      .post(process.env.AXIOS_BASE_URL + "getstudents", { userId })
+      .post(process.env.VITE_AXIOS_BASE_URL + "getstudents", { userId })
       .then((response) => {
         setstudents(response.data);
         console.log("Here are the students", response);
@@ -31,23 +31,25 @@ function StudPerformance() {
           <div className="studperfom_mainpage">
             <div>
               <h1 className="student_h1">Students Performances</h1>
-              <hr className="hr"/>
+              <hr className="hr" />
               <div className="table">
                 <table>
-                  <tr className="line">
-                    <th>Full name</th>
-                    <th>quiz title</th>
-                    <th>score</th>
-                    <th>Time spent</th>
-                  </tr>
-                  {students?.map((stud, index) => (
-                    <tr key={index}>
-                      <td>{stud.name}</td>
-                      <td>{stud.title} </td>
-                      <td>{stud.score}</td>
-                      <td>{stud.timeSpent}</td>
+                  <tbody>
+                    <tr className="line">
+                      <th>Full name</th>
+                      <th>quiz title</th>
+                      <th>score</th>
+                      <th>Time spent</th>
                     </tr>
-                  ))}
+                    {students?.map((stud, index) => (
+                      <tr key={index}>
+                        <td>{stud.name}</td>
+                        <td>{stud.title} </td>
+                        <td>{stud.score}</td>
+                        <td>{stud.timeSpent}</td>
+                      </tr>
+                    ))}
+                  </tbody>
                 </table>
               </div>
             </div>

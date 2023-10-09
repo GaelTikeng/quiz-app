@@ -5,7 +5,7 @@ import Logo from "../../../public/image/smartbrain.png";
 
 import Sidebar from "../../component/molecule/Sidebar/Sidebar";
 import axios from "axios";
-import { AXIOS_BASE_URL } from "../../services/contants";
+import { VITE_AXIOS_BASE_URL } from "../../services/contants";
 import './displayQuizDetail.css'
 
 
@@ -21,7 +21,7 @@ export default function DisplayQuiz () {
   useEffect(() => {
     // get all questions and corresponding options
     axios
-    .get(process.env.AXIOS_BASE_URL+`dashboard/${user?.Id}/${quizId}`, {
+    .get(process.env.VITE_AXIOS_BASE_URL+`dashboard/${user?.Id}/${quizId}`, {
       headers: {Authorization: `Bearer: ${token}`}
     })
     .then((response) => {

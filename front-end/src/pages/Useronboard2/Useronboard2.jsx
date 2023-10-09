@@ -14,7 +14,7 @@ function Useronboard2() {
   };
 
   const handleClickPrev = () => {
-    navigate("/user/onboard1/:userId");
+    navigate(`/user/onboard1/${signupId?.id}`);
   };
 
   return (

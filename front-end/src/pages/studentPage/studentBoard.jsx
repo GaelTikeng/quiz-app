@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { StudContext } from "../../utiles/context";
 import "./studentBoard.css";
 import Usersnav from "../../component/molecule/Usersnav/Usersnav";
-import { AXIOS_BASE_URL } from "../../services/contants";
+import { VITE_AXIOS_BASE_URL } from "../../services/contants";
 import Timer from "../../utiles/timer/timer";
 import axios from "axios";
 import Popup from "../../utiles/popup/popup";
@@ -30,7 +30,7 @@ export default function StudentBoard() {
   useEffect(() => {
     // get all questions and corresponding options
     axios
-      .get(process.env.AXIOS_BASE_URL + `dashboard/${user?.Id}/${quizId}`)
+      .get(process.env.VITE_AXIOS_BASE_URL + `dashboard/${user?.Id}/${quizId}`)
       .then((response) => {
         setQuestion(response.data);
         console.log("Here are the questions", response);
@@ -57,10 +57,11 @@ export default function StudentBoard() {
     setTimeOut((prev) => !prev);
     setDone((prev) => !prev);
     navigate("/");
+    console.log(score)
 
     // sending student's score
     axios
-      .post(process.env.AXIOS_BASE_URL + "update", {
+      .post(process.env.VITE_AXIOS_BASE_URL + "update", {
         userId: user?.id,
         quizId: quizId,
         name: student.participantName,
@@ -92,7 +93,7 @@ export default function StudentBoard() {
             <h3>Subject : </h3>
           </div>
           <Timer
-            seconds={330}
+            seconds={350}
             timeOut={timeOut}
             setTimeOut={setTimeOut}
             timeSpent={timeSpent}
